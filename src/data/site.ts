@@ -1,4 +1,4 @@
-// JS Photo Artist — verified studio details and images mapped to files in public/images.
+// JS Photo Artist — the website uses only the 15 photographs uploaded in public/images/albums.
 const WA_NUMBER = '919840157425'
 export const waLink = (text: string) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`
 
@@ -17,66 +17,61 @@ export const site = {
   defaultWa: 'Hello JS Photo Artist, I would like to enquire about your photography services. Please share more details.',
 }
 
-// Keep every image URL aligned with the real, case-sensitive files in public/images.
-const image = (folder: string, file: string) => `/images/${folder}/${file}`
+// These are the 15 original uploaded photographs. Do not substitute generated or stock images.
+export const uploadedPhotos = [
+  '001_copy.webp',
+  '006.jpg.jpeg',
+  '008.jpg.jpeg',
+  '015.webp',
+  '017.webp',
+  '018.webp',
+  '019.webp',
+  '022.webp',
+  '023.webp',
+  '025.webp',
+  '028.webp',
+  '030.webp',
+  '031.webp',
+  '032.webp',
+  '034.webp',
+] as const
+const photo = (index: number) => `/images/albums/${uploadedPhotos[index]}`
+
 export type Slide = { src: string; mobile: string; alt: string; pos: string; mobilePos: string }
-export const heroSlides: Slide[] = [
-  { src: image('hero', 'hero-01.webp'), mobile: image('hero', 'hero-01-mobile.webp'), alt: 'Wedding photography by JS Photo Artist', pos: '50% 48%', mobilePos: '50% 45%' },
-  { src: image('hero', 'hero-02.webp'), mobile: image('hero', 'hero-02-mobile.webp'), alt: 'Wedding celebration photographed by JS Photo Artist', pos: '50% 45%', mobilePos: '50% 40%' },
-  { src: image('hero', 'hero-03.webp'), mobile: image('hero', 'hero-03-mobile.webp'), alt: 'A wedding story captured by JS Photo Artist', pos: '50% 35%', mobilePos: '50% 30%' },
-  { src: image('hero', 'hero-04.webp'), mobile: image('hero', 'hero-04-mobile.webp'), alt: 'Wedding moments from the JS Photo Artist portfolio', pos: '50% 45%', mobilePos: '50% 40%' },
-  { src: image('hero', 'hero-05.webp'), mobile: image('hero', 'hero-05-mobile.webp'), alt: 'Photography portfolio highlight by JS Photo Artist', pos: '50% 45%', mobilePos: '50% 40%' },
-]
+export const heroSlides: Slide[] = uploadedPhotos.slice(0, 5).map((_, i) => ({
+  src: photo(i), mobile: photo(i),
+  alt: `JS Photo Artist portfolio photograph ${i + 1}`,
+  pos: '50% 50%', mobilePos: '50% 50%',
+}))
 
 export type Img = { src: string; alt: string; pos?: string }
 export const intro = {
-  a: { src: image('weddings', 'wedding-01.webp'), alt: 'Wedding photograph from the JS Photo Artist portfolio', pos: '50% 35%' } as Img,
-  b: { src: image('weddings', 'wedding-02.webp'), alt: 'Wedding celebration photograph from the studio portfolio', pos: '50% 50%' } as Img,
+  a: { src: photo(0), alt: 'JS Photo Artist portfolio photograph', pos: '50% 50%' } as Img,
+  b: { src: photo(1), alt: 'JS Photo Artist portfolio photograph', pos: '50% 50%' } as Img,
 }
 
 export type ServiceGroup = { id: string; title: string; blurb: string; items: string[]; image: Img }
 export const services: ServiceGroup[] = [
-  { id: 'wedding', title: 'Wedding photography & videography', blurb: 'The rituals, people and small in-between moments that make your day yours.', items: ['Traditional wedding photography', 'Candid wedding photography', 'Wedding videography', 'Reception coverage', 'Wedding highlights'], image: { src: image('weddings', 'wedding-03.webp'), alt: 'Wedding photography portfolio image', pos: '50% 28%' } },
-  { id: 'couple', title: 'Couple & pre-wedding portraits', blurb: 'Natural portraits that leave room for the two of you to be yourselves.', items: ['Couple photography', 'Outdoor couple sessions', 'Pre-wedding concepts', 'Post-wedding portraits'], image: { src: image('couples', 'couple-01.webp'), alt: 'Couple photography portfolio image', pos: '50% 42%' } },
-  { id: 'events', title: 'Events & family celebrations', blurb: 'Family milestones and celebrations, remembered through honest photographs.', items: ['Puberty ceremonies', 'Birthdays', 'Family functions', 'Special occasions'], image: { src: image('events', 'event-01.webp'), alt: 'Family event photography portfolio image', pos: '50% 35%' } },
-  { id: 'kids', title: 'Baby & kids photography', blurb: 'Bright, playful portraits that preserve each little personality.', items: ['Outdoor baby photoshoots', 'Kids photography', 'Creative portraits', 'Family portraits'], image: { src: image('baby-kids', 'kids-01.webp'), alt: 'Baby and kids photography portfolio image', pos: '50% 45%' } },
-  { id: 'albums', title: 'Albums, prints & photo gifts', blurb: 'Bring favourite photographs off the screen and into keepsakes made to revisit.', items: ['Wedding and reception albums', 'Album designing', 'Customized photo frames', 'Customized photo gifts', 'Photo printing'], image: { src: image('albums', 'album-01.webp'), alt: 'Wedding album showcase photograph', pos: '50% 50%' } },
+  { id: 'wedding', title: 'Wedding photography & videography', blurb: 'The rituals, people and small in-between moments that make your day yours.', items: ['Traditional wedding photography', 'Candid wedding photography', 'Wedding videography', 'Reception coverage', 'Wedding highlights'], image: { src: photo(2), alt: 'JS Photo Artist portfolio photograph', pos: '50% 50%' } },
+  { id: 'couple', title: 'Couple & pre-wedding portraits', blurb: 'Natural portraits that leave room for the two of you to be yourselves.', items: ['Couple photography', 'Outdoor couple sessions', 'Pre-wedding concepts', 'Post-wedding portraits'], image: { src: photo(3), alt: 'JS Photo Artist portfolio photograph', pos: '50% 50%' } },
+  { id: 'events', title: 'Events & family celebrations', blurb: 'Family milestones and celebrations, remembered through honest photographs.', items: ['Puberty ceremonies', 'Birthdays', 'Family functions', 'Special occasions'], image: { src: photo(4), alt: 'JS Photo Artist portfolio photograph', pos: '50% 50%' } },
+  { id: 'kids', title: 'Baby & kids photography', blurb: 'Bright, playful portraits that preserve each little personality.', items: ['Outdoor baby photoshoots', 'Kids photography', 'Creative portraits', 'Family portraits'], image: { src: photo(5), alt: 'JS Photo Artist portfolio photograph', pos: '50% 50%' } },
+  { id: 'albums', title: 'Albums, prints & photo gifts', blurb: 'Bring favourite photographs off the screen and into keepsakes made to revisit.', items: ['Wedding and reception albums', 'Album designing', 'Customized photo frames', 'Customized photo gifts', 'Photo printing'], image: { src: photo(6), alt: 'JS Photo Artist portfolio photograph', pos: '50% 50%' } },
 ]
 
-export type Category = 'Weddings' | 'Couples' | 'Baby & kids' | 'Family & events'
-export const categories: Category[] = ['Weddings', 'Couples', 'Baby & kids', 'Family & events']
+export type Category = 'Portfolio'
+export const categories: Category[] = ['Portfolio']
 export type Work = { src: string; w: number; h: number; alt: string; title: string; cats: Category[]; pos?: string }
-const work = (folder: string, file: string, title: string, category: Category, index: number): Work => ({
-  src: image(folder, file),
-  w: 1200,
-  h: 800,
-  title,
-  alt: `${category} photography portfolio image ${index} by JS Photo Artist`,
-  cats: [category],
-  pos: '50% 45%',
-})
-export const portfolio: Work[] = [
-  work('weddings', 'wedding-01.webp', 'Wedding Story 01', 'Weddings', 1),
-  work('weddings', 'wedding-02.webp', 'Wedding Story 02', 'Weddings', 2),
-  work('weddings', 'wedding-03.webp', 'Wedding Story 03', 'Weddings', 3),
-  work('weddings', 'wedding-04.webp', 'Wedding Story 04', 'Weddings', 4),
-  work('weddings', 'wedding-05.webp', 'Wedding Story 05', 'Weddings', 5),
-  work('couples', 'couple-01.webp', 'Couple Portrait 01', 'Couples', 1),
-  work('couples', 'couple-02.webp', 'Couple Portrait 02', 'Couples', 2),
-  work('couples', 'couple-03.webp', 'Couple Portrait 03', 'Couples', 3),
-  work('couples', 'couple-04.webp', 'Couple Portrait 04', 'Couples', 4),
-  work('couples', 'couple-05.webp', 'Couple Portrait 05', 'Couples', 5),
-  work('baby-kids', 'kids-01.webp', 'Little Moments 01', 'Baby & kids', 1),
-  work('baby-kids', 'kids-02.webp', 'Little Moments 02', 'Baby & kids', 2),
-  work('baby-kids', 'kids-03.webp', 'Little Moments 03', 'Baby & kids', 3),
-  work('events', 'event-01.webp', 'Celebration 01', 'Family & events', 1),
-  work('events', 'event-02.webp', 'Celebration 02', 'Family & events', 2),
-  work('events', 'event-03.webp', 'Celebration 03', 'Family & events', 3),
-]
+export const portfolio: Work[] = uploadedPhotos.map((_, i) => ({
+  src: photo(i), w: 1200, h: 800,
+  title: `Portfolio Photograph ${String(i + 1).padStart(2, '0')}`,
+  alt: `JS Photo Artist original portfolio photograph ${i + 1}`,
+  cats: ['Portfolio'], pos: '50% 50%',
+}))
 
 export const albumShowcase = [
-  { label: 'Wedding moments', img: { src: image('albums', 'album-01.webp'), alt: 'Wedding album showcase by JS Photo Artist' }, w: 1200, h: 800 },
-  { label: 'Memories to keep', img: { src: image('albums', 'album-02.webp'), alt: 'Printed wedding album from the studio portfolio' }, w: 1200, h: 800 },
-  { label: 'Made to revisit', img: { src: image('albums', 'album-03.webp'), alt: 'Photography album showcase from JS Photo Artist' }, w: 1200, h: 800 },
+  { label: 'Featured photograph 01', img: { src: photo(7), alt: 'JS Photo Artist original photograph' }, w: 1200, h: 800 },
+  { label: 'Featured photograph 02', img: { src: photo(8), alt: 'JS Photo Artist original photograph' }, w: 1200, h: 800 },
+  { label: 'Featured photograph 03', img: { src: photo(9), alt: 'JS Photo Artist original photograph' }, w: 1200, h: 800 },
 ]
 export const testimonials: { quote: string; name: string; occasion?: string }[] = []
