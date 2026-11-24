@@ -7,6 +7,7 @@ import Albums from './components/Albums'
 import Why from './components/Why'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
+import Shop from './components/Shop'
 import Footer from './components/Footer'
 import WhatsAppFab from './components/WhatsAppFab'
 
@@ -21,6 +22,7 @@ export default function App() {
       <Albums />
       <Why />
       <Testimonials />
+      <Shop />
       <Contact />
     </main>
     <Footer />
