@@ -46,14 +46,14 @@ export default function Header() {
           </button>
         </div>
       </div>
-      <div id="mobile-menu" hidden={!open} className="fixed inset-0 z-40 flex flex-col justify-center bg-plum px-8 text-white lg:hidden">
+      {open && <div id="mobile-menu" className="fixed inset-0 z-40 flex flex-col justify-center bg-plum px-8 text-white lg:hidden">
         <ul className="space-y-1">
           {links.map(([l, h]) => (
             <li key={h}><a href={h} onClick={() => setOpen(false)} className="block py-2.5 font-display text-4xl sm:text-5xl">{l}</a></li>
           ))}
         </ul>
         <a href="#contact" onClick={() => setOpen(false)} className="btn-light mt-10 self-start">Enquire now</a>
-      </div>
+      </div>}
     </header>
   )
 }
