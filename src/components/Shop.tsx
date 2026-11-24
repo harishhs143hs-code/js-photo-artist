@@ -1,0 +1,36 @@
+import { MapPin, MessageCircle } from 'lucide-react'
+import Reveal from '../lib/Reveal'
+import { site, waLink } from '../data/site'
+
+export default function Shop() {
+  return (
+    <section id="our-studio" aria-labelledby="studio-heading" className="border-t border-lavender bg-lavender/30">
+      <div className="mx-auto grid max-w-[96rem] items-center gap-10 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-12 lg:gap-16 lg:px-12">
+        <Reveal className="lg:col-span-7">
+          <figure className="overflow-hidden bg-white shadow-sm">
+            <img
+              src="/images/shop/js-photo-artist-shop.jpg"
+              alt="Inside the real JS Photo Artist studio, showing the photography editing workspace and photo printing equipment"
+              loading="lazy"
+              decoding="async"
+              className="aspect-[16/9] w-full object-cover object-center"
+              width="1200"
+              height="541"
+            />
+            <figcaption className="px-4 py-3 text-xs tracking-wide text-ink/65">A glimpse inside our Thiruninravur studio</figcaption>
+          </figure>
+        </Reveal>
+        <Reveal delay={100} className="lg:col-span-5">
+          <p className="eyebrow mb-5">Visit our studio</p>
+          <h2 id="studio-heading" className="font-display text-display-lg font-medium">A real studio. <em className="font-normal text-brand">A personal touch.</em></h2>
+          <p className="mt-6 max-w-xl text-[0.98rem] leading-8 text-ink/75">Meet us at our studio, see our editing and printing workspace, and discuss your photography needs with us in person.</p>
+          <p className="mt-5 flex gap-3 text-sm leading-7"><MapPin className="mt-1 shrink-0 text-brand" size={19} /><span>{site.address}</span></p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href={site.mapsUrl} target="_blank" rel="noopener noreferrer" className="btn-solid"><MapPin size={16} /> Get Directions</a>
+            <a href={waLink('Hello JS Photo Artist, I would like to visit your studio. Please share a convenient time.')} target="_blank" rel="noopener noreferrer" className="btn border border-brand text-brand hover:bg-brand hover:text-white"><MessageCircle size={16} /> Contact Us</a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
