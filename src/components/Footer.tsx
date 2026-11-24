@@ -1,6 +1,6 @@
 import { site, services } from '../data/site'
 
-const nav = [['Home', '#home'], ['About', '#about'], ['Services', '#services'], ['Portfolio', '#portfolio'], ['Films', '#films'], ['Albums & Printing', '#albums'], ['Contact', '#contact']]
+const nav = [['Home', '#home'], ['About', '#about'], ['Services', '#services'], ['Portfolio', '#portfolio'], ['Albums & Printing', '#albums'], ['Contact', '#contact']]
 
 export default function Footer() {
   return (
