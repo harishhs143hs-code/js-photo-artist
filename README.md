@@ -1,58 +1,71 @@
-# JS Photo Artist – Website
+# JS Photo Artist — Website
 
-React + TypeScript + Vite + Tailwind CSS. No backend; deploys as a static site.
+React + TypeScript + Vite + Tailwind CSS. The site is currently a static frontend; the enquiry form optionally uses Web3Forms.
 
 ## Run locally
+
 ```bash
-npm install
-npm run dev        # development
-npm run build      # production build into /dist
+npm ci
+npm run dev
+npm run build
+npm run preview
 ```
 
-## Before launch – things you must supply
-1. **Official logo** – the supplied logo file was not available when this was built, so `public/images/logo/logo.svg` is a plain text placeholder. Replace it with the real logo (keep proportions), or change `logo` in `src/data/site.ts` if the filename/extension differs. The header and footer show it on a light plate, so it is never recoloured.
-2. **Real photographs** – every image is a generated sample stamped "SAMPLE IMAGE".
-3. **Domain** – `public/sitemap.xml` and `public/robots.txt` contain `https://YOUR-DOMAIN.example`. Replace with the real domain once known.
-4. **Enquiry form** – see "Form setup" below.
+## Current launch checklist
+
+- [ ] Replace `public/images/logo/logo.svg` with the approved original JS Photo Artist logo. The current file is a text placeholder, not the supplied brand artwork.
+- [ ] Replace temporary sample photography in `public/images/` with the studio's own approved images. All image paths are centralised in `src/data/site.ts`.
+- [ ] Supply the approved JS Photo Artist package catalogue before publishing prices or package inclusions. No verified JS Photo Artist package/rate-card source was present in this repository or the files I could retrieve for this audit, so no prices have been invented.
+- [ ] Add real film URLs in `src/data/site.ts` (MP4/WebM or YouTube/Vimeo embed URLs).
+- [ ] Add only genuine, approved testimonials to `testimonials` in `src/data/site.ts`.
+- [ ] Configure `VITE_WEB3FORMS_KEY` if online enquiry submission is required.
+- [ ] Confirm the final website domain, then update canonical/social URLs, sitemap and robots.txt.
+- [ ] Test the production build and the deployed website before launch.
 
 ## Image replacement guide
-Overwrite a file keeping the same name, or edit its path in `src/data/site.ts` (all image paths live there). Use WebP/JPG, ideally under ~300 KB each.
 
-| Section | Files (in `public/images/`) | Recommended ratio |
+Overwrite a file while keeping its name, or update its path in `src/data/site.ts`.
+
+| Section | Folder | Suggested aspect ratio |
 |---|---|---|
-| Hero slideshow (desktop) | `hero/hero-01.webp` … `hero-05.webp` | 16:9 (1920×1080) – keep faces/subjects on the right; headline sits bottom-left |
-| Hero slideshow (mobile) | `hero/hero-01-mobile.webp` … `hero-05-mobile.webp` | 2:3 portrait (900×1350) |
-| About / intro | `weddings/wedding-01.webp` (portrait), `couples/couple-02.webp` (landscape) | 3:4 and 3:2 |
-| Services (6 groups) | `weddings/wedding-03`, `couples/couple-02`, `events/event-02`, `baby-kids/kids-02`, `albums/album-01`, `cinematic/cinematic-01` | alternating 4:5 portrait / 3:2 landscape |
-| Portfolio (18 images) | `weddings/`, `couples/`, `baby-kids/`, `events/`, `cinematic/` | mixed: portrait 3:4 or 4:5, landscape 3:2 or 16:9. Set the true `w`/`h` and categories in `src/data/site.ts` |
-| Films thumbnails | `films/film-01.webp` … `film-03.webp` | 16:9 |
-| Albums & printing | `albums/album-01…04`, `printing/print-01…02` | see sizes in `albumShowcase` |
-| Instagram tiles | `instagram/insta-01…06` | 1:1 |
+| Hero desktop | `public/images/hero/` | 16:9 |
+| Hero mobile | `public/images/hero/*-mobile.webp` | 2:3 |
+| Weddings | `public/images/weddings/` | 3:4 or 3:2 |
+| Couples | `public/images/couples/` | 3:4 or 3:2 |
+| Events | `public/images/events/` | 3:2 or 4:5 |
+| Baby & kids | `public/images/baby-kids/` | 4:5 or 3:2 |
+| Albums | `public/images/albums/` | Match the photographed album layout |
+| Printing | `public/images/printing/` | 1:1 or 4:5 |
+| Films | `public/images/films/` | 16:9 |
+| Instagram samples | `public/images/instagram/` | 1:1 |
 
-Use `pos` (object-position, e.g. `'50% 30%'`) in `site.ts` to control cropping per image.
+Use compressed WebP/AVIF where practical. Keep images sharp enough for their display size and set `pos` in `src/data/site.ts` to adjust individual crops.
 
-### Films
-In `src/data/site.ts`, set `src` for each film to an `.mp4` in `public/videos/` or a YouTube/Vimeo **embed** URL (e.g. `https://www.youtube.com/embed/VIDEO_ID`). Empty `src` shows a placeholder message.
+## Contact form setup
 
-### Testimonials
-Add genuine, approved reviews to `testimonials` in `site.ts`. The section is hidden while the list is empty.
+The form validates fields. Without a key it does not claim to send; it offers a WhatsApp hand-off instead.
 
-## Form setup (Web3Forms or similar)
-The form validates input. Without a key it does **not** pretend to send: it offers to send the same details through WhatsApp.
-1. Get a free access key at https://web3forms.com.
-2. Locally: copy `.env.example` to `.env.local` and set `VITE_WEB3FORMS_KEY`.
-3. On Vercel: Project → Settings → Environment Variables → add `VITE_WEB3FORMS_KEY`, then redeploy.
-(Web3Forms keys are designed to be public, but keeping them out of source control is still tidier.)
+1. Obtain an access key from Web3Forms.
+2. Copy `.env.example` to `.env.local` and set `VITE_WEB3FORMS_KEY`.
+3. In Vercel, add `VITE_WEB3FORMS_KEY` as an Environment Variable and redeploy after the site is ready.
 
-## Upload to GitHub and deploy on Vercel
-1. Extract the ZIP.
-2. On github.com create a new empty repository.
-3. Upload the extracted files (or `git init`, `git add .`, `git commit`, `git remote add origin …`, `git push`). Do not upload `node_modules`.
-4. On vercel.com choose **Add New → Project**, import the repository. Vercel detects Vite automatically (build command `npm run build`, output `dist`).
-5. Add `VITE_WEB3FORMS_KEY` if using the form, then **Deploy**.
-6. When the domain is ready, add it under Project → Settings → Domains and update `sitemap.xml` / `robots.txt`.
+Do not commit `.env.local` or any private credentials.
 
-## Notes
-- Fonts (Cormorant Garamond + Manrope) load from Google Fonts with system fallbacks.
-- Maps: embedded Google Maps search for the supplied address plus a "Get Directions" link. No coordinates are hard-coded.
-- Contact details and the LocalBusiness data use only the verified details supplied.
+## Verified business details currently used
+
+- JS Photo Artist
+- No. 212, EB Colony, Lakshmipuram, Thiruninravur, Ambattur, Tiruvallur – 602024, Tamil Nadu, India
+- +91 98401 57425
+- cgmedia4@gmail.com
+- Opens at 9:00 AM (no closing time or operating days supplied)
+- https://www.instagram.com/jsphotoartist25/
+
+The old `cgmedia.ptml.in` address must not be added to this website.
+
+## CI
+
+GitHub Actions runs `npm ci` and `npm run build` on pushes and pull requests to `main`. A green workflow run is required before treating a change as build-verified.
+
+## Deployment
+
+Deployment is intentionally not performed as part of this audit. Once approved, import this repository into Vercel. Vite's production output directory is `dist`.
