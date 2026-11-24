@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="bg-plum text-white">
       <div className="mx-auto grid max-w-[96rem] gap-12 px-5 py-16 sm:px-8 md:grid-cols-12 lg:px-12">
         <div className="md:col-span-4">
-          <span className="inline-block bg-paper px-3 py-2"><img src={site.logo} alt={site.name} className="h-9 w-auto" width={160} height={36} loading="lazy" /></span>
+          <span className="inline-block bg-paper px-3 py-2"><img src={site.logo} alt={site.name} className="h-11 w-auto object-contain" width={1536} height={1024} loading="lazy" /></span>
           <p className="mt-5 text-[0.72rem] font-semibold tracking-[0.2em] text-lavender">{site.tagline}</p>
         </div>
         <nav aria-label="Footer" className="md:col-span-2">
