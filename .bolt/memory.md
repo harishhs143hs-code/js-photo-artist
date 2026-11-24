@@ -1,30 +1,38 @@
-# Project memory
+# JS Photo Artist — project memory
 
-## Product intent & audience
+## Product intent
+- Responsive portfolio and enquiry website for JS Photo Artist, a photography, videography, album-designing and photo-printing studio in Thiruninravur, Tamil Nadu.
+- Primary audience: prospective wedding, event, portrait and print customers.
 
-- Photographer/artist portfolio website (inferred from project archive name `js-photo-artist-website`).
-- Showcases photo artist's work; audience likely includes potential clients, galleries, and visitors.
+## Brand and verified business details
+- Business name: JS Photo Artist
+- Tagline: PHOTO | VIDEO | ALBUM | PRINTING
+- Address: No. 212, EB Colony, Lakshmipuram, Thiruninravur, Ambattur, Tiruvallur – 602024, Tamil Nadu, India.
+- Phone / WhatsApp: +91 98401 57425
+- Email: cgmedia4@gmail.com
+- Hours supplied: Opens at 9:00 AM; no closing time or operating days supplied.
+- Instagram: https://www.instagram.com/jsphotoartist25/
 
-## Brand personality & voice
+## Current architecture
+- React 18, TypeScript, Vite, Tailwind CSS and lucide-react.
+- Single-page composition in src/App.tsx.
+- Reusable sections under src/components/.
+- Central site content and image configuration in src/data/site.ts.
+- Temporary sample images are organized under public/images/.
+- Testimonials are intentionally empty until genuine approved reviews are supplied.
+- Film cards are intentionally placeholders until real video URLs are supplied.
+- Enquiry form supports optional Web3Forms; without a configured key it offers WhatsApp and does not claim submission.
 
-- Not yet inferred from content; needs review of restored component copy to confirm tone.
+## Known launch blockers / outstanding inputs
+- public/images/logo/logo.svg is a text placeholder, not the approved official logo artwork.
+- Portfolio, hero, album, printing and Instagram images are sample placeholders and must be replaced with studio-approved assets.
+- The verified JS Photo Artist package/rate-card PDF was not located during the November 2026 repository audit. Do not publish package prices or inclusions until the correct source is supplied.
+- The final website domain is not yet confirmed; sitemap/canonical domain configuration is therefore deferred.
+- VITE_WEB3FORMS_KEY is not configured in the repository.
+- Production build has not yet been executed in this audit. GitHub Actions CI has been added; check its run status before claiming build success.
+- Vercel deployment is intentionally deferred until the user approves.
 
-## Visual design & UX direction
-
-- Vite + React SPA; `src/App.tsx` composes 13+ components from `src/components/`.
-- Project includes image assets under `public/images/` and data files (content/data-driven).
-- Env files present in both `public/` and `src/` directories — content and purpose not yet reviewed.
-
-## Decisions, constraints & rationale
-
-- Project was initially broken: `App.tsx` imported ~13 components from a missing `src/components/` folder; full source was restored from a zip archive in the project root.
-- Removed junk/artifacts after extraction: stray `public/images/env` file and the source `.zip` archive (neither belongs in a repo).
-- Build verified clean after restoration and cleanup (`vite build` passes with no errors).
-- Bolt manages GitHub syncing automatically; git commands cannot be run directly. If sync fails, reauthorize the GitHub App via Bolt homepage → GitHub → Configure.
-
-## Open questions & assumptions
-
-- Env files in `public/` and `src/` — are they needed, correct, or should they be consolidated/removed? Not yet inspected.
-- Actual component names, pages, and routes not yet documented — only that ~13+ components exist.
-- GitHub sync status unverified; user may need to reauthorize connection.
-- No `.bolt/prompt` provided — no explicit global instructions or brand guidelines exist yet.
+## Recent audit change
+- Added .github/workflows/ci.yml to run npm ci and npm run build on pushes and pull requests to main.
+- Hardened .gitignore for environment files and generated build artifacts.
+- Removed the sitemap containing a fake example domain; add a real sitemap after the final domain is known.
