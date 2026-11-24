@@ -53,7 +53,7 @@ export default function Services() {
       <div className="mx-auto max-w-[96rem] px-5 pt-24 sm:px-8 sm:pt-32 lg:px-12">
         <Reveal>
           <p className="eyebrow mb-5">Services</p>
-          <h2 id="services-h" className="max-w-[16ch] font-display text-display-lg font-medium">Photography, films and keepsakes — <em className="font-normal text-brand">under one roof.</em></h2>
+          <h2 id="services-h" className="max-w-[16ch] font-display text-display-lg font-medium">Photography and keepsakes — <em className="font-normal text-brand">under one roof.</em></h2>
           <p className="mt-5 text-sm text-muted">Prefer to talk it through? <a className="underline underline-offset-4" href={site.phoneHref}>Call {site.phone}</a></p>
         </Reveal>
       </div>
