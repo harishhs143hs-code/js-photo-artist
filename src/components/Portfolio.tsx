@@ -33,8 +33,8 @@ export default function Portfolio() {
       <div className="mx-auto max-w-[96rem] px-5 py-24 sm:px-8 sm:py-32 lg:px-12">
         <Reveal className="grid items-end gap-8 lg:grid-cols-12">
           <div className="lg:col-span-6">
-            <p className="eyebrow mb-5">Portfolio</p>
-            <h2 id="portfolio-h" className="font-display text-display-lg font-medium">Selected <em className="font-normal text-brand">frames</em></h2>
+            <p className="eyebrow mb-5">A visual collection</p>
+            <h2 id="portfolio-h" className="font-display text-display-lg font-medium">Selected <em className="font-normal text-brand">works</em></h2>
           </div>
           <p className="max-w-sm text-sm text-ink/60 lg:col-span-4 lg:col-start-9">Images shown are temporary samples, to be replaced with the studio's own work.</p>
         </Reveal>
