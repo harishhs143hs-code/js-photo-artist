@@ -5,7 +5,7 @@ export const waLink = (text: string) => `https://wa.me/${WA_NUMBER}?text=${encod
 export const site = {
   name: 'JS Photo Artist',
   tagline: 'PHOTO | VIDEO | ALBUM | PRINTING',
-  logo: '/images/logo/logo.svg',
+  logo: '/images/logo/JS_Photo_Artist_Branding_Logo_Final.png',
   address: 'No. 212, EB Colony, Lakshmipuram, Thiruninravur, Ambattur, Tiruvallur – 602024, Tamil Nadu, India.',
   phone: '+91 98401 57425',
   phoneHref: 'tel:+919840157425',
