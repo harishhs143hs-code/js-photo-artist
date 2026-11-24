@@ -36,7 +36,7 @@ export default function Portfolio() {
             <p className="eyebrow mb-5">A visual collection</p>
             <h2 id="portfolio-h" className="font-display text-display-lg font-medium">Selected <em className="font-normal text-brand">works</em></h2>
           </div>
-          <p className="max-w-sm text-sm text-ink/60 lg:col-span-4 lg:col-start-9">Images shown are temporary samples, to be replaced with the studio's own work.</p>
+          <p className="max-w-sm text-sm text-ink/60 lg:col-span-4 lg:col-start-9">A collection of wedding stories, couple portraits, family celebrations and little milestones — photographed by our studio.</p>
         </Reveal>
 
         <div role="group" aria-label="Filter portfolio by category" className="mt-10 flex flex-wrap gap-x-6 gap-y-2 border-b border-lavender pb-4">
@@ -52,7 +52,7 @@ export default function Portfolio() {
               aria-label={`Open image: ${p.alt}`} className="group relative mb-4 block w-full break-inside-avoid overflow-hidden bg-lavender text-left">
               <img src={p.src} alt={p.alt} width={p.w} height={p.h} loading="lazy" decoding="async"
                 className="h-auto w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" style={{ objectPosition: p.pos }} />
-              <span className="absolute inset-x-0 bottom-0 translate-y-2 bg-gradient-to-t from-plum/80 to-transparent px-4 pb-3 pt-10 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:opacity-100">{p.cats[0]}</span>
+              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-plum/90 via-plum/35 to-transparent px-4 pb-4 pt-14 text-left text-white opacity-100 transition duration-500 sm:translate-y-2 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 sm:group-focus-visible:opacity-100"><span className="block font-display text-xl leading-tight">{p.title}</span><span className="mt-1 block text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-white/75">{p.cats[0]}</span></span>
             </button>
           ))}
         </div>
