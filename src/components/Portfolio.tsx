@@ -46,12 +46,12 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((p, idx) => (
             <button key={p.src + cat} type="button" onClick={(e) => { lastFocus.current = e.currentTarget; setOpen(idx) }}
-              aria-label={`Open image: ${p.alt}`} className="group relative mb-4 block w-full break-inside-avoid overflow-hidden bg-lavender text-left">
+              aria-label={`Open image: ${p.alt}`} className="group relative block aspect-[4/5] w-full overflow-hidden bg-lavender text-left shadow-[0_10px_35px_rgba(45,16,59,.08)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(45,16,59,.16)]">
               <img src={p.src} alt={p.alt} width={p.w} height={p.h} loading="lazy" decoding="async"
-                className="h-auto w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" style={{ objectPosition: p.pos }} />
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]" style={{ objectPosition: p.pos }} />
               <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-plum/90 via-plum/35 to-transparent px-4 pb-4 pt-14 text-left text-white opacity-100 transition duration-500 sm:translate-y-2 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 sm:group-focus-visible:opacity-100"><span className="block font-display text-xl leading-tight">{p.title}</span><span className="mt-1 block text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-white/75">{p.cats[0]}</span></span>
             </button>
           ))}
@@ -65,7 +65,7 @@ export default function Portfolio() {
           <button type="button" onClick={(e) => { e.stopPropagation(); step(1) }} aria-label="Next image" className="absolute right-2 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center text-white hover:bg-white/10 sm:right-5"><ChevronRight size={30} /></button>
           <figure className="flex max-h-full max-w-full flex-col items-center" onClick={(e) => e.stopPropagation()}>
             <img src={cur.src} alt={cur.alt} className="max-h-[80vh] max-w-full object-contain" />
-            <figcaption className="mt-3 text-xs uppercase tracking-[0.16em] text-white/70">{open! + 1} / {items.length} · {cur.cats[0]}</figcaption>
+            <figcaption className="mt-3 text-center"><span className="block font-display text-lg text-white">{cur.title}</span><span className="mt-1 block text-xs uppercase tracking-[0.16em] text-white/70">{open! + 1} / {items.length} · {cur.cats[0]}</span></figcaption>
           </figure>
         </div>
       )}
