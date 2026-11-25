@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { categories, portfolio, type Category } from '../data/site'
 import { useLockScroll } from '../lib/useLockScroll'
@@ -7,12 +7,12 @@ import Reveal from '../lib/Reveal'
 export default function Portfolio() {
   const [cat, setCat] = useState<Category | 'All'>('All')
   const [open, setOpen] = useState<number | null>(null)
-  const items = useMemo(() => (cat === 'All' ? portfolio : portfolio.filter((p) => p.cats.includes(cat))), [cat])
+  const items = cat === 'All' ? portfolio : portfolio.filter((p) => p.cats.includes(cat))
   const closeRef = useRef<HTMLButtonElement>(null)
   const lastFocus = useRef<HTMLElement | null>(null)
   useLockScroll(open !== null)
 
-  const step = useCallback((d: number) => setOpen((o) => (o === null ? o : (o + d + items.length) % items.length)), [items.length])
+  const step = useCallback((d: number) => setOpen((o) => (o === null || items.length === 0 ? o : (o + d + items.length) % items.length)), [items.length])
   const close = useCallback(() => { setOpen(null); lastFocus.current?.focus() }, [])
 
   useEffect(() => {
@@ -38,26 +38,25 @@ export default function Portfolio() {
           </div>
           <p className="max-w-sm text-sm text-ink/60 lg:col-span-4 lg:col-start-9">A collection of wedding stories, couple portraits, family celebrations and little milestones — photographed by our studio.</p>
         </Reveal>
-
-        <div role="group" aria-label="Filter portfolio by category" className="mt-10 flex flex-wrap gap-x-6 gap-y-2 border-b border-lavender pb-4">
-          {(['All', ...categories] as const).map((c) => (
-            <button key={c} type="button" aria-pressed={cat === c} onClick={() => setCat(c)}
-              className={`py-1.5 text-[0.78rem] font-semibold uppercase tracking-[0.14em] transition-colors ${cat === c ? 'border-b-2 border-brand text-brand' : 'border-b-2 border-transparent text-ink/55 hover:text-ink'}`}>{c}</button>
-          ))}
-        </div>
-
-        <div className="portfolio-masonry mt-7 sm:mt-10">
-          {items.map((p, idx) => (
-            <button key={p.src + cat} type="button" onClick={(e) => { lastFocus.current = e.currentTarget; setOpen(idx) }}
-              aria-label={`Open image: ${p.alt}`} className="group relative mb-3 inline-block w-full break-inside-avoid overflow-hidden bg-lavender text-left shadow-[0_8px_22px_rgba(45,16,59,.08)] transition duration-500 hover:shadow-[0_16px_36px_rgba(45,16,59,.16)] sm:mb-4">
-              <img src={p.src} alt={p.alt} width={p.w} height={p.h} loading={idx < 4 ? "eager" : "lazy"} decoding="async"
-                className="block h-auto w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.025]" style={{ objectPosition: p.pos }} />
-              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-plum/90 via-plum/35 to-transparent px-4 pb-4 pt-14 text-left text-white opacity-100 transition duration-500 sm:translate-y-2 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 sm:group-focus-visible:opacity-100"><span className="block font-display text-xl leading-tight">{p.title}</span><span className="mt-1 block text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-white/75">{p.cats[0]}</span></span>
-            </button>
-          ))}
-        </div>
+        {portfolio.length > 0 ? <>
+          <div role="group" aria-label="Filter portfolio by category" className="mt-10 flex flex-wrap gap-x-6 gap-y-2 border-b border-lavender pb-4">
+            {(['All', ...categories] as const).map((c) => (
+              <button key={c} type="button" aria-pressed={cat === c} onClick={() => setCat(c)}
+                className={`py-1.5 text-[0.78rem] font-semibold uppercase tracking-[0.14em] transition-colors ${cat === c ? 'border-b-2 border-brand text-brand' : 'border-b-2 border-transparent text-ink/55 hover:text-ink'}`}>{c}</button>
+            ))}
+          </div>
+          <div className="portfolio-masonry mt-7 sm:mt-10">
+            {items.map((p, idx) => (
+              <button key={p.src + cat} type="button" onClick={(e) => { lastFocus.current = e.currentTarget; setOpen(idx) }}
+                aria-label={`Open image: ${p.alt}`} className="group relative mb-3 inline-block w-full break-inside-avoid overflow-hidden bg-lavender text-left shadow-[0_8px_22px_rgba(45,16,59,.08)] transition duration-500 hover:shadow-[0_16px_36px_rgba(45,16,59,.16)] sm:mb-4">
+                <img src={p.src} alt={p.alt} width={p.w} height={p.h} loading={idx < 4 ? "eager" : "lazy"} decoding="async"
+                  className="block h-auto w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.025]" style={{ objectPosition: p.pos }} />
+                <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-plum/90 via-plum/35 to-transparent px-4 pb-4 pt-14 text-left text-white opacity-100 transition duration-500 sm:translate-y-2 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 sm:group-focus-visible:opacity-100"><span className="block font-display text-xl leading-tight">{p.title}</span><span className="mt-1 block text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-white/75">{p.cats[0]}</span></span>
+              </button>
+            ))}
+          </div>
+        </> : <p className="mt-10 border-t border-lavender py-12 text-sm text-ink/55">Selected works will appear here as you upload and place your photographs.</p>}
       </div>
-
       {cur && (
         <div role="dialog" aria-modal="true" aria-label="Image viewer" className="fixed inset-0 z-50 flex items-center justify-center bg-ink/95 p-4 sm:p-10" onClick={close}>
           <button ref={closeRef} type="button" onClick={close} aria-label="Close" className="absolute right-3 top-3 grid h-11 w-11 place-items-center text-white hover:bg-white/10"><X size={26} /></button>
