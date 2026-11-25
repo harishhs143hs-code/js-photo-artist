@@ -1,13 +1,42 @@
-import { useState } from 'react'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { portfolio } from '../data/site'
+import { useEffect, useRef, useState } from 'react'
+import { portfolio, categories, type Category } from '../data/site'
 import Reveal from '../lib/Reveal'
 
+function GalleryPhoto({ work, index }: { work: typeof portfolio[number]; index: number }) {
+  const ref = useRef<HTMLButtonElement>(null)
+  useEffect(() => {
+    const node = ref.current
+    if (!node) return
+    if (!('IntersectionObserver' in window)) {
+      node.classList.add('gallery-photo-visible')
+      return
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      node.classList.toggle('gallery-photo-visible', entry.isIntersecting)
+    }, { threshold: 0.18 })
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+  return (
+    <button
+      ref={ref}
+      type="button"
+      className="gallery-photo group"
+      style={{ '--photo-delay': `${(index % 6) * 55}ms` } as React.CSSProperties}
+      aria-label={`View ${work.title} photography`}
+    >
+      <img src={work.src} alt={work.alt} width={work.w} height={work.h} loading="lazy" decoding="async" />
+      <span className="gallery-photo-caption" aria-hidden="true">
+        <span>{work.title}</span>
+        <span>{work.cats.join(' · ')}</span>
+      </span>
+    </button>
+  )
+}
+
 export default function Portfolio() {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const active = portfolio[activeIndex]
-  const previous = () => setActiveIndex((index) => (index - 1 + portfolio.length) % portfolio.length)
-  const next = () => setActiveIndex((index) => (index + 1) % portfolio.length)
+  const [category, setCategory] = useState<Category | 'All'>('All')
+  const photos = category === 'All' ? portfolio : portfolio.filter((work) => work.cats.includes(category))
 
   return (
     <section id="portfolio" aria-labelledby="portfolio-h" className="bg-paper">
@@ -16,27 +45,16 @@ export default function Portfolio() {
           <p className="eyebrow mb-5">A visual collection</p>
           <h2 id="portfolio-h" className="font-display text-display-lg font-medium">Selected <em className="font-normal text-brand">works</em></h2>
         </Reveal>
-        {active ? (
-          <div className="portfolio-stage relative mt-10 flex items-center justify-center overflow-hidden bg-[#eee7f0] sm:mt-12">
-            <img
-              key={active.src}
-              src={active.src}
-              alt={active.alt}
-              width={active.w}
-              height={active.h}
-              loading="eager"
-              decoding="async"
-              className="portfolio-stage-image"
-              style={{ objectPosition: active.pos }}
-            />
-            <button type="button" onClick={previous} aria-label="Previous photograph" className="portfolio-stage-control absolute left-3 top-1/2 grid -translate-y-1/2 place-items-center rounded-full bg-white/90 text-ink shadow-sm transition hover:bg-white sm:left-5">
-              <ChevronLeft size={26} />
+        <div className="portfolio-filter" role="group" aria-label="Filter photography by category">
+          {(['All', ...categories] as const).map((item) => (
+            <button key={item} type="button" onClick={() => setCategory(item)} aria-pressed={category === item}>
+              {item}
             </button>
-            <button type="button" onClick={next} aria-label="Next photograph" className="portfolio-stage-control absolute right-3 top-1/2 grid -translate-y-1/2 place-items-center rounded-full bg-white/90 text-ink shadow-sm transition hover:bg-white sm:right-5">
-              <ChevronRight size={26} />
-            </button>
-          </div>
-        ) : null}
+          ))}
+        </div>
+        <div className="portfolio-instagram-grid" aria-live="polite">
+          {photos.map((work, index) => <GalleryPhoto key={work.src} work={work} index={index} />)}
+        </div>
       </div>
     </section>
   )
