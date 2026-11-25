@@ -156,3 +156,51 @@ footer{background:#32103f!important}
 @media(prefers-reduced-motion:reduce){
   main>#home img,main>#portfolio button,main>#portfolio button img{transition:none!important}
 }
+
+
+/* Mobile reference treatment: cinematic hero, centered brand, and editorial studio story */
+@media(max-width:767px){
+  header{height:56px!important;background:rgba(16,16,18,.96)!important;border:0!important;box-shadow:none!important;backdrop-filter:blur(10px)}
+  header .mx-auto{height:56px!important;padding-inline:14px!important}
+  header>a,header .mx-auto>a{background:transparent!important}
+  header .mx-auto>a img{filter:brightness(0) invert(1);height:48px!important;max-height:48px!important}
+  header button[aria-controls="mobile-menu"]{color:#fff!important;margin-left:auto}
+  header nav,header .mx-auto>div>a{display:none!important}
+  main>#home{order:0;height:100svh!important;min-height:600px!important;max-height:none!important}
+  main>#home>.mx-auto{justify-content:center!important;align-items:center!important;text-align:center!important;padding:100px 22px 100px!important}
+  main>#home h1{font-family:Georgia,'Times New Roman',serif!important;font-size:clamp(2rem,8vw,3rem)!important;line-height:1.08!important;max-width:18ch!important;letter-spacing:-.035em!important;text-wrap:balance}
+  main>#home .eyebrow{font-size:.62rem!important;letter-spacing:.22em!important;margin-bottom:12px!important}
+  main>#home p:not(.eyebrow){font-size:.78rem!important;letter-spacing:.18em!important;text-transform:uppercase;margin-top:14px!important}
+  main>#home .mt-8{display:none!important}
+  main>#home>div:last-of-type{padding:0 18px 22px!important;gap:8px}
+  main>#home>div:last-of-type button{height:40px!important;width:40px!important}
+  main>#home>div:last-of-type ol{max-width:none!important}
+  main>#about{order:1;padding:48px 18px 44px!important;background:#fff!important}
+  main>#about .grid{display:flex!important;flex-direction:column!important;gap:26px!important}
+  main>#about .grid>div:first-child{width:100%!important}
+  main>#about .eyebrow{font-size:.65rem!important;letter-spacing:.3em!important;margin-bottom:18px!important;color:#343434!important}
+  main>#about h2{font-family:Georgia,'Times New Roman',serif!important;font-size:clamp(2rem,8vw,2.65rem)!important;line-height:1.18!important;letter-spacing:-.035em!important;color:#353535!important}
+  main>#about .leading-relaxed{font-family:Georgia,'Times New Roman',serif!important;font-size:1.05rem!important;line-height:1.7!important;color:#5a5656!important}
+  main>#about .relative{display:grid!important;grid-template-columns:1fr 1.55fr!important;align-items:center!important;gap:10px!important;margin-top:4px!important}
+  main>#about .relative .reveal{width:100%!important;margin:0!important}
+  main>#about .relative .reveal+div{display:block!important;margin:0!important;width:100%!important}
+  main>#about .relative .reveal:first-child img{aspect-ratio:3/4!important;object-fit:cover!important}
+  main>#about .relative .reveal+div img{aspect-ratio:1/1!important;object-fit:cover!important;border:0!important}
+  main>#services{order:2}
+  main>#portfolio{order:3;background:#fff!important}
+  main>#portfolio>.mx-auto{padding:35px 12px 42px!important}
+  main>#portfolio .grid.items-end{display:block!important;text-align:center}
+  main>#portfolio .grid.items-end>p{display:none}
+  main>#portfolio .eyebrow{font-size:.6rem!important;letter-spacing:.22em!important}
+  main>#portfolio h2{font-family:Georgia,'Times New Roman',serif!important;font-size:2rem!important}
+  main>#portfolio [role=group]{justify-content:center!important;gap:12px!important}
+  main>#portfolio .columns-2{column-gap:5px!important}
+  main>#albums{order:4}
+  main>#packages{order:5}
+  main>#our-studio{order:6}
+  main>#contact{order:7}
+  .reveal{transition-duration:.6s!important}
+}
+@media(min-width:768px){
+  main>#home>.mx-auto{align-items:center!important;text-align:center!important}
+}
