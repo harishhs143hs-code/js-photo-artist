@@ -42,9 +42,12 @@ export const uploadedPhotos = [
 const photo = (index: number) => `/images/albums/${uploadedPhotos[index]}`
 
 export type Slide = { src: string; mobile: string; alt: string; pos: string; mobilePos: string }
-export const heroSlides: Slide[] = [1, 2, 3, 4, 5].map((n) => ({
-  src: `/images/hero/hero-0${n}.webp`, mobile: `/images/hero/hero-0${n}-mobile.webp`,
-  alt: `Featured photography by JS Photo Artist — image ${n}`,
+// Use five distinct original studio photographs for the hero. These are removed from the
+// portfolio list below so no photograph is repeated between the slideshow and gallery.
+export const featuredPhotoIndexes = [0, 1, 2, 3, 4] as const
+export const heroSlides: Slide[] = featuredPhotoIndexes.map((index) => ({
+  src: photo(index), mobile: photo(index),
+  alt: `Featured JS Photo Artist photograph ${index + 1}`,
   pos: '50% 50%', mobilePos: '50% 50%',
 }))
 
@@ -72,12 +75,15 @@ const portfolioTitles = [
   'Little Sunshine – Baby Photoshoot',
 ]
 
-export const portfolio: Work[] = uploadedPhotos.map((_, i) => ({
-  src: photo(i), w: 1200, h: 800,
-  title: portfolioTitles[i] ?? `Portfolio Photograph ${String(i + 1).padStart(2, '0')}`,
-  alt: portfolioTitles[i] ?? `JS Photo Artist original portfolio photograph ${i + 1}`,
-  cats: ['Portfolio'], pos: '50% 50%',
-}))
+export const portfolio: Work[] = uploadedPhotos
+  .map((_, i) => i)
+  .filter((i) => !featuredPhotoIndexes.includes(i as (typeof featuredPhotoIndexes)[number]))
+  .map((i) => ({
+    src: photo(i), w: 1200, h: 800,
+    title: portfolioTitles[i] ?? `Portfolio Photograph ${String(i + 1).padStart(2, '0')}`,
+    alt: portfolioTitles[i] ?? `JS Photo Artist original portfolio photograph ${i + 1}`,
+    cats: ['Portfolio'], pos: '50% 50%',
+  }))
 
 export const albumShowcase = [
   { label: 'Wedding album design', img: { src: '/images/albums/album-02.webp', alt: 'Wedding album design by JS Photo Artist' }, w: 1200, h: 800 },
