@@ -43,7 +43,7 @@ function Group({ s, i }: { s: ServiceGroup; i: number }) {
           <Links s={s} dark={dark} />
         </Reveal>
         {/* Image — always right */}
-        <div className="hidden md:block md:col-span-5 lg:col-span-4">
+        <div className="block md:col-span-5 lg:col-span-4">
           <div className="overflow-hidden aspect-[4/5]">
             <img
               src={s.image.src}
