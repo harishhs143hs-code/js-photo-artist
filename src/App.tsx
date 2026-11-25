@@ -25,9 +25,9 @@ export default function App() {
     <Header />
     <main>
       <Hero />
-      <Packages />
       <Intro />
       <Services />
+      <Packages />
       <Portfolio />
       <Why />
       <Testimonials />
