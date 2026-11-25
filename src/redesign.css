@@ -119,3 +119,24 @@ footer{background:var(--studio-plum)!important}
  footer>.mx-auto{padding:36px 20px!important;gap:24px!important}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Fix mobile gallery cards collapsing: absolutely positioned photos need a fixed card ratio. */
+#portfolio .grid > button{
+  display:block!important;
+  position:relative!important;
+  width:100%!important;
+  aspect-ratio:4/5!important;
+  min-height:0!important;
+  height:auto!important;
+}
+#portfolio .grid > button > img{
+  position:absolute!important;
+  inset:0!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+@media(max-width:767px){
+  #portfolio .grid > button{aspect-ratio:4/5!important;margin-bottom:0!important}
+}
