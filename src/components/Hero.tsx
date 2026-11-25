@@ -3,17 +3,12 @@ import { site, waLink, heroSlides } from '../data/site'
 
 export default function Hero() {
   const [current, setCurrent] = useState(0)
-  const [animating, setAnimating] = useState(false)
 
   useEffect(() => {
     if (heroSlides.length < 2) return
     const timer = setInterval(() => {
-      setAnimating(true)
-      setTimeout(() => {
-        setCurrent(prev => (prev + 1) % heroSlides.length)
-        setAnimating(false)
-      }, 600)
-    }, 4500)
+      setCurrent(prev => (prev + 1) % heroSlides.length)
+    }, 6500)
     return () => clearInterval(timer)
   }, [])
 
@@ -28,11 +23,8 @@ export default function Hero() {
         <div
           key={slide.src}
           aria-hidden={i !== current}
-          className="absolute inset-0 transition-opacity duration-700"
-          style={{
-            opacity: i === current ? (animating ? 0 : 1) : 0,
-            transitionDuration: animating ? '600ms' : '800ms',
-          }}
+          className="absolute inset-0 transition-opacity duration-[1400ms] ease-in-out"
+          style={{ opacity: i === current ? 1 : 0 }}
         >
           <img
             src={slide.src}
@@ -73,7 +65,7 @@ export default function Hero() {
               role="tab"
               aria-selected={i === current}
               aria-label={`Go to slide ${i + 1}`}
-              onClick={() => { setAnimating(false); setCurrent(i) }}
+              onClick={() => setCurrent(i)}
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 i === current ? 'w-6 bg-white' : 'w-1.5 bg-white/50 hover:bg-white/75'
               }`}
