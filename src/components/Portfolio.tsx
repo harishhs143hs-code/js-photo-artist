@@ -1,13 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
-import { categories, portfolio, type Category } from '../data/site'
+import { portfolio } from '../data/site'
 import { useLockScroll } from '../lib/useLockScroll'
 import Reveal from '../lib/Reveal'
 
 export default function Portfolio() {
-  const [cat, setCat] = useState<Category | 'All'>('All')
   const [open, setOpen] = useState<number | null>(null)
-  const items = cat === 'All' ? portfolio : portfolio.filter((p) => p.cats.includes(cat))
+  const items = portfolio
   const closeRef = useRef<HTMLButtonElement>(null)
   const lastFocus = useRef<HTMLElement | null>(null)
   useLockScroll(open !== null)
@@ -39,15 +38,9 @@ export default function Portfolio() {
           <p className="max-w-sm text-sm text-ink/60 lg:col-span-4 lg:col-start-9">A collection of wedding stories, couple portraits, family celebrations and little milestones — photographed by our studio.</p>
         </Reveal>
         {portfolio.length > 0 ? <>
-          <div role="group" aria-label="Filter portfolio by category" className="mt-10 flex flex-wrap gap-x-6 gap-y-2 border-b border-lavender pb-4">
-            {(['All', ...categories] as const).map((c) => (
-              <button key={c} type="button" aria-pressed={cat === c} onClick={() => setCat(c)}
-                className={`py-1.5 text-[0.78rem] font-semibold uppercase tracking-[0.14em] transition-colors ${cat === c ? 'border-b-2 border-brand text-brand' : 'border-b-2 border-transparent text-ink/55 hover:text-ink'}`}>{c}</button>
-            ))}
-          </div>
-          <div className="portfolio-masonry mt-7 sm:mt-10">
+          <div className="portfolio-masonry mt-10 sm:mt-12">
             {items.map((p, idx) => (
-              <button key={p.src + cat} type="button" onClick={(e) => { lastFocus.current = e.currentTarget; setOpen(idx) }}
+              <button key={p.src} type="button" onClick={(e) => { lastFocus.current = e.currentTarget; setOpen(idx) }}
                 aria-label={`Open image: ${p.alt}`} className="group relative mb-3 inline-block w-full break-inside-avoid overflow-hidden bg-lavender text-left shadow-[0_8px_22px_rgba(45,16,59,.08)] transition duration-500 hover:shadow-[0_16px_36px_rgba(45,16,59,.16)] sm:mb-4">
                 <img src={p.src} alt={p.alt} width={p.w} height={p.h} loading={idx < 4 ? "eager" : "lazy"} decoding="async"
                   className="block h-auto w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.025]" style={{ objectPosition: p.pos }} />
