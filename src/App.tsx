@@ -4,7 +4,6 @@ import Hero from './components/Hero'
 import Intro from './components/Intro'
 import Services from './components/Services'
 import Portfolio from './components/Portfolio'
-import Albums from './components/Albums'
 import Why from './components/Why'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
@@ -21,7 +20,6 @@ export default function App() {
       <Intro />
       <Services />
       <Portfolio />
-      <Albums />
       <Why />
       <Testimonials />
       <Packages />
