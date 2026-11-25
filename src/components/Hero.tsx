@@ -29,7 +29,8 @@ export default function Hero() {
           <img
             src={slide.src}
             alt={slide.alt}
-            loading={i === 0 ? 'eager' : 'lazy'}
+            loading={i === current ? 'eager' : 'lazy'}
+            fetchPriority={i === current ? 'high' : 'auto'}
             decoding="async"
             className={`hero-slide-image h-full w-full object-cover ${i === current ? 'hero-slide-image-active' : ''}`}
             style={{ objectPosition: slide.pos }}
@@ -66,10 +67,8 @@ export default function Hero() {
               aria-selected={i === current}
               aria-label={`Go to slide ${i + 1}`}
               onClick={() => setCurrent(i)}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                i === current ? 'w-6 bg-white' : 'w-1.5 bg-white/50 hover:bg-white/75'
-              }`}
-            />
+              className="flex h-11 w-11 items-center justify-center rounded-full"
+            ><span aria-hidden="true" className={`block h-1.5 rounded-full transition-all duration-300 ${i === current ? 'w-6 bg-white' : 'w-1.5 bg-white/50'}`} /></button>
           ))}
         </div>
       )}
