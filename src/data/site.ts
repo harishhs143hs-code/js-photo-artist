@@ -1,4 +1,4 @@
-// JS Photo Artist — the website uses only the 15 photographs uploaded in public/images/albums.
+// JS Photo Artist — original portfolio photographs plus the existing album cover asset.
 const WA_NUMBER = '919840157425'
 export const waLink = (text: string) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`
 
@@ -37,6 +37,7 @@ export const uploadedPhotos = [
   '031.webp',
   '032.webp',
   '034.webp',
+  'album-01.webp',
 ] as const
 const photo = (index: number) => `/images/albums/${uploadedPhotos[index]}`
 
