@@ -44,6 +44,8 @@ export default function ServicePage() {
       document.title = `${service.title} in Thiruninravur | JS Photo Artist`
       const description = document.querySelector('meta[name="description"]')
       description?.setAttribute('content', `${service.title} in Thiruninravur, Tiruvallur. Explore photography services and package information from JS Photo Artist.`)
+      const canonical = document.querySelector('link[rel="canonical"]')
+      canonical?.setAttribute('href', `${window.location.origin}${window.location.pathname}`)
     }
   }, [service, detail])
   if (!service || !detail) return null
