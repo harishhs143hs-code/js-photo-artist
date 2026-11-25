@@ -16,7 +16,7 @@ export default function Footer() {
         </nav>
         <div className="md:col-span-3">
           <h2 className="eyebrow mb-4 !text-lavender">Services</h2>
-          <ul className="space-y-2 text-sm text-white/80">{services.map((s) => <li key={s.id}><a className="hover:text-white" href="#services">{s.title}</a></li>)}</ul>
+          <ul className="space-y-2 text-sm text-white/80">{services.map((s) => <li key={s.id}><a className="hover:text-white" href={`/services/${s.id}`}>{s.title}</a></li>)}</ul>
         </div>
         <div className="text-sm text-white/80 md:col-span-3">
           <h2 className="eyebrow mb-4 !text-lavender">Visit &amp; contact</h2>
