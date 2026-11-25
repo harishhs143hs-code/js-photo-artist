@@ -183,3 +183,11 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 @media(prefers-reduced-motion:reduce){
   #portfolio .portfolio-stage-image{animation:none}
 }
+
+
+/* SEO/UX polish: clear interactive states, subtle depth, and accessible motion. */
+:where(a,button,[role="button"]){transition:color .22s ease,background-color .22s ease,border-color .22s ease,box-shadow .22s ease,transform .22s ease}
+:where(a,button,[role="button"]):focus-visible{outline:3px solid #a66bc0;outline-offset:4px}
+#services a:hover,#contact a:hover{box-shadow:0 8px 24px rgba(50,16,63,.12)}
+#home .btn-light:hover,#home .btn-line:hover{transform:translateY(-2px)}
+@media(prefers-reduced-motion:reduce){:where(a,button,[role="button"]){transition:none!important}#home .btn-light:hover,#home .btn-line:hover{transform:none}}
