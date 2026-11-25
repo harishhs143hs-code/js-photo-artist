@@ -25,12 +25,12 @@ export default function App() {
     <Header />
     <main>
       <Hero />
+      <Packages />
       <Intro />
       <Services />
       <Portfolio />
       <Why />
       <Testimonials />
-      <Packages />
       <Shop />
       <Contact />
     </main>
