@@ -1,206 +1,121 @@
-/* JS Photo Artist editorial redesign — inspired by the reference's image-led storytelling, using the studio's purple identity. */
-:root { --jspa-purple:#6f218d; --jspa-deep:#32103f; --jspa-lilac:#f4edf7; --jspa-paper:#fffdfd; }
-html { scroll-padding-top: 5.5rem; }
-body { background:var(--jspa-paper); }
-header { backdrop-filter: blur(14px); }
-header:not(:has(#mobile-menu)) { transition: background .3s ease, box-shadow .3s ease; }
-header .mx-auto { max-width: 88rem; }
-header img { max-height: 3.25rem; }
-section { scroll-margin-top: 5rem; }
-section[id] > .mx-auto { max-width: 88rem; }
-#home { min-height: min(850px, 100svh); }
-#home h1 { max-width: 12ch; text-wrap: balance; letter-spacing: -.035em; line-height: .98; }
-#home .eyebrow { color: #f3e8fa; letter-spacing: .22em; }
-#about { background:var(--jspa-paper); }
-#about h2, #services h2, #portfolio h2, #albums h2, #contact h2 { letter-spacing:-.035em; line-height:1.04; }
-#services { background:#fff; }
-#services > .mx-auto { padding-bottom:4rem; }
-#services img, #about img, #albums img { transition: transform .65s ease; }
-#services img:hover, #about img:hover, #albums img:hover { transform:scale(1.015); }
-#portfolio { background:var(--jspa-lilac); }
-#portfolio .columns-1 { column-gap:1.1rem; }
-#portfolio button { border-radius:2px; }
-#portfolio button img { transition: transform .7s ease; }
-#portfolio button:hover img { transform:scale(1.035); }
-#packages article { border-color:#e7d8ee; border-radius:2px; box-shadow:0 8px 30px rgba(50,16,63,.045); }
-#packages article:hover { box-shadow:0 16px 40px rgba(50,16,63,.12); }
-#our-studio { background:#f6f0f8; }
-#our-studio figure { box-shadow:0 18px 50px rgba(50,16,63,.12); }
-#contact { background:#fff; }
-footer { background:var(--jspa-deep); }
-.btn-solid { background:var(--jspa-purple); }
-.btn-solid:hover { background:var(--jspa-deep); }
-@media (max-width:767px) {
-  #home { min-height: 740px; min-height: 100svh; }
-  #home h1 { max-width: 11ch; font-size:clamp(3rem, 12vw, 4.8rem); }
-  #home .mx-auto { padding-bottom:6.25rem; }
-  #about, #portfolio, #packages, #contact { padding-top:4.5rem; padding-bottom:4.5rem; }
-  #services > .mx-auto { padding-top:4.5rem; }
-  #services .mx-auto.grid { padding-top:3.25rem; padding-bottom:3.25rem; }
-  #portfolio .columns-1 { columns:1; }
-}
-@media (prefers-reduced-motion: reduce) {
-  #services img, #about img, #albums img, #portfolio button img { transition:none; }
-}
-/* Stronger structural visual pass: high-contrast editorial layouts and branded surfaces */
-header{background:rgba(255,253,253,.97)!important;border-bottom:1px solid #eadced;box-shadow:0 5px 28px rgba(45,16,59,.07);backdrop-filter:blur(14px)}
-header .mx-auto{height:5rem!important;max-width:100%!important;padding-inline:clamp(1.2rem,5vw,5rem)!important}
-header nav ul{color:#32103f!important}
-#home{height:90svh!important;min-height:650px!important}
-#home h1{font-size:clamp(3.4rem,8vw,7.8rem)!important;max-width:11ch!important;line-height:.94!important;letter-spacing:-.05em!important}
-#home>.mx-auto{max-width:100%!important;padding-inline:clamp(1.25rem,8vw,8rem)!important}
-#home .eyebrow{letter-spacing:.22em!important}
-#about h2,#services h2,#portfolio h2,#albums h2,#contact h2{font-size:clamp(2.7rem,5.2vw,5.2rem)!important;line-height:1!important;letter-spacing:-.04em!important}
-#about>.mx-auto{padding-top:clamp(5rem,10vw,10rem)!important;padding-bottom:clamp(5rem,10vw,10rem)!important}
-#services>.mx-auto,#portfolio>.mx-auto,#packages>.mx-auto,#contact>.mx-auto{padding-top:clamp(5rem,9vw,9rem)!important;padding-bottom:clamp(5rem,9vw,9rem)!important}
-#services h3{font-size:clamp(2.3rem,4.3vw,4rem)!important;line-height:1.02!important}
-#portfolio{background:#f2eaf6!important}
-#portfolio button{margin-bottom:1.1rem!important}
-#portfolio button>span{opacity:1!important;transform:none!important;background:linear-gradient(0deg,rgba(45,16,59,.9),rgba(45,16,59,0))!important;padding:4rem 1rem 1rem!important}
-#portfolio button>span>span:first-child{font-size:clamp(1.25rem,2vw,2rem)!important}
-#packages{background:#f7f1f9!important}
-#packages article{border-radius:0!important;border:1px solid #e4d5eb!important;box-shadow:0 8px 28px rgba(45,16,59,.06)!important}
-#packages article:hover{box-shadow:0 18px 40px rgba(45,16,59,.13)!important}
-#our-studio{background:#f2eaf6!important}
-#our-studio figure{box-shadow:0 20px 50px rgba(45,16,59,.13)!important}
-#contact form{background:#f8f3fa;padding:clamp(1.25rem,4vw,3rem)}
-.btn-solid{background:#70258f!important}
-.btn-solid:hover{background:#32103f!important}
-footer{background:#32103f!important}
-@media(max-width:767px){#home{height:88svh!important;min-height:650px!important}#home h1{font-size:clamp(3.1rem,12.5vw,5rem)!important;max-width:10ch!important}#portfolio .columns-1{columns:1!important}#portfolio button{margin-bottom:1rem!important}#portfolio button>span{padding:3.5rem 1rem 1rem!important}}
-
-/* Image fit, consistent alignment, and polished motion */
-#portfolio .grid{align-items:stretch}
-#portfolio button{isolation:isolate;border:1px solid rgba(112,37,143,.12);box-shadow:0 12px 34px rgba(45,16,59,.09)}
-#portfolio button:focus-visible{outline:2px solid #70258f;outline-offset:4px}
-#portfolio button>span{z-index:2}
-#portfolio button>img{display:block;object-fit:cover;object-position:center}
-#portfolio [role="dialog"]{backdrop-filter:blur(18px);background:rgba(24,9,31,.94)}
-#portfolio [role="dialog"] figure img{border:1px solid rgba(255,255,255,.15);box-shadow:0 24px 80px rgba(0,0,0,.35)}
-#portfolio [role="dialog"] button{transition:background .25s ease,color .25s ease}
-#albums figure{overflow:hidden;background:#f2eaf6}
-#albums figure img{display:block;object-fit:cover}
-#services img{display:block;object-fit:cover}
-#home picture img{will-change:opacity,transform}
-#home button{transition:background .25s ease,transform .25s ease}
-#home button:hover{transform:translateY(-1px)}
-.btn-solid,.btn-light,.btn-line{transition:transform .3s ease,box-shadow .3s ease,background-color .3s ease,color .3s ease}
-.btn-solid:hover,.btn-light:hover,.btn-line:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(45,16,59,.18)}
-#packages article{transition:transform .35s ease,box-shadow .35s ease}
-#our-studio img{display:block;object-fit:cover}
-@media(max-width:639px){#portfolio .grid{gap:1rem}#portfolio button{aspect-ratio:4/5}#albums .grid.grid-cols-2{gap:.75rem}}
-@media(prefers-reduced-motion:reduce){#portfolio button,#portfolio button img,#albums figure img,#home picture img,.btn-solid,.btn-light,.btn-line{transition:none!important;transform:none!important}}
-
-
-/* Reference-led, mobile-first editorial layout. Preserve the studio's own photos, brand and copy. */
-@media (max-width:767px){
-  main{display:flex;flex-direction:column}
-  main>#home{order:0;height:34svh!important;min-height:220px!important;max-height:340px;overflow:hidden}
-  main>#home>.mx-auto{justify-content:flex-end;padding:0 16px 18px!important}
-  main>#home h1{font-size:clamp(1.45rem,6vw,2.15rem)!important;line-height:1.02!important;max-width:16ch!important;letter-spacing:-.03em!important}
-  main>#home .eyebrow{font-size:.48rem!important;margin-bottom:7px!important;letter-spacing:.14em!important}
-  main>#home p:not(.eyebrow){font-size:.72rem!important;margin-top:7px!important}
-  main>#home .mt-8{margin-top:10px!important}
-  main>#home .btn-light,main>#home .btn-line{font-size:.55rem!important;padding:7px 10px!important}
-  main>#home>div:last-of-type{padding:0 12px 8px!important;gap:6px}
-  main>#home>div:last-of-type button{height:26px!important;width:26px!important}
-  main>#portfolio{order:1;background:#fff!important}
-  main>#portfolio>.mx-auto{padding:20px 5px 30px!important}
-  main>#portfolio .eyebrow{font-size:.5rem!important;letter-spacing:.16em!important;margin-bottom:6px!important}
-  main>#portfolio h2{font-size:1.5rem!important;line-height:1.05!important}
-  main>#portfolio .grid.items-end{display:block!important;text-align:center}
-  main>#portfolio .grid.items-end>p{display:none}
-  main>#portfolio [role=group]{margin-top:10px!important;justify-content:center;gap:10px!important;border:0!important;padding-bottom:0!important}
-  main>#portfolio [role=group] button{font-size:.52rem!important;letter-spacing:.08em!important;padding:4px 0!important}
-  main>#portfolio .columns-2{column-gap:4px!important;margin-top:12px!important}
-  main>#portfolio .columns-2 button{margin-bottom:4px!important;box-shadow:none!important;border:0!important;border-radius:0!important}
-  main>#portfolio .columns-2 button>span{padding:20px 6px 7px!important}
-  main>#portfolio .columns-2 button>span>span:first-child{font-size:.65rem!important}
-  main>#portfolio .columns-2 button>span>span:last-child{font-size:.45rem!important}
-  main>#about{order:2;padding:36px 18px!important}
-  main>#about .grid{gap:20px!important}
-  main>#about h2,main>#services h2,main>#albums h2,main>#packages h2,main>#contact h2{font-size:1.65rem!important;line-height:1.12!important}
-  main>#about .eyebrow,main>#services .eyebrow,main>#albums .eyebrow,main>#packages .eyebrow,main>#contact .eyebrow{font-size:.55rem!important;letter-spacing:.13em!important;margin-bottom:9px!important}
-  main>#about .leading-relaxed{font-size:.76rem!important;line-height:1.75!important}
-  main>#about .relative{margin-top:6px}
-  main>#about .relative .reveal{width:100%!important;margin:0!important}
-  main>#about .relative .reveal+div{display:none}
-  main>#about img{aspect-ratio:4/5!important;object-fit:cover}
-  main>#services{order:3}
-  main>#services>.mx-auto{padding:34px 18px 20px!important}
-  main>#services>div:not(:first-child)>.mx-auto{padding:18px!important;gap:14px!important}
-  main>#services h3{font-size:1.3rem!important}
-  main>#services ul{margin-top:12px!important}
-  main>#services li{font-size:.72rem!important;padding:7px 0!important}
-  main>#services .btn-solid,main>#services a{font-size:.55rem!important;padding:8px 10px!important}
-  main>#albums{order:4}
-  main>#albums>.mx-auto{padding:34px 18px!important}
-  main>#albums .grid{gap:8px!important}
-  main>#albums figure img{aspect-ratio:4/5!important}
-  main>#albums figcaption{font-size:.52rem!important;letter-spacing:.08em!important}
-  main>#packages{order:5}
-  main>#packages>.mx-auto{padding:34px 18px!important}
-  main>#packages article{padding:16px!important}
-  main>#packages h3{font-size:1.15rem!important}
-  main>#packages article .text-4xl{font-size:1.8rem!important}
-  main>#our-studio{order:6}
-  main>#our-studio>.mx-auto{padding:30px 18px!important;gap:20px!important}
-  main>#contact{order:7}
-  main>#contact>.mx-auto{padding:34px 18px!important}
-  footer>.mx-auto{padding:30px 18px!important;gap:24px!important}
-}
-@media(min-width:768px){
-  main>#portfolio .columns-2{column-gap:14px}
-  main>#portfolio .columns-2 button{margin-bottom:14px}
-}
-@media(prefers-reduced-motion:reduce){
-  main>#home img,main>#portfolio button,main>#portfolio button img{transition:none!important}
-}
-
-
-/* Mobile reference treatment: cinematic hero, centered brand, and editorial studio story */
+/* JS Photo Artist — complete editorial art direction. All photography and business content remain original. */
+:root{--studio-purple:#70258f;--studio-plum:#32103f;--studio-ink:#252229;--studio-paper:#fff;--studio-lilac:#f6f0f8}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;background:var(--studio-paper);color:var(--studio-ink);-webkit-font-smoothing:antialiased}
+header{height:76px;background:rgba(20,19,22,.97)!important;border:0!important;box-shadow:none!important;backdrop-filter:blur(14px)}
+header .mx-auto{height:76px!important;max-width:100%!important;padding-inline:clamp(18px,5vw,72px)!important}
+header img{max-height:48px;object-fit:contain}
+header nav ul{color:white!important}
+header .mx-auto>a{background:transparent!important}
+header button{color:white!important}
+section[id]{scroll-margin-top:76px}
+section[id]>.mx-auto{max-width:1320px}
+.eyebrow{letter-spacing:.24em!important;font-size:.68rem!important;font-weight:600!important;text-transform:uppercase}
+#home{height:100svh!important;min-height:640px!important;max-height:1000px!important;position:relative}
+#home>.mx-auto{max-width:100%!important;align-items:center!important;justify-content:center!important;text-align:center!important;padding:110px 24px 120px!important}
+#home h1{max-width:18ch!important;font-family:Georgia,'Times New Roman',serif!important;font-size:clamp(3rem,7.3vw,7rem)!important;font-weight:500!important;line-height:1.03!important;letter-spacing:-.045em!important;text-wrap:balance}
+#home h1 em{font-style:normal;color:#ead8f1}
+#home .eyebrow{font-size:.72rem!important;letter-spacing:.26em!important;margin-bottom:20px!important}
+#home p:not(.eyebrow){font-size:.75rem!important;letter-spacing:.22em!important;text-transform:uppercase;line-height:1.7!important}
+#home .mt-8{margin-top:28px!important}
+#home .btn-light,#home .btn-line{padding:13px 20px!important;font-size:.68rem!important;letter-spacing:.14em!important}
+#home>div:last-of-type{padding:0 clamp(18px,5vw,72px) 24px!important}
+#home>div:last-of-type button{width:42px!important;height:42px!important}
+#home picture img{object-position:center 42%;will-change:opacity,transform}
+#about{background:#fff!important;padding:0!important}
+#about>.mx-auto{padding:clamp(64px,9vw,130px) clamp(22px,5vw,72px)!important}
+#about .grid{align-items:center!important;gap:clamp(36px,7vw,100px)!important}
+#about .eyebrow{color:#514b53!important;margin-bottom:22px!important}
+#about h2,#services h2,#portfolio h2,#albums h2,#contact h2{font-family:Georgia,'Times New Roman',serif!important;font-weight:500!important;letter-spacing:-.035em!important;line-height:1.12!important}
+#about h2{font-size:clamp(2.5rem,5.4vw,5.3rem)!important}
+#about h2 em{color:var(--studio-purple)!important}
+#about .leading-relaxed{font-family:Georgia,'Times New Roman',serif!important;font-size:clamp(1rem,1.45vw,1.3rem)!important;line-height:1.8!important;color:#5a555c!important}
+#about .relative{display:grid!important;grid-template-columns:.78fr 1.22fr!important;align-items:center!important;gap:14px!important}
+#about .relative .reveal,#about .relative .reveal+div{width:100%!important;margin:0!important}
+#about .relative .reveal:first-child{transform:translateY(12%)}
+#about .relative .reveal:first-child img{aspect-ratio:3/4!important;object-fit:cover!important}
+#about .relative .reveal+div img{aspect-ratio:4/5!important;object-fit:cover!important;border:0!important}
+#services{background:#fff!important;border:0!important}
+#services>.mx-auto{padding:clamp(64px,8vw,110px) clamp(22px,5vw,72px) 45px!important}
+#services h2,#portfolio h2,#albums h2,#contact h2{font-size:clamp(2.5rem,5vw,5rem)!important}
+#services>div:not(:first-child)>.mx-auto{padding:clamp(42px,6vw,88px) clamp(22px,5vw,72px)!important;gap:clamp(28px,5vw,72px)!important}
+#services h3{font-family:Georgia,'Times New Roman',serif!important;font-weight:500!important;font-size:clamp(2rem,4vw,4rem)!important;line-height:1.1!important}
+#services img{object-fit:cover!important;transition:transform .8s cubic-bezier(.2,.7,.2,1)!important}
+#services img:hover{transform:scale(1.025)}
+#portfolio{background:#fff!important}
+#portfolio>.mx-auto{padding:clamp(60px,8vw,112px) clamp(16px,4vw,60px)!important}
+#portfolio .columns-2{column-gap:12px!important}
+#portfolio button{border:0!important;border-radius:0!important;box-shadow:none!important;margin-bottom:12px!important;overflow:hidden!important}
+#portfolio button img{object-fit:cover!important;transition:transform .9s cubic-bezier(.2,.7,.2,1)!important}
+#portfolio button:hover img{transform:scale(1.035)!important}
+#portfolio button>span{background:linear-gradient(0deg,rgba(25,18,29,.82),transparent)!important}
+#portfolio [role=group]{border-color:#e9e3eb!important}
+#albums{background:var(--studio-lilac)!important}
+#albums>.mx-auto{padding:clamp(60px,8vw,112px) clamp(22px,5vw,72px)!important}
+#albums figure{box-shadow:none!important;background:transparent!important}
+#albums figure img{object-fit:cover!important}
+#packages{background:#fff!important}
+#packages>.mx-auto,#contact>.mx-auto{padding:clamp(60px,8vw,112px) clamp(22px,5vw,72px)!important}
+#packages article{border-radius:0!important;border:1px solid #e8dfea!important;box-shadow:0 8px 28px rgba(50,16,63,.04)!important;transition:transform .35s ease,box-shadow .35s ease!important}
+#packages article:hover{transform:translateY(-4px);box-shadow:0 18px 42px rgba(50,16,63,.11)!important}
+#our-studio{background:var(--studio-lilac)!important}
+#our-studio>.mx-auto{padding:clamp(60px,8vw,112px) clamp(22px,5vw,72px)!important}
+#our-studio img{object-fit:cover!important}
+#contact{background:#fff!important}
+#contact form{background:var(--studio-lilac);padding:clamp(20px,4vw,48px)!important}
+footer{background:var(--studio-plum)!important}
+.btn-solid{background:var(--studio-purple)!important}
+.btn-solid:hover{background:var(--studio-plum)!important}
+.btn-light,.btn-line,.btn-solid{transition:transform .3s ease,box-shadow .3s ease,background-color .3s ease!important}
+.btn-light:hover,.btn-line:hover,.btn-solid:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(45,16,59,.18)}
+#portfolio button:focus-visible,header button:focus-visible{outline:2px solid var(--studio-purple);outline-offset:4px}
 @media(max-width:767px){
-  header{height:56px!important;background:rgba(16,16,18,.96)!important;border:0!important;box-shadow:none!important;backdrop-filter:blur(10px)}
-  header .mx-auto{height:56px!important;padding-inline:14px!important}
-  header>a,header .mx-auto>a{background:transparent!important}
-  header .mx-auto>a img{filter:brightness(0) invert(1);height:48px!important;max-height:48px!important}
-  header button[aria-controls="mobile-menu"]{color:#fff!important;margin-left:auto}
-  header nav,header .mx-auto>div>a{display:none!important}
-  main>#home{order:0;height:100svh!important;min-height:600px!important;max-height:none!important}
-  main>#home>.mx-auto{justify-content:center!important;align-items:center!important;text-align:center!important;padding:100px 22px 100px!important}
-  main>#home h1{font-family:Georgia,'Times New Roman',serif!important;font-size:clamp(2rem,8vw,3rem)!important;line-height:1.08!important;max-width:18ch!important;letter-spacing:-.035em!important;text-wrap:balance}
-  main>#home .eyebrow{font-size:.62rem!important;letter-spacing:.22em!important;margin-bottom:12px!important}
-  main>#home p:not(.eyebrow){font-size:.78rem!important;letter-spacing:.18em!important;text-transform:uppercase;margin-top:14px!important}
-  main>#home .mt-8{display:none!important}
-  main>#home>div:last-of-type{padding:0 18px 22px!important;gap:8px}
-  main>#home>div:last-of-type button{height:40px!important;width:40px!important}
-  main>#home>div:last-of-type ol{max-width:none!important}
-  main>#about{order:1;padding:48px 18px 44px!important;background:#fff!important}
-  main>#about .grid{display:flex!important;flex-direction:column!important;gap:26px!important}
-  main>#about .grid>div:first-child{width:100%!important}
-  main>#about .eyebrow{font-size:.65rem!important;letter-spacing:.3em!important;margin-bottom:18px!important;color:#343434!important}
-  main>#about h2{font-family:Georgia,'Times New Roman',serif!important;font-size:clamp(2rem,8vw,2.65rem)!important;line-height:1.18!important;letter-spacing:-.035em!important;color:#353535!important}
-  main>#about .leading-relaxed{font-family:Georgia,'Times New Roman',serif!important;font-size:1.05rem!important;line-height:1.7!important;color:#5a5656!important}
-  main>#about .relative{display:grid!important;grid-template-columns:1fr 1.55fr!important;align-items:center!important;gap:10px!important;margin-top:4px!important}
-  main>#about .relative .reveal{width:100%!important;margin:0!important}
-  main>#about .relative .reveal+div{display:block!important;margin:0!important;width:100%!important}
-  main>#about .relative .reveal:first-child img{aspect-ratio:3/4!important;object-fit:cover!important}
-  main>#about .relative .reveal+div img{aspect-ratio:1/1!important;object-fit:cover!important;border:0!important}
-  main>#services{order:2}
-  main>#portfolio{order:3;background:#fff!important}
-  main>#portfolio>.mx-auto{padding:35px 12px 42px!important}
-  main>#portfolio .grid.items-end{display:block!important;text-align:center}
-  main>#portfolio .grid.items-end>p{display:none}
-  main>#portfolio .eyebrow{font-size:.6rem!important;letter-spacing:.22em!important}
-  main>#portfolio h2{font-family:Georgia,'Times New Roman',serif!important;font-size:2rem!important}
-  main>#portfolio [role=group]{justify-content:center!important;gap:12px!important}
-  main>#portfolio .columns-2{column-gap:5px!important}
-  main>#albums{order:4}
-  main>#packages{order:5}
-  main>#our-studio{order:6}
-  main>#contact{order:7}
-  .reveal{transition-duration:.6s!important}
+ header{height:64px!important}
+ header .mx-auto{height:64px!important;padding-inline:16px!important}
+ header .mx-auto>a{position:absolute!important;left:50%!important;transform:translateX(-50%)!important}
+ header .mx-auto>a img{height:44px!important;max-height:44px!important;filter:brightness(0) invert(1)}
+ header nav,header .mx-auto>div>a{display:none!important}
+ header .mx-auto>div{margin-left:auto!important}
+ header button{color:white!important}
+ #home{height:100svh!important;min-height:600px!important;max-height:none!important}
+ #home>.mx-auto{padding:90px 20px 120px!important}
+ #home h1{font-size:clamp(2.7rem,10vw,4.1rem)!important;max-width:14ch!important;line-height:1.06!important}
+ #home .eyebrow{font-size:.58rem!important;letter-spacing:.2em!important;margin-bottom:14px!important}
+ #home p:not(.eyebrow){font-size:.61rem!important;letter-spacing:.15em!important;margin-top:14px!important}
+ #home .mt-8{margin-top:20px!important;gap:8px!important}
+ #home .btn-light,#home .btn-line{font-size:.58rem!important;padding:10px 12px!important}
+ #home>div:last-of-type{padding:0 12px 18px!important;gap:6px!important}
+ #home>div:last-of-type button{width:34px!important;height:34px!important}
+ #about>.mx-auto{padding:56px 20px 54px!important}
+ #about .grid{display:flex!important;flex-direction:column!important;gap:28px!important}
+ #about .eyebrow{font-size:.58rem!important;letter-spacing:.2em!important;margin-bottom:14px!important}
+ #about h2{font-size:clamp(2.15rem,9vw,3.1rem)!important;line-height:1.16!important}
+ #about .leading-relaxed{font-size:1rem!important;line-height:1.75!important}
+ #about .relative{width:100%!important;grid-template-columns:.78fr 1.22fr!important;gap:8px!important;margin-top:4px!important}
+ #about .relative .reveal:first-child{transform:translateY(10%)}
+ #services>.mx-auto{padding:55px 20px 24px!important}
+ #services>div:not(:first-child)>.mx-auto{display:flex!important;flex-direction:column!important;padding:32px 20px 40px!important;gap:24px!important}
+ #services h3{font-size:2rem!important}
+ #services ul{margin-top:18px!important}
+ #services li{font-size:.86rem!important}
+ #services .btn-solid,#services a{font-size:.59rem!important}
+ #portfolio>.mx-auto{padding:54px 12px 60px!important}
+ #portfolio h2,#services h2,#albums h2,#contact h2{font-size:2.3rem!important}
+ #portfolio .grid.items-end{display:block!important;text-align:center!important}
+ #portfolio .grid.items-end>p{display:none!important}
+ #portfolio [role=group]{justify-content:center!important;gap:12px!important}
+ #portfolio [role=group] button{font-size:.58rem!important}
+ #portfolio .columns-2{column-gap:5px!important;margin-top:14px!important}
+ #portfolio button{margin-bottom:5px!important;aspect-ratio:auto!important}
+ #portfolio button>span{padding:30px 6px 8px!important}
+ #portfolio button>span>span:first-child{font-size:.68rem!important}
+ #portfolio button>span>span:last-child{font-size:.48rem!important}
+ #albums>.mx-auto{padding:54px 20px!important}
+ #albums .grid{gap:8px!important}
+ #albums figcaption{font-size:.55rem!important}
+ #packages>.mx-auto,#contact>.mx-auto{padding:54px 20px!important}
+ #packages article{padding:18px!important}
+ #our-studio>.mx-auto{padding:54px 20px!important}
+ footer>.mx-auto{padding:36px 20px!important;gap:24px!important}
 }
-@media(min-width:768px){
-  main>#home>.mx-auto{align-items:center!important;text-align:center!important}
-}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
