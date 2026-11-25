@@ -42,25 +42,25 @@ export const uploadedPhotos = [
 const photo = (index: number) => `/images/albums/${uploadedPhotos[index]}`
 
 export type Slide = { src: string; mobile: string; alt: string; pos: string; mobilePos: string }
-export const heroSlides: Slide[] = uploadedPhotos.slice(0, 5).map((_, i) => ({
-  src: photo(i), mobile: photo(i),
-  alt: `JS Photo Artist portfolio photograph ${i + 1}`,
+export const heroSlides: Slide[] = [1, 2, 3, 4, 5].map((n) => ({
+  src: `/images/hero/hero-0${n}.webp`, mobile: `/images/hero/hero-0${n}-mobile.webp`,
+  alt: `Wedding photography by JS Photo Artist — featured image ${n}`,
   pos: '50% 50%', mobilePos: '50% 50%',
 }))
 
 export type Img = { src: string; alt: string; pos?: string }
 export const intro = {
-  a: { src: photo(0), alt: 'JS Photo Artist portfolio photograph', pos: '50% 50%' } as Img,
-  b: { src: photo(1), alt: 'JS Photo Artist portfolio photograph', pos: '50% 50%' } as Img,
+  a: { src: '/images/weddings/wedding-04.webp', alt: 'Wedding celebration photographed by JS Photo Artist', pos: '50% 50%' } as Img,
+  b: { src: '/images/weddings/wedding-05.webp', alt: 'Wedding couple portrait by JS Photo Artist', pos: '50% 50%' } as Img,
 }
 
 export type ServiceGroup = { id: string; title: string; blurb: string; items: string[]; image: Img }
 export const services: ServiceGroup[] = [
-  { id: 'wedding', title: 'Wedding photography & videography', blurb: 'The rituals, people and small in-between moments that make your day yours.', items: ['Traditional wedding photography', 'Candid wedding photography', 'Wedding videography', 'Reception coverage', 'Wedding highlights'], image: { src: photo(2), alt: 'JS Photo Artist portfolio photograph', pos: '50% 50%' } },
-  { id: 'couple', title: 'Couple & pre-wedding portraits', blurb: 'Natural portraits that leave room for the two of you to be yourselves.', items: ['Couple photography', 'Outdoor couple sessions', 'Pre-wedding concepts', 'Post-wedding portraits'], image: { src: photo(3), alt: 'JS Photo Artist portfolio photograph', pos: '50% 50%' } },
-  { id: 'events', title: 'Events & family celebrations', blurb: 'Family milestones and celebrations, remembered through honest photographs.', items: ['Puberty ceremonies', 'Birthdays', 'Family functions', 'Special occasions'], image: { src: photo(4), alt: 'JS Photo Artist portfolio photograph', pos: '50% 50%' } },
-  { id: 'kids', title: 'Baby & kids photography', blurb: 'Bright, playful portraits that preserve each little personality.', items: ['Outdoor baby photoshoots', 'Kids photography', 'Creative portraits', 'Family portraits'], image: { src: photo(5), alt: 'JS Photo Artist portfolio photograph', pos: '50% 50%' } },
-  { id: 'albums', title: 'Albums, prints & photo gifts', blurb: 'Bring favourite photographs off the screen and into keepsakes made to revisit.', items: ['Wedding and reception albums', 'Album designing', 'Customized photo frames', 'Customized photo gifts', 'Photo printing'], image: { src: photo(6), alt: 'JS Photo Artist portfolio photograph', pos: '50% 50%' } },
+  { id: 'wedding', title: 'Wedding photography & videography', blurb: 'The rituals, people and small in-between moments that make your day yours.', items: ['Traditional wedding photography', 'Candid wedding photography', 'Wedding videography', 'Reception coverage', 'Wedding highlights'], image: { src: '/images/weddings/wedding-01.webp', alt: 'Wedding ceremony photography by JS Photo Artist', pos: '50% 50%' } },
+  { id: 'couple', title: 'Couple & pre-wedding portraits', blurb: 'Natural portraits that leave room for the two of you to be yourselves.', items: ['Couple photography', 'Outdoor couple sessions', 'Pre-wedding concepts', 'Post-wedding portraits'], image: { src: '/images/couples/couple-01.webp', alt: 'Couple portrait session by JS Photo Artist', pos: '50% 50%' } },
+  { id: 'events', title: 'Events & family celebrations', blurb: 'Family milestones and celebrations, remembered through honest photographs.', items: ['Puberty ceremonies', 'Birthdays', 'Family functions', 'Special occasions'], image: { src: '/images/events/event-01.webp', alt: 'Family celebration photographed by JS Photo Artist', pos: '50% 50%' } },
+  { id: 'kids', title: 'Baby & kids photography', blurb: 'Bright, playful portraits that preserve each little personality.', items: ['Outdoor baby photoshoots', 'Kids photography', 'Creative portraits', 'Family portraits'], image: { src: '/images/baby-kids/kids-01.webp', alt: 'Baby and kids portrait photography by JS Photo Artist', pos: '50% 50%' } },
+  { id: 'albums', title: 'Albums, prints & photo gifts', blurb: 'Bring favourite photographs off the screen and into keepsakes made to revisit.', items: ['Wedding and reception albums', 'Album designing', 'Customized photo frames', 'Customized photo gifts', 'Photo printing'], image: { src: '/images/printing/print-01.webp', alt: 'Photo printing and keepsakes by JS Photo Artist', pos: '50% 50%' } },
 ]
 
 export type Category = 'Portfolio'
@@ -80,8 +80,8 @@ export const portfolio: Work[] = uploadedPhotos.map((_, i) => ({
 }))
 
 export const albumShowcase = [
-  { label: 'Featured photograph 01', img: { src: photo(7), alt: 'JS Photo Artist original photograph' }, w: 1200, h: 800 },
-  { label: 'Featured photograph 02', img: { src: photo(8), alt: 'JS Photo Artist original photograph' }, w: 1200, h: 800 },
-  { label: 'Featured photograph 03', img: { src: photo(9), alt: 'JS Photo Artist original photograph' }, w: 1200, h: 800 },
+  { label: 'Wedding album design', img: { src: '/images/albums/album-02.webp', alt: 'Wedding album design by JS Photo Artist' }, w: 1200, h: 800 },
+  { label: 'Printed wedding memories', img: { src: '/images/albums/album-03.webp', alt: 'Printed wedding album by JS Photo Artist' }, w: 1200, h: 800 },
+  { label: 'Keepsake album', img: { src: '/images/albums/album-04.webp', alt: 'Wedding keepsake album by JS Photo Artist' }, w: 1200, h: 800 },
 ]
 export const testimonials: { quote: string; name: string; occasion?: string }[] = []
