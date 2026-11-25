@@ -247,3 +247,17 @@ header.fixed.inset-x-0.top-0 button{color:#252229!important}
 @media(min-width:1024px){#portfolio .portfolio-instagram-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}#portfolio .gallery-photo:hover img{transform:scale(1.065);filter:saturate(1.04)}#portfolio .gallery-photo:hover .gallery-photo-caption,#portfolio .gallery-photo:focus-visible .gallery-photo-caption{opacity:1;transform:translateY(0)}}
 @media(max-width:639px){#portfolio .portfolio-filter{justify-content:center}#portfolio .portfolio-filter button{padding:8px 12px!important;font-size:.62rem}#portfolio .portfolio-instagram-grid{gap:5px}#portfolio .gallery-photo-caption{padding:24px 7px 7px}#portfolio .gallery-photo-caption span:first-child{font-size:.68rem}#portfolio .gallery-photo-caption span:last-child{font-size:.46rem;letter-spacing:.06em}}
 @media(prefers-reduced-motion:reduce){#portfolio .gallery-photo,#portfolio .gallery-photo img,#portfolio .gallery-photo-caption{transition:none!important;animation:none!important;transform:none!important}#portfolio .gallery-photo{opacity:1!important}}
+
+/* Cinematic, gentle push-pull motion across every hero slide. */
+.hero-slide-image{transform:scale(1.025);transform-origin:center;will-change:transform}
+.hero-slide-image-active{animation:hero-photo-breathe 4.5s cubic-bezier(.42,0,.58,1) both}
+@keyframes hero-photo-breathe{0%{transform:scale(1.025)}48%{transform:scale(1.085)}100%{transform:scale(1.025)}}
+/* Compact, consistent floating contact actions using familiar brand cues. */
+.quick-actions{position:fixed;right:16px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:35;display:flex;flex-direction:column;align-items:center;gap:10px}
+.quick-action{display:grid;width:48px;height:48px;place-items:center;border:1px solid rgba(255,255,255,.82);border-radius:50%;color:#fff;box-shadow:0 7px 22px rgba(28,13,34,.2);transition:transform .22s ease,box-shadow .22s ease,filter .22s ease}
+.quick-action:hover,.quick-action:focus-visible{transform:translateY(-2px) scale(1.06);box-shadow:0 10px 28px rgba(28,13,34,.25);filter:brightness(1.06)}
+.quick-action-whatsapp{background:#168b52}
+.quick-action-instagram{background:linear-gradient(145deg,#7b2b9c 0%,#c13584 52%,#f77737 100%)}
+.quick-action-call{background:#39104b}
+@media(max-width:480px){.quick-actions{right:12px;bottom:calc(14px + env(safe-area-inset-bottom));gap:8px}.quick-action{width:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){.hero-slide-image-active{animation:none!important;transform:none!important}.quick-action{transition:none!important}}
