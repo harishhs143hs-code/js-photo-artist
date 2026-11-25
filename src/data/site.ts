@@ -123,7 +123,6 @@ export const portfolio: Work[] = [
   { src: '/images/couples/couple-03.webp', w: 1200, h: 800, alt: 'Pre-wedding shoot by JS Photo Artist', title: 'Pre-Wedding Shoot', cats: ['Couples'], pos: '50% 50%' },
   { src: '/images/couples/couple-04.webp', w: 800, h: 1000, alt: 'Couple photography by JS Photo Artist', title: 'Couple Portrait', cats: ['Couples'], pos: '50% 40%' },
   { src: '/images/couples/couple-05.webp', w: 1200, h: 800, alt: 'Outdoor couple photography', title: 'Together', cats: ['Couples'], pos: '50% 50%' },
-  { src: '/images/albums/022.webp', w: 1200, h: 800, alt: 'Chillout couple portrait JS Photo Artist', title: 'Evening Glow', cats: ['Couples'], pos: '50% 40%' },
   { src: '/images/albums/023.webp', w: 800, h: 1000, alt: 'Couple moment by JS Photo Artist', title: 'Intimate Moment', cats: ['Couples'], pos: '50% 50%' },
   { src: '/images/albums/025.webp', w: 1200, h: 800, alt: 'Couple outdoor session JS Photo Artist', title: 'Garden Session', cats: ['Couples'], pos: '50% 50%' },
   { src: '/images/albums/034.webp', w: 1200, h: 800, alt: 'Couple portrait by JS Photo Artist', title: 'Forever Yours', cats: ['Couples'], pos: '50% 40%' },
@@ -132,12 +131,9 @@ export const portfolio: Work[] = [
   { src: '/images/baby-kids/kids-01.webp', w: 800, h: 1000, alt: 'Baby photography by JS Photo Artist', title: 'Little Wonder', cats: ['Baby & Kids'], pos: '50% 30%' },
   { src: '/images/baby-kids/kids-02.webp', w: 800, h: 1000, alt: 'Kids portrait by JS Photo Artist', title: 'Kids Portrait', cats: ['Baby & Kids'], pos: '50% 30%' },
   { src: '/images/baby-kids/kids-03.webp', w: 1200, h: 800, alt: 'Baby photoshoot JS Photo Artist', title: 'Baby Joy', cats: ['Baby & Kids'], pos: '50% 50%' },
-  { src: '/images/albums/015.webp', w: 1200, h: 800, alt: 'Newborn photography by JS Photo Artist', title: 'Newborn Love', cats: ['Baby & Kids'], pos: '50% 40%' },
   { src: '/images/albums/017.webp', w: 800, h: 1000, alt: 'Baby portrait by JS Photo Artist', title: 'Baby Portrait', cats: ['Baby & Kids'], pos: '50% 30%' },
-  { src: '/images/albums/018.webp', w: 1200, h: 800, alt: 'Maternity photography by JS Photo Artist', title: 'Baby Shower', cats: ['Baby & Kids'], pos: '50% 50%' },
   { src: '/images/albums/028.webp', w: 1200, h: 800, alt: 'Kids photography by JS Photo Artist', title: 'Growing Up', cats: ['Baby & Kids'], pos: '50% 50%' },
   { src: '/images/albums/032.webp', w: 1200, h: 800, alt: 'Baby photography session JS Photo Artist', title: 'Bundle of Joy', cats: ['Baby & Kids'], pos: '50% 50%' },
-  { src: '/images/albums/eb43431b-18c4-41a4-bec8-abac7a035c9c.webp', w: 1200, h: 800, alt: 'Silhouette family portrait JS Photo Artist', title: 'Silhouette Family', cats: ['Baby & Kids'], pos: '50% 30%' },
 
   // — Events —
   { src: '/images/events/event-01.webp', w: 1200, h: 800, alt: 'Family celebration by JS Photo Artist', title: 'Family Celebration', cats: ['Events'], pos: '50% 50%' },
