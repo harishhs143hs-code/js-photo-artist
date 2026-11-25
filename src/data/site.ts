@@ -45,7 +45,36 @@ export type Slide = { src: string; mobile: string; alt: string; pos: string; mob
 // Use five distinct original studio photographs for the hero. These are removed from the
 // portfolio list below so no photograph is repeated between the slideshow and gallery.
 export const featuredPhotoIndexes = [0, 1, 2, 3, 4] as const
-export const heroSlides: Slide[] = []
+export const heroSlides: Slide[] = [
+  {
+    src: '/images/albums/022 copy.webp',
+    mobile: '/images/albums/022 copy.webp',
+    alt: 'Couple chillout portrait by JS Photo Artist',
+    pos: '50% 40%',
+    mobilePos: '50% 40%',
+  },
+  {
+    src: '/images/albums/001_copy copy.webp',
+    mobile: '/images/albums/001_copy copy.webp',
+    alt: 'Traditional hand holding ceremony by JS Photo Artist',
+    pos: '50% 50%',
+    mobilePos: '50% 50%',
+  },
+  {
+    src: '/images/albums/015 copy.webp',
+    mobile: '/images/albums/015 copy.webp',
+    alt: 'Couple silhouette portrait by JS Photo Artist',
+    pos: '50% 30%',
+    mobilePos: '50% 30%',
+  },
+  {
+    src: '/images/albums/018 copy.webp',
+    mobile: '/images/albums/018 copy.webp',
+    alt: 'Baby shower maternity photography by JS Photo Artist',
+    pos: '50% 50%',
+    mobilePos: '50% 50%',
+  },
+]
 
 export type Img = { src: string; alt: string; pos?: string }
 export const intro = {
