@@ -89,13 +89,6 @@ export const services: ServiceGroup[] = [
     image: { src: '/images/baby-kids/kids-02.webp', alt: 'Baby and kids portrait photography by JS Photo Artist', pos: '50% 30%' },
   },
   {
-    id: 'films',
-    title: 'Cinematic films & reels',
-    blurb: 'Your wedding day crafted into a film you will want to watch again and again.',
-    items: ['Wedding films', 'Highlight reels', 'Cinematic edits', 'Instagram reels'],
-    image: { src: '/images/films/film-01.webp', alt: 'Cinematic wedding film by JS Photo Artist', pos: '50% 50%' },
-  },
-  {
     id: 'albums',
     title: 'Albums, prints & photo gifts',
     blurb: 'Bring favourite photographs off the screen and into keepsakes made to revisit.',
@@ -105,7 +98,7 @@ export const services: ServiceGroup[] = [
 ]
 
 export type Category = 'Weddings' | 'Couples' | 'Baby & Kids' | 'Events' | 'Films'
-export const categories: Category[] = ['Weddings', 'Couples', 'Baby & Kids', 'Events', 'Films']
+export const categories: Category[] = ['Weddings', 'Couples', 'Baby & Kids', 'Events']
 
 export type Work = { src: string; w: number; h: number; alt: string; title: string; cats: Category[]; pos?: string }
 
@@ -153,12 +146,6 @@ export const portfolio: Work[] = [
   { src: '/images/events/event-03.webp', w: 800, h: 1000, alt: 'Event coverage by JS Photo Artist', title: 'The Gathering', cats: ['Events'], pos: '50% 40%' },
   { src: '/images/albums/008.jpg.jpeg', w: 1200, h: 800, alt: 'Event photography by JS Photo Artist', title: 'Celebration', cats: ['Events'], pos: '50% 50%' },
 
-  // — Films —
-  { src: '/images/films/film-01.webp', w: 1200, h: 675, alt: 'Wedding film by JS Photo Artist', title: 'Wedding Film', cats: ['Films'], pos: '50% 50%' },
-  { src: '/images/films/film-02.webp', w: 1200, h: 675, alt: 'Cinematic wedding film', title: 'Cinematic Reel', cats: ['Films'], pos: '50% 50%' },
-  { src: '/images/films/film-03.webp', w: 1200, h: 675, alt: 'Wedding story film by JS Photo Artist', title: 'The Story', cats: ['Films'], pos: '50% 50%' },
-  { src: '/images/cinematic/cinematic-01.webp', w: 1200, h: 800, alt: 'Cinematic photography by JS Photo Artist', title: 'Cinematic Frame', cats: ['Films'], pos: '50% 50%' },
-  { src: '/images/cinematic/cinematic-02.webp', w: 800, h: 1000, alt: 'Cinematic portrait by JS Photo Artist', title: 'Cinematic Portrait', cats: ['Films'], pos: '50% 40%' },
 ]
 
 export const albumShowcase: Img[] = [
