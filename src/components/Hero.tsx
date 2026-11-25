@@ -55,11 +55,12 @@ export default function Hero() {
           Stories from <em className="font-normal">JS Photo Artist.</em>
         </h1>
         <p className="mt-5 max-w-md text-base leading-relaxed text-white/85 sm:text-lg">
-          Wedding photography · films · stories that stay with you.
+          Wedding, baby and event photography in Thiruninravur—beautiful moments, thoughtfully captured.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a href="#portfolio" className="btn-light">Explore Our Work</a>
-          <a href={waLink(site.defaultWa)} target="_blank" rel="noopener noreferrer" className="btn-line">Enquire Now</a>
+          <a href="#contact" className="btn-line">Check Dates &amp; Packages</a>
+          <a href={waLink(site.defaultWa)} target="_blank" rel="noopener noreferrer" className="btn-line">WhatsApp Enquiry</a>
         </div>
       </div>
 
