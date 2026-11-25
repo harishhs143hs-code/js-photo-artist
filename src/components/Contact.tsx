@@ -5,8 +5,7 @@ import Reveal from '../lib/Reveal'
 
 type Values = { name: string; phone: string; email: string; service: string; date: string; location: string; message: string }
 const empty: Values = { name: '', phone: '', email: '', service: '', date: '', location: '', message: '' }
-const KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined
-type Status = 'idle' | 'sending' | 'sent' | 'error' | 'unconfigured'
+type Status = 'idle' | 'opening'
 
 const field = 'w-full border-0 border-b border-ink/25 bg-transparent px-0 py-3 text-[0.95rem] placeholder:text-ink/40 focus:border-brand focus:outline-none focus:ring-0'
 
@@ -36,19 +35,11 @@ export default function Contact() {
   const summary = () =>
     `Hello JS Photo Artist, I would like to enquire.\nName: ${v.name}\nPhone: ${v.phone}${v.email ? `\nEmail: ${v.email}` : ''}\nService: ${v.service}${v.date ? `\nEvent date: ${v.date}` : ''}${v.location ? `\nLocation: ${v.location}` : ''}${v.message ? `\nMessage: ${v.message}` : ''}`
 
-  const submit = async (e: FormEvent) => {
+  const submit = (e: FormEvent) => {
     e.preventDefault()
     if (!validate()) return
-    if (!KEY) { setStatus('unconfigured'); return } // honest: nothing is sent until a form service is configured
-    setStatus('sending')
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ access_key: KEY, subject: 'New enquiry – JS Photo Artist website', ...v }),
-      })
-      const data = await res.json()
-      if (data.success) { setStatus('sent'); setV(empty) } else setStatus('error')
-    } catch { setStatus('error') }
+    setStatus('opening')
+    window.location.href = waLink(summary())
   }
 
   const E = ({ k }: { k: keyof Values }) => err[k] ? <p id={`${k}-e`} className="mt-1 text-xs text-red-700">{err[k]}</p> : null
@@ -96,17 +87,8 @@ export default function Contact() {
               <div><label htmlFor="location" className="sr-only">Location</label><input id="location" placeholder="Event location" className={field} value={v.location} onChange={set('location')} /></div>
               <div className="sm:col-span-2"><label htmlFor="message" className="sr-only">Message</label><textarea id="message" rows={4} placeholder="Tell us about your occasion" className={field} value={v.message} onChange={set('message')} /></div>
               <div className="sm:col-span-2">
-                <button type="submit" disabled={status === 'sending'} className="btn-solid disabled:opacity-60">{status === 'sending' ? 'Sending…' : 'Send enquiry'}</button>
-                <div aria-live="polite" className="mt-5 text-sm">
-                  {status === 'sent' && <p className="text-brand">Thank you. Your enquiry has been sent and we will get back to you.</p>}
-                  {status === 'error' && <p className="text-red-700">Something went wrong sending the form. Please try WhatsApp or call {site.phone}.</p>}
-                  {status === 'unconfigured' && (
-                    <div className="border-l-2 border-brand bg-lavender/50 p-4">
-                      <p>The online form isn't connected yet, so nothing has been sent. You can send these same details on WhatsApp instead:</p>
-                      <a className="btn-solid mt-3" target="_blank" rel="noopener noreferrer" href={waLink(summary())}><MessageCircle size={16} /> Send on WhatsApp</a>
-                    </div>
-                  )}
-                </div>
+                <button type="submit" className="btn-solid">Continue to WhatsApp</button>
+                <p className="sm:col-span-2 mt-3 text-sm text-ink/60">Your details will be added to a WhatsApp message. Review it and tap Send to submit your enquiry.</p>
               </div>
             </form>
           </Reveal>
