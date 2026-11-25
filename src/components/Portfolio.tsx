@@ -3,7 +3,7 @@ import { portfolio, categories, type Category } from '../data/site'
 import Reveal from '../lib/Reveal'
 
 function GalleryPhoto({ work, index }: { work: typeof portfolio[number]; index: number }) {
-  const ref = useRef<HTMLButtonElement>(null)
+  const ref = useRef<HTMLElement>(null)
   useEffect(() => {
     const node = ref.current
     if (!node) return
