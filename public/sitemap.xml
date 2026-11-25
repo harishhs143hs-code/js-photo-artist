@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://js-photo-artist.vercel.app/</loc>
-  </url>
+  <url><loc>https://js-photo-artist.vercel.app/</loc></url>
+  <url><loc>https://js-photo-artist.vercel.app/services/wedding</loc></url>
+  <url><loc>https://js-photo-artist.vercel.app/services/couple</loc></url>
+  <url><loc>https://js-photo-artist.vercel.app/services/events</loc></url>
+  <url><loc>https://js-photo-artist.vercel.app/services/kids</loc></url>
+  <url><loc>https://js-photo-artist.vercel.app/services/albums</loc></url>
 </urlset>
