@@ -17,7 +17,7 @@ export default function Portfolio() {
           <h2 id="portfolio-h" className="font-display text-display-lg font-medium">Selected <em className="font-normal text-brand">works</em></h2>
         </Reveal>
         {active ? (
-          <div className="relative mt-10 flex min-h-[360px] items-center justify-center overflow-hidden bg-[#eee7f0] sm:mt-12 sm:min-h-[520px] lg:min-h-[680px]">
+          <div className="portfolio-stage relative mt-10 flex items-center justify-center overflow-hidden bg-[#eee7f0] sm:mt-12">
             <img
               key={active.src}
               src={active.src}
@@ -26,13 +26,13 @@ export default function Portfolio() {
               height={active.h}
               loading="eager"
               decoding="async"
-              className="block max-h-[78vh] w-full object-contain"
+              className="portfolio-stage-image"
               style={{ objectPosition: active.pos }}
             />
-            <button type="button" onClick={previous} aria-label="Previous photograph" className="absolute left-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-ink shadow-sm transition hover:bg-white sm:left-5 sm:h-14 sm:w-14">
+            <button type="button" onClick={previous} aria-label="Previous photograph" className="portfolio-stage-control absolute left-3 top-1/2 grid -translate-y-1/2 place-items-center rounded-full bg-white/90 text-ink shadow-sm transition hover:bg-white sm:left-5">
               <ChevronLeft size={26} />
             </button>
-            <button type="button" onClick={next} aria-label="Next photograph" className="absolute right-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-ink shadow-sm transition hover:bg-white sm:right-5 sm:h-14 sm:w-14">
+            <button type="button" onClick={next} aria-label="Next photograph" className="portfolio-stage-control absolute right-3 top-1/2 grid -translate-y-1/2 place-items-center rounded-full bg-white/90 text-ink shadow-sm transition hover:bg-white sm:right-5">
               <ChevronRight size={26} />
             </button>
           </div>
