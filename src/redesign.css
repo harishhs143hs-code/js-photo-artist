@@ -222,3 +222,11 @@ header.fixed.inset-x-0.top-0 button{color:#252229!important}
   #home>.mx-auto{padding-top:112px!important;padding-bottom:140px!important;box-sizing:border-box!important}
   #home h1{line-height:1.08!important}
 }
+
+
+/* Mobile navigation fix: opaque panel, never let the hero bleed through the open menu. */
+#mobile-menu{position:fixed!important;inset:64px 0 0!important;z-index:100!important;display:flex!important;flex-direction:column!important;justify-content:center!important;overflow-y:auto!important;background:#39104b!important;background-image:linear-gradient(145deg,#2b0738 0%,#39104b 55%,#5b1b70 100%)!important;opacity:1!important;isolation:isolate!important;}
+#mobile-menu::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(145deg,#2b0738 0%,#39104b 55%,#5b1b70 100%);}
+#mobile-menu ul,#mobile-menu>a{position:relative;z-index:1;}
+#mobile-menu a{color:#fff!important;text-shadow:0 1px 12px rgba(0,0,0,.12);}
+@media(max-width:767px){#mobile-menu{padding:28px 26px 36px!important;}#mobile-menu ul{margin:0!important;}#mobile-menu li a{font-size:clamp(1.8rem,7vw,2.45rem)!important;line-height:1.2!important;padding-block:10px!important;}}
