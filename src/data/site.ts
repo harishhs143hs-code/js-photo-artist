@@ -1,4 +1,4 @@
-// JS Photo Artist — original portfolio photographs plus the existing album cover asset.
+// JS Photo Artist — 15 original portfolio photographs plus the existing album cover asset.
 const WA_NUMBER = '919840157425'
 export const waLink = (text: string) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`
 
