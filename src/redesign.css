@@ -262,3 +262,5 @@ header.fixed.inset-x-0.top-0 button{color:#252229!important}
 .quick-action-call{background:#39104b}
 @media(max-width:480px){.quick-actions{right:12px;bottom:calc(14px + env(safe-area-inset-bottom));gap:8px}.quick-action{width:44px;height:44px}}
 @media(prefers-reduced-motion:reduce){.hero-slide-image-active{animation:none!important;transform:none!important}.quick-action{transition:none!important}}
+
+/* Hero motion polish deployed with the current slideshow transition update. */
