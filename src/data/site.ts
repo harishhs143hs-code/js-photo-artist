@@ -84,13 +84,6 @@ export const services: ServiceGroup[] = [
     image: { src: '/images/baby-kids/kids-02.webp', alt: 'Baby and kids portrait photography by JS Photo Artist', pos: '50% 30%' },
   },
   {
-    id: 'films',
-    title: 'Cinematic films & reels',
-    blurb: 'Your wedding day crafted into a film you will want to watch again and again.',
-    items: ['Wedding films', 'Highlight reels', 'Cinematic edits', 'Instagram reels'],
-    image: { src: '/images/films/film-01.webp', alt: 'Cinematic wedding film by JS Photo Artist', pos: '50% 50%' },
-  },
-  {
     id: 'albums',
     title: 'Albums, prints & photo gifts',
     blurb: 'Bring favourite photographs off the screen and into keepsakes made to revisit.',
@@ -99,8 +92,8 @@ export const services: ServiceGroup[] = [
   },
 ]
 
-export type Category = 'Weddings' | 'Couples' | 'Baby & Kids' | 'Events' | 'Films'
-export const categories: Category[] = ['Weddings', 'Couples', 'Baby & Kids', 'Events', 'Films']
+export type Category = 'Weddings' | 'Couples' | 'Baby & Kids' | 'Events'
+export const categories: Category[] = ['Weddings', 'Couples', 'Baby & Kids', 'Events']
 
 export type Work = { src: string; w: number; h: number; alt: string; title: string; cats: Category[]; pos?: string }
 
