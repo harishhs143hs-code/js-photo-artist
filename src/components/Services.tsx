@@ -15,7 +15,6 @@ function Links({ s, dark }: { s: ServiceGroup; dark?: boolean }) {
 function Group({ s, i }: { s: ServiceGroup; i: number }) {
   const dark = i === services.length - 1
   const num = String(i + 1).padStart(2, '0')
-  const flip = i % 2 === 1
   const list = (
     <ul className={`mt-8 grid max-w-xl gap-x-8 sm:grid-cols-2 ${dark ? 'text-white/85' : 'text-ink/80'}`}>
       {s.items.map((it) => (
@@ -24,7 +23,7 @@ function Group({ s, i }: { s: ServiceGroup; i: number }) {
     </ul>
   )
   const text = (
-    <Reveal className={flip ? 'md:col-span-5' : 'md:col-span-6 md:col-start-7 md:self-end'}>
+    <Reveal className="md:col-span-10 md:col-start-2">
       <span className={`font-display text-6xl ${dark ? 'text-violet' : 'text-lavender'}`}>{num}</span>
       <h3 className="mt-2 max-w-[18ch] font-display text-display-md font-medium">{s.title}</h3>
       <p className={`mt-4 max-w-sm ${dark ? 'text-white/70' : 'text-ink/65'}`}>{s.blurb}</p>
@@ -32,16 +31,10 @@ function Group({ s, i }: { s: ServiceGroup; i: number }) {
       <Links s={s} dark={dark} />
     </Reveal>
   )
-  const img = (
-    <Reveal className={flip ? 'md:col-span-7 md:col-start-6' : 'md:col-span-5 md:col-start-1 md:row-start-1'}>
-      <img src={s.image.src} alt={s.image.alt} loading="lazy" width={1200} height={1600}
-        className={`w-full object-cover ${flip ? 'aspect-[3/2]' : 'aspect-[4/5]'}`} style={{ objectPosition: s.image.pos }} />
-    </Reveal>
-  )
   return (
     <div className={`${dark ? 'bg-plum text-white' : ''}`}>
       <div className="mx-auto grid max-w-[96rem] items-center gap-10 px-5 py-16 sm:px-8 md:grid-cols-12 md:gap-6 md:py-24 lg:px-12">
-        {flip ? <>{text}{img}</> : <>{img}{text}</>}
+        {text}
       </div>
     </div>
   )
