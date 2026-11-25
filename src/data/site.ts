@@ -65,10 +65,16 @@ export const services: ServiceGroup[] = [
 export type Category = 'Portfolio'
 export const categories: Category[] = ['Portfolio']
 export type Work = { src: string; w: number; h: number; alt: string; title: string; cats: Category[]; pos?: string }
+const portfolioTitles = [
+  'Bridal Mehndi Photography',
+  'Blue Dreams – Baby Photoshoot',
+  'Little Sunshine – Baby Photoshoot',
+]
+
 export const portfolio: Work[] = uploadedPhotos.map((_, i) => ({
   src: photo(i), w: 1200, h: 800,
-  title: `Portfolio Photograph ${String(i + 1).padStart(2, '0')}`,
-  alt: `JS Photo Artist original portfolio photograph ${i + 1}`,
+  title: portfolioTitles[i] ?? `Portfolio Photograph ${String(i + 1).padStart(2, '0')}`,
+  alt: portfolioTitles[i] ?? `JS Photo Artist original portfolio photograph ${i + 1}`,
   cats: ['Portfolio'], pos: '50% 50%',
 }))
 
