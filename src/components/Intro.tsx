@@ -3,8 +3,8 @@ import Reveal from '../lib/Reveal'
 
 export default function Intro() {
   return (
-    <section id="about" className="mx-auto max-w-[96rem] px-5 py-24 sm:px-8 sm:py-32 lg:px-12">
-      <div className="grid items-start gap-14 lg:grid-cols-12">
+    <section id="about" className="w-full">
+      <div className="mx-auto grid w-full max-w-[96rem] items-start gap-14 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-12 lg:px-12">
         <Reveal className="lg:col-span-10 lg:col-start-2 lg:pt-20">
           <p className="eyebrow mb-6">About the studio · Thiruninravur</p>
           <h2 className="font-display text-display-lg font-medium">Photography Studio in <em className="font-normal text-brand">Thiruninravur.</em></h2>
