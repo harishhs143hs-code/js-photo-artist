@@ -39,7 +39,7 @@ export default function Hero() {
             alt={slide.alt}
             loading={i === 0 ? 'eager' : 'lazy'}
             decoding="async"
-            className="h-full w-full object-cover"
+            className={`hero-slide-image h-full w-full object-cover ${i === current ? 'hero-slide-image-active' : ''}`}
             style={{ objectPosition: slide.pos }}
           />
         </div>
