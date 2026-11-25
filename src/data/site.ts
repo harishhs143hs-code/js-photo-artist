@@ -20,31 +20,7 @@ export const site = {
   defaultWa: 'Hello JS Photo Artist, I would like to enquire about your photography services. Please share more details.',
 }
 
-// Original client-provided portfolio photographs. Do not substitute generated or stock images.
-export const uploadedPhotos = [
-  '001_copy.webp',
-  '006.jpg.jpeg',
-  '008.jpg.jpeg',
-  '015.webp',
-  '017.webp',
-  '018.webp',
-  '019.webp',
-  '022.webp',
-  '023.webp',
-  '025.webp',
-  '028.webp',
-  '030.webp',
-  '031.webp',
-  '032.webp',
-  '034.webp',
-  'album-01.webp',
-] as const
-const photo = (index: number) => `/images/albums/${uploadedPhotos[index]}`
-
 export type Slide = { src: string; mobile: string; alt: string; pos: string; mobilePos: string }
-// Use five distinct original studio photographs for the hero. These are removed from the
-// portfolio list below so no photograph is repeated between the slideshow and gallery.
-export const featuredPhotoIndexes = [0, 1, 2, 3, 4] as const
 export const heroSlides: Slide[] = [
   {
     src: '/images/albums/022 copy.webp',
@@ -84,25 +60,114 @@ export const intro = {
 
 export type ServiceGroup = { id: string; title: string; blurb: string; items: string[]; image: Img }
 export const services: ServiceGroup[] = [
-  { id: 'wedding', title: 'Wedding photography & videography', blurb: 'The rituals, people and small in-between moments that make your day yours.', items: ['Traditional wedding photography', 'Candid wedding photography', 'Wedding videography', 'Reception coverage', 'Wedding highlights'], image: { src: '/images/weddings/wedding-01.webp', alt: 'Wedding ceremony photography by JS Photo Artist', pos: '50% 50%' } },
-  { id: 'couple', title: 'Couple & pre-wedding portraits', blurb: 'Natural portraits that leave room for the two of you to be yourselves.', items: ['Couple photography', 'Outdoor couple sessions', 'Pre-wedding concepts', 'Post-wedding portraits'], image: { src: '/images/couples/couple-01.webp', alt: 'Couple portrait session by JS Photo Artist', pos: '50% 50%' } },
-  { id: 'events', title: 'Events & family celebrations', blurb: 'Family milestones and celebrations, remembered through honest photographs.', items: ['Puberty ceremonies', 'Birthdays', 'Family functions', 'Special occasions'], image: { src: '/images/events/event-01.webp', alt: 'Family celebration photographed by JS Photo Artist', pos: '50% 50%' } },
-  { id: 'kids', title: 'Baby & kids photography', blurb: 'Bright, playful portraits that preserve each little personality.', items: ['Outdoor baby photoshoots', 'Kids photography', 'Creative portraits', 'Family portraits'], image: { src: '/images/baby-kids/kids-01.webp', alt: 'Baby and kids portrait photography by JS Photo Artist', pos: '50% 50%' } },
-  { id: 'albums', title: 'Albums, prints & photo gifts', blurb: 'Bring favourite photographs off the screen and into keepsakes made to revisit.', items: ['Wedding and reception albums', 'Album designing', 'Customized photo frames', 'Customized photo gifts', 'Photo printing'], image: { src: '/images/printing/print-01.webp', alt: 'Photo printing and keepsakes by JS Photo Artist', pos: '50% 50%' } },
+  {
+    id: 'wedding',
+    title: 'Wedding photography & videography',
+    blurb: 'The rituals, people and small in-between moments that make your day yours.',
+    items: ['Traditional wedding photography', 'Candid wedding photography', 'Wedding videography', 'Reception coverage', 'Wedding highlights'],
+    image: { src: '/images/weddings/wedding-01.webp', alt: 'Wedding ceremony photography by JS Photo Artist', pos: '50% 50%' },
+  },
+  {
+    id: 'couple',
+    title: 'Couple & pre-wedding portraits',
+    blurb: 'Natural portraits that leave room for the two of you to be yourselves.',
+    items: ['Couple photography', 'Outdoor couple sessions', 'Pre-wedding concepts', 'Post-wedding portraits'],
+    image: { src: '/images/couples/couple-02.webp', alt: 'Couple portrait session by JS Photo Artist', pos: '50% 40%' },
+  },
+  {
+    id: 'events',
+    title: 'Events & family celebrations',
+    blurb: 'Family milestones and celebrations, remembered through honest photographs.',
+    items: ['Puberty ceremonies', 'Birthdays', 'Family functions', 'Special occasions'],
+    image: { src: '/images/events/event-02.webp', alt: 'Family celebration photographed by JS Photo Artist', pos: '50% 40%' },
+  },
+  {
+    id: 'kids',
+    title: 'Baby & kids photography',
+    blurb: 'Bright, playful portraits that preserve each little personality.',
+    items: ['Outdoor baby photoshoots', 'Kids photography', 'Creative portraits', 'Family portraits'],
+    image: { src: '/images/baby-kids/kids-02.webp', alt: 'Baby and kids portrait photography by JS Photo Artist', pos: '50% 30%' },
+  },
+  {
+    id: 'films',
+    title: 'Cinematic films & reels',
+    blurb: 'Your wedding day crafted into a film you will want to watch again and again.',
+    items: ['Wedding films', 'Highlight reels', 'Cinematic edits', 'Instagram reels'],
+    image: { src: '/images/films/film-01.webp', alt: 'Cinematic wedding film by JS Photo Artist', pos: '50% 50%' },
+  },
+  {
+    id: 'albums',
+    title: 'Albums, prints & photo gifts',
+    blurb: 'Bring favourite photographs off the screen and into keepsakes made to revisit.',
+    items: ['Wedding and reception albums', 'Album designing', 'Customized photo frames', 'Customized photo gifts', 'Photo printing'],
+    image: { src: '/images/printing/print-02.webp', alt: 'Photo printing and keepsakes by JS Photo Artist', pos: '50% 50%' },
+  },
 ]
 
-export type Category = 'Portfolio'
-export const categories: Category[] = ['Portfolio']
+export type Category = 'Weddings' | 'Couples' | 'Baby & Kids' | 'Events' | 'Films'
+export const categories: Category[] = ['Weddings', 'Couples', 'Baby & Kids', 'Events', 'Films']
+
 export type Work = { src: string; w: number; h: number; alt: string; title: string; cats: Category[]; pos?: string }
-const portfolioTitles = [
-  'Bridal Mehndi Photography',
-  'Blue Dreams – Baby Photoshoot',
-  'Little Sunshine – Baby Photoshoot',
+
+export const portfolio: Work[] = [
+  // — Weddings —
+  { src: '/images/weddings/wedding-01.webp', w: 1200, h: 800, alt: 'Wedding ceremony photography by JS Photo Artist', title: 'Wedding Ceremony', cats: ['Weddings'], pos: '50% 50%' },
+  { src: '/images/weddings/wedding-02.webp', w: 800, h: 1000, alt: 'Bridal portrait by JS Photo Artist', title: 'Bridal Portrait', cats: ['Weddings'], pos: '50% 30%' },
+  { src: '/images/weddings/wedding-03.webp', w: 1200, h: 800, alt: 'Reception celebration photography', title: 'Reception Night', cats: ['Weddings'], pos: '50% 50%' },
+  { src: '/images/weddings/wedding-04.webp', w: 1200, h: 800, alt: 'Wedding celebration by JS Photo Artist', title: 'Wedding Celebration', cats: ['Weddings'], pos: '50% 50%' },
+  { src: '/images/weddings/wedding-05.webp', w: 800, h: 1000, alt: 'Wedding couple portrait', title: 'The Couple', cats: ['Weddings'], pos: '50% 40%' },
+  { src: '/images/albums/001_copy.webp', w: 1200, h: 800, alt: 'Traditional wedding ceremony hand holding', title: 'Traditional Ceremony', cats: ['Weddings'], pos: '50% 50%' },
+  { src: '/images/albums/006.jpg.jpeg', w: 1200, h: 800, alt: 'Wedding moment by JS Photo Artist', title: 'Wedding Moment', cats: ['Weddings'], pos: '50% 50%' },
+  { src: '/images/albums/019.webp', w: 1200, h: 800, alt: 'Wedding coverage by JS Photo Artist', title: 'Wedding Story', cats: ['Weddings'], pos: '50% 50%' },
+  { src: '/images/albums/030.webp', w: 1200, h: 800, alt: 'Wedding photography JS Photo Artist', title: 'Wedding Frame', cats: ['Weddings'], pos: '50% 50%' },
+  { src: '/images/albums/031.webp', w: 800, h: 1000, alt: 'Wedding portrait by JS Photo Artist', title: 'Wedding Portrait', cats: ['Weddings'], pos: '50% 40%' },
+
+  // — Couples —
+  { src: '/images/couples/couple-01.webp', w: 1200, h: 800, alt: 'Couple portrait session by JS Photo Artist', title: 'Couple Session', cats: ['Couples'], pos: '50% 50%' },
+  { src: '/images/couples/couple-02.webp', w: 800, h: 1000, alt: 'Couple portrait outdoors', title: 'Outdoor Couple', cats: ['Couples'], pos: '50% 30%' },
+  { src: '/images/couples/couple-03.webp', w: 1200, h: 800, alt: 'Pre-wedding shoot by JS Photo Artist', title: 'Pre-Wedding Shoot', cats: ['Couples'], pos: '50% 50%' },
+  { src: '/images/couples/couple-04.webp', w: 800, h: 1000, alt: 'Couple photography by JS Photo Artist', title: 'Couple Portrait', cats: ['Couples'], pos: '50% 40%' },
+  { src: '/images/couples/couple-05.webp', w: 1200, h: 800, alt: 'Outdoor couple photography', title: 'Together', cats: ['Couples'], pos: '50% 50%' },
+  { src: '/images/albums/022.webp', w: 1200, h: 800, alt: 'Chillout couple portrait JS Photo Artist', title: 'Evening Glow', cats: ['Couples'], pos: '50% 40%' },
+  { src: '/images/albums/023.webp', w: 800, h: 1000, alt: 'Couple moment by JS Photo Artist', title: 'Intimate Moment', cats: ['Couples'], pos: '50% 50%' },
+  { src: '/images/albums/025.webp', w: 1200, h: 800, alt: 'Couple outdoor session JS Photo Artist', title: 'Garden Session', cats: ['Couples'], pos: '50% 50%' },
+  { src: '/images/albums/034.webp', w: 1200, h: 800, alt: 'Couple portrait by JS Photo Artist', title: 'Forever Yours', cats: ['Couples'], pos: '50% 40%' },
+  { src: '/images/albums/025 copy.webp', w: 800, h: 1000, alt: 'Couple photography by JS Photo Artist', title: 'Natural Couple', cats: ['Couples'], pos: '50% 50%' },
+  { src: '/images/albums/034 copy.webp', w: 1200, h: 800, alt: 'Couple portrait session JS Photo Artist', title: 'Couple Story', cats: ['Couples'], pos: '50% 50%' },
+
+  // — Baby & Kids —
+  { src: '/images/baby-kids/kids-01.webp', w: 800, h: 1000, alt: 'Baby photography by JS Photo Artist', title: 'Little Wonder', cats: ['Baby & Kids'], pos: '50% 30%' },
+  { src: '/images/baby-kids/kids-02.webp', w: 800, h: 1000, alt: 'Kids portrait by JS Photo Artist', title: 'Kids Portrait', cats: ['Baby & Kids'], pos: '50% 30%' },
+  { src: '/images/baby-kids/kids-03.webp', w: 1200, h: 800, alt: 'Baby photoshoot JS Photo Artist', title: 'Baby Joy', cats: ['Baby & Kids'], pos: '50% 50%' },
+  { src: '/images/albums/015.webp', w: 1200, h: 800, alt: 'Newborn photography by JS Photo Artist', title: 'Newborn Love', cats: ['Baby & Kids'], pos: '50% 40%' },
+  { src: '/images/albums/017.webp', w: 800, h: 1000, alt: 'Baby portrait by JS Photo Artist', title: 'Baby Portrait', cats: ['Baby & Kids'], pos: '50% 30%' },
+  { src: '/images/albums/018.webp', w: 1200, h: 800, alt: 'Maternity photography by JS Photo Artist', title: 'Baby Shower', cats: ['Baby & Kids'], pos: '50% 50%' },
+  { src: '/images/albums/028.webp', w: 1200, h: 800, alt: 'Kids photography by JS Photo Artist', title: 'Growing Up', cats: ['Baby & Kids'], pos: '50% 50%' },
+  { src: '/images/albums/028 copy.webp', w: 800, h: 1000, alt: 'Family portrait with baby JS Photo Artist', title: 'Family Moment', cats: ['Baby & Kids'], pos: '50% 50%' },
+  { src: '/images/albums/032.webp', w: 1200, h: 800, alt: 'Baby photography session JS Photo Artist', title: 'Bundle of Joy', cats: ['Baby & Kids'], pos: '50% 50%' },
+  { src: '/images/albums/eb43431b-18c4-41a4-bec8-abac7a035c9c.webp', w: 1200, h: 800, alt: 'Silhouette family portrait JS Photo Artist', title: 'Silhouette Family', cats: ['Baby & Kids'], pos: '50% 30%' },
+
+  // — Events —
+  { src: '/images/events/event-01.webp', w: 1200, h: 800, alt: 'Family celebration by JS Photo Artist', title: 'Family Celebration', cats: ['Events'], pos: '50% 50%' },
+  { src: '/images/events/event-02.webp', w: 1200, h: 800, alt: 'Event photography by JS Photo Artist', title: 'Special Occasion', cats: ['Events'], pos: '50% 50%' },
+  { src: '/images/events/event-03.webp', w: 800, h: 1000, alt: 'Event coverage by JS Photo Artist', title: 'The Gathering', cats: ['Events'], pos: '50% 40%' },
+  { src: '/images/albums/008.jpg.jpeg', w: 1200, h: 800, alt: 'Event photography by JS Photo Artist', title: 'Celebration', cats: ['Events'], pos: '50% 50%' },
+
+  // — Films —
+  { src: '/images/films/film-01.webp', w: 1200, h: 675, alt: 'Wedding film by JS Photo Artist', title: 'Wedding Film', cats: ['Films'], pos: '50% 50%' },
+  { src: '/images/films/film-02.webp', w: 1200, h: 675, alt: 'Cinematic wedding film', title: 'Cinematic Reel', cats: ['Films'], pos: '50% 50%' },
+  { src: '/images/films/film-03.webp', w: 1200, h: 675, alt: 'Wedding story film by JS Photo Artist', title: 'The Story', cats: ['Films'], pos: '50% 50%' },
+  { src: '/images/cinematic/cinematic-01.webp', w: 1200, h: 800, alt: 'Cinematic photography by JS Photo Artist', title: 'Cinematic Frame', cats: ['Films'], pos: '50% 50%' },
+  { src: '/images/cinematic/cinematic-02.webp', w: 800, h: 1000, alt: 'Cinematic portrait by JS Photo Artist', title: 'Cinematic Portrait', cats: ['Films'], pos: '50% 40%' },
 ]
 
-// Omit the final album-cover asset from Selected Works; it is not a portfolio photograph.
-const excludedPortfolioIndexes = [15] as const
-export const portfolio: Work[] = []
+export const albumShowcase: Img[] = [
+  { src: '/images/albums/album-01.webp', alt: 'Wedding album cover by JS Photo Artist' },
+  { src: '/images/albums/album-02.webp', alt: 'Reception album by JS Photo Artist' },
+  { src: '/images/albums/album-03.webp', alt: 'Couple album by JS Photo Artist' },
+  { src: '/images/albums/album-04.webp', alt: 'Family album by JS Photo Artist' },
+  { src: '/images/albums/album-05.webp', alt: 'Photo keepsake by JS Photo Artist' },
+  { src: '/images/albums/album-06.webp', alt: 'Printed album by JS Photo Artist' },
+]
 
-export const albumShowcase = []
 export const testimonials: { quote: string; name: string; occasion?: string }[] = []
