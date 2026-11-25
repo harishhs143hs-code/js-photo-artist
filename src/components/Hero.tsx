@@ -43,7 +43,7 @@ export default function Hero() {
       ))}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-black/30" aria-hidden />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-[96rem] flex-col justify-end px-5 pb-28 sm:px-8 sm:pb-24 lg:px-12">
+      <div className="relative z-10 mx-auto flex h-full max-w-[96rem] flex-col items-center justify-center px-5 pb-28 text-center sm:px-8 sm:pb-24 lg:px-12">
         <p className="eyebrow mb-5 !text-white/80">{site.tagline}</p>
         <h1 className="max-w-[14ch] font-display text-display-xl font-medium sm:max-w-[16ch]">
           Every Moment Deserves to Be <em className="font-normal">Remembered.</em>
