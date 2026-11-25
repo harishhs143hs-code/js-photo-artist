@@ -46,9 +46,9 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex h-full max-w-[96rem] flex-col items-center justify-center px-5 pb-28 text-center sm:px-8 sm:pb-24 lg:px-12">
         <p className="eyebrow mb-5 !text-white/80">{site.tagline}</p>
         <h1 className="max-w-[14ch] font-display text-display-xl font-medium sm:max-w-[16ch]">
-          Every Moment Deserves to Be <em className="font-normal">Remembered.</em>
+          Stories from <em className="font-normal">JS Photo Artist.</em>
         </h1>
-        <p className="mt-5 max-w-md text-base leading-relaxed text-white/85 sm:text-lg">Photography, films and keepsakes for the moments that matter.</p>
+        <p className="mt-5 max-w-md text-base leading-relaxed text-white/85 sm:text-lg">Wedding photography · films · stories that stay with you.</p>
         <div className="mt-8 flex flex-wrap gap-3">
           <a href="#portfolio" className="btn-light">Explore Our Work</a>
           <a href={waLink(site.defaultWa)} target="_blank" rel="noopener noreferrer" className="btn-line">Enquire Now</a>
