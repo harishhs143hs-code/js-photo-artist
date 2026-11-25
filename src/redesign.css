@@ -191,19 +191,3 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 #services a:hover,#contact a:hover{box-shadow:0 8px 24px rgba(50,16,63,.12)}
 #home .btn-light:hover,#home .btn-line:hover{transform:translateY(-2px)}
 @media(prefers-reduced-motion:reduce){:where(a,button,[role="button"]){transition:none!important}#home .btn-light:hover,#home .btn-line:hover{transform:none}}
-
-
-/* Reliable image presentation and mobile-first portfolio layout */
-#portfolio .portfolio-masonry{columns:2;column-gap:8px}
-#portfolio .portfolio-photo{display:inline-block;width:100%;break-inside:avoid;margin:0 0 8px;overflow:hidden;background:#f6f0f8}
-#portfolio .portfolio-photo img{display:block;width:100%;height:auto;object-fit:contain;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
-@media(min-width:640px){#portfolio .portfolio-masonry{columns:3;column-gap:14px}#portfolio .portfolio-photo{margin-bottom:14px}}
-@media(min-width:1024px){#portfolio .portfolio-masonry{columns:4;column-gap:20px}#portfolio .portfolio-photo{margin-bottom:20px}}
-@media(hover:hover) and (pointer:fine){#portfolio .portfolio-photo:hover img{transform:scale(1.025)}}
-@media(max-width:767px){
-  #services>div:not(:first-child)>.mx-auto{gap:22px!important}
-  #services .service-photo{order:1;width:100%;max-width:460px;margin-inline:auto}
-  #services .service-copy{order:2}
-  #services .service-photo .aspect-\[4\/5\]{aspect-ratio:4/3!important;max-height:360px}
-}
-@media(prefers-reduced-motion:reduce){#portfolio .portfolio-photo img{transition:none!important}}
