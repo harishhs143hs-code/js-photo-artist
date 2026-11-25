@@ -5,14 +5,11 @@ import Reveal from '../lib/Reveal'
 
 type Values = { name: string; phone: string; email: string; service: string; date: string; location: string; message: string }
 const empty: Values = { name: '', phone: '', email: '', service: '', date: '', location: '', message: '' }
-type Status = 'idle' | 'opening'
-
 const field = 'w-full border-0 border-b border-ink/25 bg-transparent px-0 py-3 text-[0.95rem] placeholder:text-ink/40 focus:border-brand focus:outline-none focus:ring-0'
 
 export default function Contact() {
   const [v, setV] = useState<Values>(empty)
   const [err, setErr] = useState<Partial<Record<keyof Values, string>>>({})
-  const [status, setStatus] = useState<Status>('idle')
 
   useEffect(() => {
     const on = (e: Event) => setV((p) => ({ ...p, service: (e as CustomEvent<string>).detail }))
@@ -38,7 +35,6 @@ export default function Contact() {
   const submit = (e: FormEvent) => {
     e.preventDefault()
     if (!validate()) return
-    setStatus('opening')
     window.location.href = waLink(summary())
   }
 
