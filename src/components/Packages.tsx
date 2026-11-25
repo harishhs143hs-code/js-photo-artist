@@ -24,11 +24,11 @@ export default function Packages() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {packages.map((item, index) => (
             <Reveal key={item.name} delay={index * 45}>
-              <article className="flex h-full flex-col border border-lavender bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md sm:p-7">
+              <article className="group flex h-full flex-col rounded-2xl border border-lavender/80 bg-white p-6 shadow-[0_8px_30px_rgba(57,6,79,0.05)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_18px_45px_rgba(57,6,79,0.12)] sm:p-7">
                 <p className="eyebrow">Package {String(index + 1).padStart(2, '0')}</p>
                 <h3 className="mt-5 min-h-14 font-display text-2xl font-medium leading-tight">{item.name}</h3>
                 <p className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-ink/55">Starting package price</p>
-                <p className="mt-1 font-display text-4xl font-semibold text-brand">{item.price}</p>
+                <p className="mt-1 font-display text-4xl font-semibold text-brand transition-transform duration-300 group-hover:scale-[1.03] origin-left">{item.price}</p>
                 <a
                   href={waLink(`Hello JS Photo Artist, I am interested in the ${item.name} package shown at ${item.price}. Please share the package details.`)}
                   target="_blank"
