@@ -46,12 +46,12 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-7 columns-2 gap-2 sm:mt-10 sm:columns-3 sm:gap-4">
           {items.map((p, idx) => (
             <button key={p.src + cat} type="button" onClick={(e) => { lastFocus.current = e.currentTarget; setOpen(idx) }}
-              aria-label={`Open image: ${p.alt}`} className="group relative block aspect-[4/5] w-full overflow-hidden bg-lavender text-left shadow-[0_10px_35px_rgba(45,16,59,.08)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(45,16,59,.16)]">
+              aria-label={`Open image: ${p.alt}`} className="group relative mb-2 inline-block aspect-[4/5] w-full break-inside-avoid overflow-hidden bg-lavender text-left shadow-[0_8px_22px_rgba(45,16,59,.08)] transition duration-500 hover:shadow-[0_16px_36px_rgba(45,16,59,.16)] sm:mb-4">
               <img src={p.src} alt={p.alt} width={p.w} height={p.h} loading="lazy" decoding="async"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]" style={{ objectPosition: p.pos }} />
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]" style={{ objectPosition: p.pos, aspectRatio: [0.78, 1.08, 0.72, 0.9, 1.12][idx % 5] }} />
               <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-plum/90 via-plum/35 to-transparent px-4 pb-4 pt-14 text-left text-white opacity-100 transition duration-500 sm:translate-y-2 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 sm:group-focus-visible:opacity-100"><span className="block font-display text-xl leading-tight">{p.title}</span><span className="mt-1 block text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-white/75">{p.cats[0]}</span></span>
             </button>
           ))}
