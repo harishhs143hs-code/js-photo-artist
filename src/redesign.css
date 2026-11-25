@@ -248,10 +248,11 @@ header.fixed.inset-x-0.top-0 button{color:#252229!important}
 @media(max-width:639px){#portfolio .portfolio-filter{justify-content:center}#portfolio .portfolio-filter button{padding:8px 12px!important;font-size:.62rem}#portfolio .portfolio-instagram-grid{gap:5px}#portfolio .gallery-photo-caption{padding:24px 7px 7px}#portfolio .gallery-photo-caption span:first-child{font-size:.68rem}#portfolio .gallery-photo-caption span:last-child{font-size:.46rem;letter-spacing:.06em}}
 @media(prefers-reduced-motion:reduce){#portfolio .gallery-photo,#portfolio .gallery-photo img,#portfolio .gallery-photo-caption{transition:none!important;animation:none!important;transform:none!important}#portfolio .gallery-photo{opacity:1!important}}
 
-/* Cinematic, gentle push-pull motion across every hero slide. */
-.hero-slide-image{transform:scale(1.025);transform-origin:center;will-change:transform}
-.hero-slide-image-active{animation:hero-photo-breathe 4.5s cubic-bezier(.42,0,.58,1) both}
-@keyframes hero-photo-breathe{0%{transform:scale(1.025)}48%{transform:scale(1.085)}100%{transform:scale(1.025)}}
+/* Premium, slow Ken Burns motion on the active hero photo; images and framing stay untouched. */
+.hero-slide-image{transform:scale(1.035);transform-origin:center;will-change:transform}
+.hero-slide-image-active{animation:hero-photo-luxe 6.5s cubic-bezier(.42,0,.58,1) both}
+@keyframes hero-photo-luxe{0%{transform:scale(1.035)}52%{transform:scale(1.13)}100%{transform:scale(1.035)}}
+@media(prefers-reduced-motion:reduce){.hero-slide-image-active{animation:none!important;transform:scale(1.035)!important}}
 /* Compact, consistent floating contact actions using familiar brand cues. */
 .quick-actions{position:fixed;right:16px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:35;display:flex;flex-direction:column;align-items:center;gap:10px}
 .quick-action{display:grid;width:48px;height:48px;place-items:center;border:1px solid rgba(255,255,255,.82);border-radius:50%;color:#fff;box-shadow:0 7px 22px rgba(28,13,34,.2);transition:transform .22s ease,box-shadow .22s ease,filter .22s ease}
