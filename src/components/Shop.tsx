@@ -6,21 +6,7 @@ export default function Shop() {
   return (
     <section id="our-studio" aria-labelledby="studio-heading" className="border-t border-lavender bg-lavender/30">
       <div className="mx-auto grid max-w-[96rem] items-center gap-10 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-12 lg:gap-16 lg:px-12">
-        <Reveal className="lg:col-span-7">
-          <figure className="overflow-hidden bg-white shadow-sm">
-            <img
-              src="/images/shop/js-photo-artist-shop.jpg"
-              alt="Inside the real JS Photo Artist studio, showing the photography editing workspace and photo printing equipment"
-              loading="lazy"
-              decoding="async"
-              className="aspect-[16/9] w-full object-cover object-center"
-              width="1200"
-              height="541"
-            />
-            <figcaption className="px-4 py-3 text-xs tracking-wide text-ink/65">A glimpse inside our Thiruninravur studio</figcaption>
-          </figure>
-        </Reveal>
-        <Reveal delay={100} className="lg:col-span-5">
+        <Reveal delay={100} className="lg:col-span-8 lg:col-start-3">
           <p className="eyebrow mb-5">Visit our studio</p>
           <h2 id="studio-heading" className="font-display text-display-lg font-medium">A real studio. <em className="font-normal text-brand">A personal touch.</em></h2>
           <p className="mt-6 max-w-xl text-[0.98rem] leading-8 text-ink/75">Meet us at our studio, see our editing and printing workspace, and discuss your photography needs with us in person.</p>
