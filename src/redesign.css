@@ -126,3 +126,44 @@ footer{background:var(--studio-plum)!important}
 #portfolio .portfolio-masonry>button>img{position:static!important;inset:auto!important;display:block!important;width:100%!important;height:auto!important;object-fit:contain!important}
 @media(min-width:640px){#portfolio .portfolio-masonry{columns:3;column-gap:16px}#portfolio .portfolio-masonry>button{margin-bottom:16px!important}}
 @media(min-width:1024px){#portfolio .portfolio-masonry{columns:4;column-gap:20px}#portfolio .portfolio-masonry>button{margin-bottom:20px!important}}
+
+
+/* Mobile-first interaction polish and restrained motion */
+.reveal{opacity:0;transform:translate3d(0,18px,0);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.is-in{opacity:1;transform:translate3d(0,0,0)}
+#mobile-menu{animation:mobile-menu-in .28s cubic-bezier(.2,.7,.2,1) both}
+#mobile-menu a{min-height:48px;transition:opacity .2s ease,transform .2s ease}
+#mobile-menu a:active{opacity:.72;transform:translateX(3px)}
+#home picture img,#home img{animation:hero-image-arrive 1.2s ease-out both}
+#home .btn-light,#home .btn-line{min-height:48px;display:inline-flex;align-items:center;justify-content:center}
+#portfolio img{animation:photo-arrive .45s ease-out both}
+#portfolio button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#portfolio button:active{transform:scale(.985)}
+#portfolio .relative>button{min-width:48px;min-height:48px}
+#packages article,#services a,#contact button,#contact input,#contact textarea,#contact select{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+a,button{-webkit-tap-highlight-color:transparent}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--studio-purple);outline-offset:3px}
+@keyframes mobile-menu-in{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes hero-image-arrive{from{transform:scale(1.035)}to{transform:scale(1)}}
+@keyframes photo-arrive{from{opacity:.45;transform:scale(.99)}to{opacity:1;transform:scale(1)}}
+@media(max-width:767px){
+  body{font-size:16px}
+  header .mx-auto{min-height:64px}
+  header button{min-width:48px!important;min-height:48px!important}
+  section[id]{scroll-margin-top:64px}
+  #portfolio>.mx-auto{padding:48px 16px 56px!important}
+  #portfolio .relative{min-height:52svh!important}
+  #portfolio .relative img{max-height:72svh!important}
+  #portfolio .relative>button{width:48px!important;height:48px!important}
+  #packages article{margin-bottom:12px}
+  #contact input,#contact textarea,#contact select{font-size:16px!important}
+}
+@media(hover:hover) and (pointer:fine){
+  #portfolio .relative>button:hover{transform:translateY(-50%) scale(1.06)}
+  #mobile-menu a:hover{opacity:.78;transform:translateX(4px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1!important;transform:none!important;transition:none!important}
+  #mobile-menu,#home picture img,#home img,#portfolio img{animation:none!important}
+  #portfolio button:active{transform:none!important}
+}
