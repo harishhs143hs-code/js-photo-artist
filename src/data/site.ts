@@ -45,11 +45,7 @@ export type Slide = { src: string; mobile: string; alt: string; pos: string; mob
 // Use five distinct original studio photographs for the hero. These are removed from the
 // portfolio list below so no photograph is repeated between the slideshow and gallery.
 export const featuredPhotoIndexes = [0, 1, 2, 3, 4] as const
-export const heroSlides: Slide[] = featuredPhotoIndexes.map((index) => ({
-  src: photo(index), mobile: photo(index),
-  alt: `Featured JS Photo Artist photograph ${index + 1}`,
-  pos: '50% 50%', mobilePos: '50% 50%',
-}))
+export const heroSlides: Slide[] = []
 
 export type Img = { src: string; alt: string; pos?: string }
 export const intro = {
@@ -77,22 +73,7 @@ const portfolioTitles = [
 
 // Omit the final album-cover asset from Selected Works; it is not a portfolio photograph.
 const excludedPortfolioIndexes = [15] as const
-export const portfolio: Work[] = uploadedPhotos
-  .map((_, i) => i)
-  .filter((i) =>
-    !featuredPhotoIndexes.includes(i as (typeof featuredPhotoIndexes)[number]) &&
-    !excludedPortfolioIndexes.includes(i as (typeof excludedPortfolioIndexes)[number])
-  )
-  .map((i) => ({
-    src: photo(i), w: 1200, h: 800,
-    title: portfolioTitles[i] ?? `Portfolio Photograph ${String(i + 1).padStart(2, '0')}`,
-    alt: portfolioTitles[i] ?? `JS Photo Artist original portfolio photograph ${i + 1}`,
-    cats: ['Portfolio'], pos: '50% 50%',
-  }))
+export const portfolio: Work[] = []
 
-export const albumShowcase = [
-  { label: 'Wedding album design', img: { src: '/images/albums/album-02.webp', alt: 'Wedding album design by JS Photo Artist' }, w: 1200, h: 800 },
-  { label: 'Printed wedding memories', img: { src: '/images/albums/album-03.webp', alt: 'Printed wedding album by JS Photo Artist' }, w: 1200, h: 800 },
-  { label: 'Keepsake album', img: { src: '/images/albums/album-04.webp', alt: 'Wedding keepsake album by JS Photo Artist' }, w: 1200, h: 800 },
-]
+export const albumShowcase = []
 export const testimonials: { quote: string; name: string; occasion?: string }[] = []
