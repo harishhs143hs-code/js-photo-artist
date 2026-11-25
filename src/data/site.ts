@@ -75,9 +75,14 @@ const portfolioTitles = [
   'Little Sunshine – Baby Photoshoot',
 ]
 
+// Omit the final album-cover asset from Selected Works; it is not a portfolio photograph.
+const excludedPortfolioIndexes = [15] as const
 export const portfolio: Work[] = uploadedPhotos
   .map((_, i) => i)
-  .filter((i) => !featuredPhotoIndexes.includes(i as (typeof featuredPhotoIndexes)[number]))
+  .filter((i) =>
+    !featuredPhotoIndexes.includes(i as (typeof featuredPhotoIndexes)[number]) &&
+    !excludedPortfolioIndexes.includes(i as (typeof excludedPortfolioIndexes)[number])
+  )
   .map((i) => ({
     src: photo(i), w: 1200, h: 800,
     title: portfolioTitles[i] ?? `Portfolio Photograph ${String(i + 1).padStart(2, '0')}`,
