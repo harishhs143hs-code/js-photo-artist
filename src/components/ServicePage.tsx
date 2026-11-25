@@ -36,7 +36,7 @@ const details: Record<string, { intro: string; moments: string; price: string; n
 }
 
 export default function ServicePage() {
-  const slug = window.location.pathname.split('/').filter(Boolean).at(-1) ?? ''
+  const slug = window.location.pathname.split('/').filter(Boolean).slice(-1)[0] ?? ''
   const service = services.find(item => item.id === slug)
   const detail = details[slug]
   useEffect(() => {
