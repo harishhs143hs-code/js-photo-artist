@@ -22,6 +22,13 @@ export const site = {
 export type Slide = { src: string; mobile: string; alt: string; pos: string; mobilePos: string }
 export const heroSlides: Slide[] = [
   {
+    src: '/images/albums/015 copy.webp',
+    mobile: '/images/albums/015 copy.webp',
+    alt: 'Couple silhouette portrait by JS Photo Artist',
+    pos: '50% 30%',
+    mobilePos: '50% 30%',
+  },
+  {
     src: '/images/albums/022 copy.webp',
     mobile: '/images/albums/022 copy.webp',
     alt: 'Couple chillout portrait by JS Photo Artist',
@@ -34,13 +41,6 @@ export const heroSlides: Slide[] = [
     alt: 'Traditional hand holding ceremony by JS Photo Artist',
     pos: '50% 50%',
     mobilePos: '50% 50%',
-  },
-  {
-    src: '/images/albums/015 copy.webp',
-    mobile: '/images/albums/015 copy.webp',
-    alt: 'Couple silhouette portrait by JS Photo Artist',
-    pos: '50% 30%',
-    mobilePos: '50% 30%',
   },
   {
     src: '/images/albums/018 copy.webp',
