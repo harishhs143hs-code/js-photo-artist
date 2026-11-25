@@ -18,19 +18,17 @@ function GalleryPhoto({ work, index }: { work: typeof portfolio[number]; index: 
     return () => observer.disconnect()
   }, [])
   return (
-    <button
+    <article
       ref={ref}
-      type="button"
       className="gallery-photo group"
-      style={{ '--photo-delay': `${(index % 6) * 55}ms` } as React.CSSProperties}
-      aria-label={`View ${work.title} photography`}
+      style={{ animationDelay: ((index % 6) * 55) + 'ms' }}
     >
       <img src={work.src} alt={work.alt} width={work.w} height={work.h} loading="lazy" decoding="async" />
       <span className="gallery-photo-caption" aria-hidden="true">
         <span>{work.title}</span>
         <span>{work.cats.join(' · ')}</span>
       </span>
-    </button>
+    </article>
   )
 }
 
