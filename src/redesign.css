@@ -191,3 +191,20 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 #services a:hover,#contact a:hover{box-shadow:0 8px 24px rgba(50,16,63,.12)}
 #home .btn-light:hover,#home .btn-line:hover{transform:translateY(-2px)}
 @media(prefers-reduced-motion:reduce){:where(a,button,[role="button"]){transition:none!important}#home .btn-light:hover,#home .btn-line:hover{transform:none}}
+
+
+/* Requested mobile header correction: white bar, original full-colour logo, readable controls. */
+header{background:rgba(255,255,255,.98)!important;border-bottom:1px solid #eee8f0!important;box-shadow:0 2px 14px rgba(37,34,41,.06)!important;backdrop-filter:blur(14px)}
+header nav ul{color:var(--studio-ink)!important}
+header button{color:var(--studio-ink)!important}
+header .mx-auto>a img{filter:none!important}
+@media(max-width:767px){
+  header .mx-auto>a img{filter:none!important}
+  header button{color:var(--studio-ink)!important}
+}
+/* Keep hero copy clear of the fixed header on small screens. */
+#home>.mx-auto{padding-top:calc(76px + 28px)!important;padding-bottom:110px!important}
+@media(max-width:767px){
+  #home>.mx-auto{padding-top:104px!important;padding-bottom:124px!important}
+  #home h1{line-height:1.1!important}
+}
