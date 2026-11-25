@@ -42,3 +42,29 @@ footer { background:var(--jspa-deep); }
 @media (prefers-reduced-motion: reduce) {
   #services img, #about img, #albums img, #portfolio button img { transition:none; }
 }
+/* Stronger structural visual pass: high-contrast editorial layouts and branded surfaces */
+header{background:rgba(255,253,253,.97)!important;border-bottom:1px solid #eadced;box-shadow:0 5px 28px rgba(45,16,59,.07);backdrop-filter:blur(14px)}
+header .mx-auto{height:5rem!important;max-width:100%!important;padding-inline:clamp(1.2rem,5vw,5rem)!important}
+header nav ul{color:#32103f!important}
+#home{height:90svh!important;min-height:650px!important}
+#home h1{font-size:clamp(3.4rem,8vw,7.8rem)!important;max-width:11ch!important;line-height:.94!important;letter-spacing:-.05em!important}
+#home>.mx-auto{max-width:100%!important;padding-inline:clamp(1.25rem,8vw,8rem)!important}
+#home .eyebrow{letter-spacing:.22em!important}
+#about h2,#services h2,#portfolio h2,#albums h2,#contact h2{font-size:clamp(2.7rem,5.2vw,5.2rem)!important;line-height:1!important;letter-spacing:-.04em!important}
+#about>.mx-auto{padding-top:clamp(5rem,10vw,10rem)!important;padding-bottom:clamp(5rem,10vw,10rem)!important}
+#services>.mx-auto,#portfolio>.mx-auto,#packages>.mx-auto,#contact>.mx-auto{padding-top:clamp(5rem,9vw,9rem)!important;padding-bottom:clamp(5rem,9vw,9rem)!important}
+#services h3{font-size:clamp(2.3rem,4.3vw,4rem)!important;line-height:1.02!important}
+#portfolio{background:#f2eaf6!important}
+#portfolio button{margin-bottom:1.1rem!important}
+#portfolio button>span{opacity:1!important;transform:none!important;background:linear-gradient(0deg,rgba(45,16,59,.9),rgba(45,16,59,0))!important;padding:4rem 1rem 1rem!important}
+#portfolio button>span>span:first-child{font-size:clamp(1.25rem,2vw,2rem)!important}
+#packages{background:#f7f1f9!important}
+#packages article{border-radius:0!important;border:1px solid #e4d5eb!important;box-shadow:0 8px 28px rgba(45,16,59,.06)!important}
+#packages article:hover{box-shadow:0 18px 40px rgba(45,16,59,.13)!important}
+#our-studio{background:#f2eaf6!important}
+#our-studio figure{box-shadow:0 20px 50px rgba(45,16,59,.13)!important}
+#contact form{background:#f8f3fa;padding:clamp(1.25rem,4vw,3rem)}
+.btn-solid{background:#70258f!important}
+.btn-solid:hover{background:#32103f!important}
+footer{background:#32103f!important}
+@media(max-width:767px){#home{height:88svh!important;min-height:650px!important}#home h1{font-size:clamp(3.1rem,12.5vw,5rem)!important;max-width:10ch!important}#portfolio .columns-1{columns:1!important}#portfolio button{margin-bottom:1rem!important}#portfolio button>span{padding:3.5rem 1rem 1rem!important}}
