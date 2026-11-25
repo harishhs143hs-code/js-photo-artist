@@ -120,23 +120,9 @@ footer{background:var(--studio-plum)!important}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
-/* Fix mobile gallery cards collapsing: absolutely positioned photos need a fixed card ratio. */
-#portfolio .grid > button{
-  display:block!important;
-  position:relative!important;
-  width:100%!important;
-  aspect-ratio:4/5!important;
-  min-height:0!important;
-  height:auto!important;
-}
-#portfolio .grid > button > img{
-  position:absolute!important;
-  inset:0!important;
-  display:block!important;
-  width:100%!important;
-  height:100%!important;
-  object-fit:cover!important;
-}
-@media(max-width:767px){
-  #portfolio .grid > button{aspect-ratio:4/5!important;margin-bottom:0!important}
-}
+/* Portfolio masonry preserves each photograph's full frame instead of cropping it into a fixed tile. */
+#portfolio .portfolio-masonry{columns:2;column-gap:8px}
+#portfolio .portfolio-masonry>button{display:inline-block!important;position:relative!important;width:100%!important;height:auto!important;aspect-ratio:auto!important;break-inside:avoid;vertical-align:top;margin:0 0 8px!important}
+#portfolio .portfolio-masonry>button>img{position:static!important;inset:auto!important;display:block!important;width:100%!important;height:auto!important;object-fit:contain!important}
+@media(min-width:640px){#portfolio .portfolio-masonry{columns:3;column-gap:16px}#portfolio .portfolio-masonry>button{margin-bottom:16px!important}}
+@media(min-width:1024px){#portfolio .portfolio-masonry{columns:4;column-gap:20px}#portfolio .portfolio-masonry>button{margin-bottom:20px!important}}
