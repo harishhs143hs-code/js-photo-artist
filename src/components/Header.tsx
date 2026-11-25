@@ -5,7 +5,7 @@ import { useLockScroll } from '../lib/useLockScroll'
 
 const links = [
   ['Home', '#home'], ['About', '#about'], ['Services', '#services'], ['Gallery', '#portfolio'],
-  ['Albums & Printing', '#albums'], ['Pricing', '#packages'], ['Contact', '#contact'],
+  ['Pricing', '#packages'], ['Contact', '#contact'],
 ]
 
 export default function Header() {
@@ -65,16 +65,12 @@ export default function Header() {
           aria-label="Mobile navigation"
           className="fixed inset-0 z-[70] flex h-[100svh] min-h-screen flex-col overflow-y-auto overscroll-contain bg-gradient-to-br from-[#25082f] via-[#39064f] to-[#5b1b70] px-7 pb-8 pt-5 text-white sm:px-10 lg:hidden"
         >
-          <div className="grid min-h-16 grid-cols-[1fr_auto_1fr] items-center border-b border-white/15 pb-4">
-            <span aria-hidden="true" />
-            <a href="#home" onClick={() => setOpen(false)} aria-label={`${site.name} – home`} className="flex items-center justify-center">
-              <img src={site.logo} alt={site.name} className="h-12 w-auto object-contain" width={1536} height={1024} />
-            </a>
+          <div className="flex min-h-16 items-center justify-end border-b border-white/15 pb-4">
             <button
               type="button"
               onClick={() => setOpen(false)}
               aria-label="Close navigation menu"
-              className="ml-auto grid h-11 w-11 place-items-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10 active:scale-95"
+              className="grid h-11 w-11 place-items-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10 active:scale-95"
             >
               <X size={25} />
             </button>
