@@ -31,7 +31,7 @@ function Group({ s, i }: { s: ServiceGroup; i: number }) {
     <div className={dark ? 'bg-plum text-white' : ''}>
       <div className="mx-auto grid max-w-[96rem] items-center gap-10 px-5 py-16 sm:px-8 md:grid-cols-12 md:gap-8 md:py-24 lg:px-12">
         {/* Text — always left */}
-        <Reveal className="md:col-span-6 lg:col-span-7">
+        <Reveal className="service-copy order-2 md:order-1 md:col-span-6 lg:col-span-7">
           <span className={`font-display text-6xl ${dark ? 'text-violet' : 'text-lavender'}`}>{num}</span>
           <h3 className="mt-2 max-w-[18ch] font-display text-display-md font-medium">{s.title}</h3>
           <p className={`mt-4 max-w-sm ${dark ? 'text-white/70' : 'text-ink/65'}`}>{s.blurb}</p>
@@ -43,7 +43,7 @@ function Group({ s, i }: { s: ServiceGroup; i: number }) {
           <Links s={s} dark={dark} />
         </Reveal>
         {/* Image — always right */}
-        <div className="block md:col-span-5 lg:col-span-4">
+        <div className="service-photo order-1 md:order-2 md:col-span-5 lg:col-span-4">
           <div className="overflow-hidden aspect-[4/5]">
             <img
               src={s.image.src}
