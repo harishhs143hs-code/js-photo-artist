@@ -208,3 +208,17 @@ header .mx-auto>a img{filter:none!important}
   #home>.mx-auto{padding-top:104px!important;padding-bottom:124px!important}
   #home h1{line-height:1.1!important}
 }
+
+
+/* Explicit final overrides for the requested white header and full-colour logo. */
+header.fixed.inset-x-0.top-0{background:#fff!important;background-color:#fff!important;color:#252229!important;border-bottom:1px solid #eee8f0!important}
+header.fixed.inset-x-0.top-0 img{filter:none!important;-webkit-filter:none!important}
+header.fixed.inset-x-0.top-0 nav ul{color:#252229!important}
+header.fixed.inset-x-0.top-0 button{color:#252229!important}
+@media(max-width:767px){
+  header.fixed.inset-x-0.top-0{height:64px!important;background:#fff!important}
+  header.fixed.inset-x-0.top-0 .mx-auto{height:64px!important}
+  header.fixed.inset-x-0.top-0 img{filter:none!important;-webkit-filter:none!important}
+  #home>.mx-auto{padding-top:112px!important;padding-bottom:140px!important;box-sizing:border-box!important}
+  #home h1{line-height:1.08!important}
+}
