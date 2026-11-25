@@ -37,7 +37,7 @@ export default function Hero() {
           <img
             src={slide.src}
             alt={slide.alt}
-            loading={i < 2 ? 'eager' : 'lazy'}
+            loading={i === 0 ? 'eager' : 'lazy'}
             decoding="async"
             className="h-full w-full object-cover"
             style={{ objectPosition: slide.pos }}
