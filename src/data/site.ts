@@ -107,12 +107,12 @@ export const portfolio: Work[] = [
 
   // — Couples —
   { src: '/images/albums/023.webp', w: 800, h: 1000, alt: 'Couple moment by JS Photo Artist', title: 'Intimate Moment', cats: ['Couples'], pos: '50% 50%' },
-  { src: '/images/albums/025.webp', w: 1200, h: 800, alt: 'Couple outdoor session JS Photo Artist', title: 'Garden Session', cats: ['Couples'], pos: '50% 50%' },
-  { src: '/images/albums/034.webp', w: 1200, h: 800, alt: 'Couple portrait by JS Photo Artist', title: 'Forever Yours', cats: ['Couples'], pos: '50% 40%' },
+  { src: '/images/albums/025 copy.webp', w: 1200, h: 800, alt: 'Couple outdoor session JS Photo Artist', title: 'Garden Session', cats: ['Couples'], pos: '50% 50%' },
+  { src: '/images/albums/034 copy.webp', w: 1200, h: 800, alt: 'Couple portrait by JS Photo Artist', title: 'Forever Yours', cats: ['Couples'], pos: '50% 40%' },
 
   // — Baby & Kids —
   { src: '/images/albums/017.webp', w: 800, h: 1000, alt: 'Baby portrait by JS Photo Artist', title: 'Baby Portrait', cats: ['Baby & Kids'], pos: '50% 30%' },
-  { src: '/images/albums/028.webp', w: 1200, h: 800, alt: 'Kids photography by JS Photo Artist', title: 'Growing Up', cats: ['Baby & Kids'], pos: '50% 50%' },
+  { src: '/images/albums/028 copy.webp', w: 1200, h: 800, alt: 'Kids photography by JS Photo Artist', title: 'Growing Up', cats: ['Baby & Kids'], pos: '50% 50%' },
   { src: '/images/albums/032.webp', w: 1200, h: 800, alt: 'Baby photography session JS Photo Artist', title: 'Bundle of Joy', cats: ['Baby & Kids'], pos: '50% 50%' },
 
   // — Events —
