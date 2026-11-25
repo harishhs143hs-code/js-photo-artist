@@ -20,7 +20,7 @@ export const site = {
   defaultWa: 'Hello JS Photo Artist, I would like to enquire about your photography services. Please share more details.',
 }
 
-// These are the 15 original uploaded photographs. Do not substitute generated or stock images.
+// Original client-provided portfolio photographs. Do not substitute generated or stock images.
 export const uploadedPhotos = [
   '001_copy.webp',
   '006.jpg.jpeg',
@@ -44,7 +44,7 @@ const photo = (index: number) => `/images/albums/${uploadedPhotos[index]}`
 export type Slide = { src: string; mobile: string; alt: string; pos: string; mobilePos: string }
 export const heroSlides: Slide[] = [1, 2, 3, 4, 5].map((n) => ({
   src: `/images/hero/hero-0${n}.webp`, mobile: `/images/hero/hero-0${n}-mobile.webp`,
-  alt: `Wedding photography by JS Photo Artist — featured image ${n}`,
+  alt: `Featured photography by JS Photo Artist — image ${n}`,
   pos: '50% 50%', mobilePos: '50% 50%',
 }))
 
