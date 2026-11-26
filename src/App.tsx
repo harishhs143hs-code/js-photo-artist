@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import './redesign.css'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -14,6 +15,16 @@ import WhatsAppFab from './components/WhatsAppFab'
 import ServicePage from './components/ServicePage'
 
 export default function App() {
+  useEffect(() => {
+    const loader = document.getElementById('site-loader')
+    if (!loader) return
+    const timer = window.setTimeout(() => {
+      loader.classList.add('site-loader-hidden')
+      window.setTimeout(() => loader.remove(), 500)
+    }, 850)
+    return () => window.clearTimeout(timer)
+  }, [])
+
   const isServicePage = window.location.pathname.startsWith('/services/')
   if (isServicePage) return <>
     <Header />
