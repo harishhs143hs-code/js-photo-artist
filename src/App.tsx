@@ -21,7 +21,7 @@ export default function App() {
     const timer = window.setTimeout(() => {
       loader.classList.add('site-loader-hidden')
       window.setTimeout(() => loader.remove(), 500)
-    }, 850)
+    }, 1100)
     return () => window.clearTimeout(timer)
   }, [])
 
