@@ -5,7 +5,7 @@ export const site = {
   name: 'JS Photo Artist',
   tagline: 'PHOTO | VIDEO | ALBUM | PRINTING',
   logo: '/images/logo/JS_Photo_Artist_Branding_Logo_Final.png',
-  address: 'No. 212, EB Colony, Lakshmipuram, Thiruninravur, Ambattur, Tiruvallur – 602024, Tamil Nadu, India.',
+  address: 'No. 212, EB Colony, Lakshmipuram, Thiruninravur, Chennai – 602024, Tamil Nadu, India.',
   phone: '+91 98401 57425',
   phoneHref: 'tel:+919840157425',
   email: 'cgmedia4@gmail.com',
@@ -14,8 +14,8 @@ export const site = {
   googleRating: '5.0',
   googleReviewCount: 45,
   googleBusinessUrl: 'https://www.google.com/maps/search/?api=1&query=JS+Photo+Artist&query_place_id=ChIJmUWoJyaJUjoRjH4G7sKBeKU',
-  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=No%20212%2C%20EB%20Colony%2C%20Lakshmipuram%2C%20Thiruninravur%2C%20Tiruvallur%20602024%2C%20Tamil%20Nadu%2C%20India',
-  mapsEmbed: 'https://www.google.com/maps?q=No%20212%2C%20EB%20Colony%2C%20Lakshmipuram%2C%20Thiruninravur%2C%20Tiruvallur%20602024%2C%20Tamil%20Nadu%2C%20India&output=embed',
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=No%20212%2C%20EB%20Colony%2C%20Lakshmipuram%2C%20Thiruninravur%2C%20Chennai%20602024%2C%20Tamil%20Nadu%2C%20India',
+  mapsEmbed: 'https://www.google.com/maps?q=No%20212%2C%20EB%20Colony%2C%20Lakshmipuram%2C%20Thiruninravur%2C%20Chennai%20602024%2C%20Tamil%20Nadu%2C%20India&output=embed',
   defaultWa: 'Hello JS Photo Artist, I would like to enquire about your photography services. Please share more details.',
 }
 
