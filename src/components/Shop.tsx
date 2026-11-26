@@ -16,6 +16,17 @@ export default function Shop() {
             <a href={waLink('Hello JS Photo Artist, I would like to visit your studio. Please share a convenient time.')} target="_blank" rel="noopener noreferrer" className="btn border border-brand text-brand hover:bg-brand hover:text-white"><MessageCircle size={16} /> Contact Us</a>
           </div>
         </Reveal>
+        <Reveal delay={180} className="lg:col-span-10 lg:col-start-2">
+          <figure className="mt-2 overflow-hidden bg-white shadow-[0_18px_50px_rgba(50,16,63,.12)]">
+            <img
+              src="/images/studio.jpg"
+              alt="JS Photo Artist photography studio and workspace"
+              loading="lazy"
+              decoding="async"
+              className="block w-full h-auto max-h-[720px] object-cover"
+            />
+          </figure>
+        </Reveal>
       </div>
     </section>
   )
