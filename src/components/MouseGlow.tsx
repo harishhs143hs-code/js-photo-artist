@@ -28,7 +28,12 @@ export default function MouseGlow() {
 
   if (!point.visible) return null
   return (
-    <div className={`mouse-glow${point.active ? ' mouse-glow-active' : ''}`} aria-hidden="true"
-      style={{ left: point.x, top: point.y }} />
+    <div
+      className={`camera-cursor${point.active ? ' camera-cursor-active' : ''}`}
+      aria-hidden="true"
+      style={{ left: point.x, top: point.y }}
+    >
+      <img src="/images/camera-shutter-cursor.svg" alt="" />
+    </div>
   )
 }
