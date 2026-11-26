@@ -1,3 +1,4 @@
+import { Instagram, MapPin } from 'lucide-react'
 import { site, services } from '../data/site'
 
 const nav = [['Home', '#home'], ['About', '#about'], ['Services', '#services'], ['Portfolio', '#portfolio'], ['Albums & Printing', '#albums'], ['Contact', '#contact']]
@@ -23,7 +24,11 @@ export default function Footer() {
           <address className="not-italic leading-relaxed">{site.address}</address>
           <p className="mt-3"><a className="hover:text-white" href={site.phoneHref}>{site.phone}</a></p>
           <p><a className="break-all hover:text-white" href={`mailto:${site.email}`}>{site.email}</a></p>
-          <p className="mt-3"><a className="underline underline-offset-4 hover:text-white" href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram</a></p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3">
+            <a className="inline-flex items-center gap-2 hover:text-white" href={site.instagram} target="_blank" rel="noopener noreferrer" aria-label="Visit JS Photo Artist on Instagram"><Instagram size={18} aria-hidden="true" /> Instagram</a>
+            <a className="inline-flex items-center gap-2 hover:text-white" href={site.googleBusinessUrl} target="_blank" rel="noopener noreferrer" aria-label="View JS Photo Artist on Google Business Profile"><MapPin size={18} aria-hidden="true" /> Google Business Profile</a>
+          </div>
+          <p className="mt-4 text-xs text-white/60">Find our business details and customer reviews on Google.</p>
         </div>
       </div>
       <div className="border-t border-white/10 px-5 py-5 text-center text-xs text-white/60">© {new Date().getFullYear()} {site.name}. All rights reserved.</div>
