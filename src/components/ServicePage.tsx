@@ -39,35 +39,62 @@ export default function ServicePage() {
   const slug = window.location.pathname.split('/').filter(Boolean).slice(-1)[0] ?? ''
   const service = services.find(item => item.id === slug)
   const detail = details[slug]
+
   useEffect(() => {
-    if (service && detail) {
-      document.title = `${service.title} in Thiruninravur | JS Photo Artist`
-      const description = document.querySelector('meta[name="description"]')
-      description?.setAttribute('content', `${service.title} in Thiruninravur, Tiruvallur. Explore photography services and package information from JS Photo Artist.`)
-      const canonical = document.querySelector('link[rel="canonical"]')
-      canonical?.setAttribute('href', `https://www.jsphotoartist.in${window.location.pathname}`)
-    }
+    if (!service || !detail) return
+    document.title = `${service.title} in Thiruninravur | JS Photo Artist`
+    document.querySelector<HTMLMetaElement>('meta[name="description"]')
+      ?.setAttribute('content', `${service.title} in Thiruninravur, Tiruvallur. Explore service details, photography options and package information from JS Photo Artist.`)
+    document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
+      ?.setAttribute('href', `https://www.jsphotoartist.in${window.location.pathname}`)
   }, [service, detail])
-  if (!service || !detail) return null
-  return <main className="min-h-screen bg-paper pt-28 text-ink">
-    <div className="mx-auto max-w-5xl px-5 py-12 sm:px-8">
-      <a href="/#services" className="mb-10 inline-flex items-center gap-2 text-sm underline underline-offset-4"><ArrowLeft size={16}/> All services</a>
-      <p className="eyebrow mb-4">JS Photo Artist · Thiruninravur</p>
-      <h1 className="max-w-4xl font-display text-display-lg font-medium">{service.title}</h1>
-      <p className="mt-6 max-w-3xl text-lg leading-8 text-ink/70">{detail.intro}</p>
-      <section className="mt-12 border-t border-lavender py-8">
-        <h2 className="font-display text-3xl">Moments we help you keep</h2>
-        <p className="mt-4 max-w-3xl leading-7 text-ink/70">{detail.moments}</p>
-      </section>
-      <section className="mt-4 border-t border-lavender py-8">
-        <h2 className="font-display text-3xl">Package information</h2>
-        <p className="mt-4 text-xl font-semibold text-brand">{detail.price}</p>
-        <p className="mt-3 max-w-3xl text-sm leading-6 text-ink/60">{detail.note}</p>
-      </section>
-      <div className="mt-8 flex flex-wrap gap-4">
-        <a className="btn-solid inline-flex items-center gap-2" href={waLink(`Hello JS Photo Artist, I am interested in ${service.title}. Please share available dates and package details.`)} target="_blank" rel="noopener noreferrer"><MessageCircle size={17}/> Enquire on WhatsApp</a>
-        <a className="border border-ink/20 px-5 py-3 text-sm font-semibold" href="/#services">Explore other services</a>
+
+  if (!service || !detail) return (
+    <main className="min-h-screen bg-paper px-5 pt-36 text-ink">
+      <div className="mx-auto max-w-3xl py-16">
+        <h1 className="font-display text-4xl">Service page not found</h1>
+        <p className="mt-4 text-ink/70">Choose a service to learn more about our photography and keepsake options.</p>
+        <a className="btn-solid mt-8 inline-flex" href="/#services">View all services</a>
       </div>
-    </div>
-  </main>
+    </main>
+  )
+
+  return (
+    <main className="min-h-screen bg-paper pt-28 text-ink">
+      <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-14">
+        <a href="/#services" className="mb-8 inline-flex items-center gap-2 text-sm underline underline-offset-4"><ArrowLeft size={16}/> All services</a>
+        <div className="grid items-center gap-10 md:grid-cols-2 md:gap-14">
+          <div>
+            <p className="eyebrow mb-4">JS Photo Artist · Thiruninravur</p>
+            <h1 className="font-display text-display-lg font-medium">{service.title}</h1>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-ink/70">{detail.intro}</p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a className="btn-solid inline-flex items-center gap-2" href={waLink(`Hello JS Photo Artist, I am interested in ${service.title}. Please share available dates and package details.`)} target="_blank" rel="noopener noreferrer"><MessageCircle size={17}/> Enquire on WhatsApp</a>
+              <a className="border border-ink/20 px-5 py-3 text-sm font-semibold" href="/#services">Explore other services</a>
+            </div>
+          </div>
+          <figure className="overflow-hidden bg-lavender/20">
+            <img src={service.image.src} alt={service.image.alt} className="aspect-[4/5] w-full object-cover" style={{ objectPosition: service.image.pos ?? '50% 50%' }} />
+            <figcaption className="px-4 py-3 text-xs uppercase tracking-[0.16em] text-ink/60">{service.title} · JS Photo Artist</figcaption>
+          </figure>
+        </div>
+
+        <div className="mt-14 grid gap-8 border-t border-lavender py-10 md:grid-cols-2 md:gap-14">
+          <section>
+            <h2 className="font-display text-3xl">What we can capture</h2>
+            <p className="mt-4 leading-7 text-ink/70">{detail.moments}</p>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              {service.items.map(item => <li key={item} className="border-t border-ink/10 py-3 text-sm">{item}</li>)}
+            </ul>
+          </section>
+          <section className="border-t border-lavender pt-8 md:border-t-0 md:pt-0">
+            <h2 className="font-display text-3xl">Package information</h2>
+            <p className="mt-4 text-xl font-semibold text-brand">{detail.price}</p>
+            <p className="mt-3 leading-6 text-sm text-ink/60">{detail.note}</p>
+            <p className="mt-6 leading-7 text-ink/70">Tell us the occasion, date and the moments you want covered. We’ll help you choose a suitable service and explain the deliverables before you book.</p>
+          </section>
+        </div>
+      </div>
+    </main>
+  )
 }
