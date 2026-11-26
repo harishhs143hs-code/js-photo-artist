@@ -99,24 +99,24 @@ export type Work = { src: string; w: number; h: number; alt: string; title: stri
 
 export const portfolio: Work[] = [
   // — Weddings —
-  { src: '/images/albums/001_copy.webp', w: 1200, h: 800, alt: 'Traditional wedding ceremony hand holding', title: 'Traditional Ceremony', cats: ['Weddings'], pos: '50% 50%' },
-  { src: '/images/albums/006.jpg.jpeg', w: 1200, h: 800, alt: 'Wedding moment by JS Photo Artist', title: 'Wedding Moment', cats: ['Weddings'], pos: '50% 50%' },
-  { src: '/images/albums/019.webp', w: 1200, h: 800, alt: 'Wedding coverage by JS Photo Artist', title: 'Wedding Story', cats: ['Weddings'], pos: '50% 50%' },
-  { src: '/images/albums/030.webp', w: 1200, h: 800, alt: 'Wedding photography JS Photo Artist', title: 'Wedding Frame', cats: ['Weddings'], pos: '50% 50%' },
-  { src: '/images/albums/031.webp', w: 800, h: 1000, alt: 'Wedding portrait by JS Photo Artist', title: 'Wedding Portrait', cats: ['Weddings'], pos: '50% 40%' },
+  { src: '/images/albums/001_copy.webp', w: 1200, h: 800, alt: 'Traditional wedding ceremony hand holding', title: 'Sacred Wedding Details', cats: ['Weddings'], pos: '50% 50%' },
+  { src: '/images/albums/006.jpg.jpeg', w: 1200, h: 800, alt: 'Wedding moment by JS Photo Artist', title: 'Little Star', cats: ['Baby & Kids'], pos: '50% 50%' },
+  { src: '/images/albums/019.webp', w: 1200, h: 800, alt: 'Wedding coverage by JS Photo Artist', title: 'A Sweet Candid Moment', cats: ['Events'], pos: '50% 50%' },
+  { src: '/images/albums/030.webp', w: 1200, h: 800, alt: 'Wedding photography JS Photo Artist', title: 'The Bride', cats: ['Weddings'], pos: '50% 50%' },
+  { src: '/images/albums/031.webp', w: 800, h: 1000, alt: 'Wedding portrait by JS Photo Artist', title: 'A Walk to Remember', cats: ['Couples'], pos: '50% 40%' },
 
   // — Couples —
-  { src: '/images/albums/023.webp', w: 800, h: 1000, alt: 'Couple moment by JS Photo Artist', title: 'Intimate Moment', cats: ['Couples'], pos: '50% 50%' },
-  { src: '/images/albums/025.webp', w: 1200, h: 800, alt: 'Couple outdoor session JS Photo Artist', title: 'Garden Session', cats: ['Couples'], pos: '50% 50%' },
-  { src: '/images/albums/034.webp', w: 1200, h: 800, alt: 'Couple portrait by JS Photo Artist', title: 'Forever Yours', cats: ['Couples'], pos: '50% 40%' },
+  { src: '/images/albums/023.webp', w: 800, h: 1000, alt: 'Couple moment by JS Photo Artist', title: 'Mehndi Moments', cats: ['Weddings'], pos: '50% 50%' },
+  { src: '/images/albums/025.webp', w: 1200, h: 800, alt: 'Couple outdoor session JS Photo Artist', title: 'Growing Together', cats: ['Couples'], pos: '50% 50%' },
+  { src: '/images/albums/034.webp', w: 1200, h: 800, alt: 'Couple portrait by JS Photo Artist', title: 'A Grand Celebration', cats: ['Weddings'], pos: '50% 40%' },
 
   // — Baby & Kids —
-  { src: '/images/albums/017.webp', w: 800, h: 1000, alt: 'Baby portrait by JS Photo Artist', title: 'Baby Portrait', cats: ['Baby & Kids'], pos: '50% 30%' },
-  { src: '/images/albums/028.webp', w: 1200, h: 800, alt: 'Kids photography by JS Photo Artist', title: 'Growing Up', cats: ['Baby & Kids'], pos: '50% 50%' },
-  { src: '/images/albums/032.webp', w: 1200, h: 800, alt: 'Baby photography session JS Photo Artist', title: 'Bundle of Joy', cats: ['Baby & Kids'], pos: '50% 50%' },
+  { src: '/images/albums/017.webp', w: 800, h: 1000, alt: 'Baby portrait by JS Photo Artist', title: 'A Grand Arrival', cats: ['Weddings'], pos: '50% 30%' },
+  { src: '/images/albums/028.webp', w: 1200, h: 800, alt: 'Kids photography by JS Photo Artist', title: 'Together in Love', cats: ['Couples'], pos: '50% 50%' },
+  { src: '/images/albums/032.webp', w: 1200, h: 800, alt: 'Baby photography session JS Photo Artist', title: 'Little Explorer', cats: ['Baby & Kids'], pos: '50% 50%' },
 
   // — Events —
-  { src: '/images/albums/008.jpg.jpeg', w: 1200, h: 800, alt: 'Event photography by JS Photo Artist', title: 'Celebration', cats: ['Events'], pos: '50% 50%' },
+  { src: '/images/albums/008.jpg.jpeg', w: 1200, h: 800, alt: 'Event photography by JS Photo Artist', title: 'Little Sunshine', cats: ['Baby & Kids'], pos: '50% 50%' },
 
   // — Films —
 ]
