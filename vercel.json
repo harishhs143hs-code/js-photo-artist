@@ -33,7 +33,7 @@
         },
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://js-photo-artist.vercel.app"
+          "value": "https://www.jsphotoartist.in"
         }
       ]
     }
