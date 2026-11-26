@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://js-photo-artist.vercel.app/sitemap.xml
+Sitemap: https://www.jsphotoartist.in/sitemap.xml
