@@ -12,6 +12,7 @@ import Shop from './components/Shop'
 import Packages from './components/Packages'
 import Footer from './components/Footer'
 import WhatsAppFab from './components/WhatsAppFab'
+import MouseGlow from './components/MouseGlow'
 import ServicePage from './components/ServicePage'
 
 export default function App() {
@@ -37,6 +38,7 @@ export default function App() {
     <ServicePage />
     <Footer />
     <WhatsAppFab />
+    <MouseGlow />
   </>
   return <>
     <Header />
