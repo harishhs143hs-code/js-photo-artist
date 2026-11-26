@@ -1,9 +1,9 @@
-import { MessageCircle } from 'lucide-react'
+import { MessageCircle, Sparkles } from 'lucide-react'
 import Reveal from '../lib/Reveal'
 import { waLink } from '../data/site'
 
 const packages = [
-  { name: 'Baby Shower', price: '₹8,000' },
+  { name: 'Baby Shower', price: '₹8,000', popular: true },
   { name: 'Maternity', price: '₹7,500' },
   { name: 'Wedding', price: '₹40,000' },
   { name: 'Betrothal', price: '₹20,000' },
@@ -24,7 +24,12 @@ export default function Packages() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {packages.map((item, index) => (
             <Reveal key={item.name} delay={index * 45}>
-              <article className="group flex h-full flex-col rounded-2xl border border-lavender/80 bg-white p-6 shadow-[0_8px_30px_rgba(57,6,79,0.05)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_18px_45px_rgba(57,6,79,0.12)] sm:p-7">
+              <article className={`group relative flex h-full flex-col rounded-2xl border bg-white p-6 shadow-[0_8px_30px_rgba(57,6,79,0.05)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(57,6,79,0.12)] sm:p-7 ${item.popular ? 'border-brand/50 ring-1 ring-brand/15' : 'border-lavender/80 hover:border-brand/30'}`}>
+                {item.popular && (
+                  <span className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full bg-brand px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white shadow-sm">
+                    <Sparkles size={12} aria-hidden="true" /> Most Popular
+                  </span>
+                )}
                 <p className="eyebrow">Package {String(index + 1).padStart(2, '0')}</p>
                 <h3 className="mt-5 min-h-14 font-display text-2xl font-medium leading-tight">{item.name}</h3>
                 <p className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-ink/55">Starting package price</p>
