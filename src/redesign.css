@@ -264,3 +264,51 @@ header.fixed.inset-x-0.top-0 button{color:#252229!important}
 @media(prefers-reduced-motion:reduce){.hero-slide-image-active{animation:none!important;transform:none!important}.quick-action{transition:none!important}}
 
 /* Hero motion polish deployed with the current slideshow transition update. */
+
+
+/* Desktop-only hero framing: reveal more of the top of the featured photo.
+   The mobile image position is intentionally left unchanged. */
+@media (min-width: 768px) {
+  #home .hero-slide-image { object-position: center 25% !important; }
+}
+
+/* Branded first-load intro. The HTML shell prevents the SEO fallback from flashing. */
+#site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #fff;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .45s ease, visibility .45s ease;
+}
+#site-loader img {
+  position: relative;
+  z-index: 1;
+  width: min(190px, 42vw);
+  height: auto;
+  object-fit: contain;
+  animation: site-logo-turn 1.25s cubic-bezier(.45,0,.55,1) infinite;
+  transform-origin: center;
+}
+#site-loader .site-loader-ring {
+  position: absolute;
+  width: min(232px, 54vw);
+  aspect-ratio: 1;
+  border: 2px solid rgba(112,37,143,.12);
+  border-top-color: #70258f;
+  border-radius: 50%;
+  animation: site-loader-spin .9s linear infinite;
+}
+#site-loader.site-loader-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+@keyframes site-logo-turn {
+  0%, 100% { transform: rotate(-8deg) scale(.96); }
+  50% { transform: rotate(8deg) scale(1.02); }
+}
+@keyframes site-loader-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  #site-loader img, #site-loader .site-loader-ring { animation-duration: 2.5s; }
+}
