@@ -288,3 +288,7 @@ header.fixed.inset-x-0.top-0 button{color:#252229!important}
 @keyframes site-caption-enter{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 @keyframes site-progress{from{transform:translateX(-110%)}to{transform:translateX(280%)}}
 @media(prefers-reduced-motion:reduce){#site-loader *,#site-loader *:before,#site-loader *:after{animation-duration:.01ms!important}#site-loader{transition-duration:.01ms}}
+
+/* Intro logo and caption in clean white, as requested. */
+#site-loader .site-loader-mark img{filter:brightness(0) invert(1)!important;-webkit-filter:brightness(0) invert(1)!important}
+#site-loader .site-loader-caption{color:#fff!important}
