@@ -308,3 +308,29 @@ header.fixed.inset-x-0.top-0 button{color:#252229!important}
 .mouse-glow-active{width:48px;height:48px;margin:-24px 0 0 -24px;border-color:rgba(112,37,143,.75);background:rgba(195,151,213,.16)}
 @media(hover:none),(pointer:coarse){.mouse-glow{display:none}}
 @media(prefers-reduced-motion:reduce){.mouse-glow{display:none!important}}
+
+
+/* Branded camera-shutter pointer, shown only on desktop fine-pointer devices. */
+@media (hover:hover) and (pointer:fine) {
+  html, body, body * { cursor: none !important; }
+  .camera-cursor {
+    position: fixed;
+    z-index: 99999;
+    width: 42px;
+    height: 42px;
+    margin: -21px 0 0 -21px;
+    pointer-events: none;
+    display: grid;
+    place-items: center;
+    transform: rotate(0deg) scale(1);
+    transition: transform .18s ease, filter .18s ease;
+    will-change: left, top, transform;
+    filter: drop-shadow(0 3px 7px rgba(50,16,63,.22));
+  }
+  .camera-cursor img { display:block; width:100%; height:100%; object-fit:contain; }
+  .camera-cursor-active { transform: rotate(18deg) scale(1.16); filter: drop-shadow(0 5px 10px rgba(112,37,143,.32)); }
+}
+@media (hover:none), (pointer:coarse), (prefers-reduced-motion:reduce) {
+  .camera-cursor { display:none !important; }
+  html, body, body * { cursor:auto !important; }
+}
