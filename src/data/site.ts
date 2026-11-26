@@ -8,7 +8,7 @@ export const site = {
   address: 'No. 212, EB Colony, Lakshmipuram, Thiruninravur, Chennai – 602024, Tamil Nadu, India.',
   phone: '+91 98401 57425',
   phoneHref: 'tel:+919840157425',
-  email: 'cgmedia4@gmail.com',
+  email: 'jsphotoartist25@gmail.com',
   instagram: 'https://www.instagram.com/jsphotoartist25/',
   hours: 'Monday–Saturday: 9:00 AM–9:00 PM · Sunday: 11:00 AM–9:00 PM',
   googleRating: '5.0',
