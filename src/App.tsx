@@ -16,6 +16,12 @@ import ServicePage from './components/ServicePage'
 
 export default function App() {
   useEffect(() => {
+    // Keep canonical URLs on the custom domain, never the Vercel deployment hostname.
+    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
+    if (canonical) canonical.href = `https://www.jsphotoartist.in${window.location.pathname}`
+    const ogUrl = document.querySelector<HTMLMetaElement>('meta[property="og:url"]')
+    if (ogUrl) ogUrl.content = `https://www.jsphotoartist.in${window.location.pathname}`
+
     const loader = document.getElementById('site-loader')
     if (!loader) return
     const timer = window.setTimeout(() => {
