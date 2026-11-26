@@ -43,7 +43,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex h-full max-w-[96rem] flex-col items-center justify-center px-5 text-center sm:px-8 lg:px-12">
-        <p className="eyebrow mb-5 !text-white/80">{site.tagline}</p>
+        <p className="eyebrow mb-5 !text-white/80">Thiruninravur’s No. 1 Photography Studio</p>
         <h1 className="max-w-[14ch] font-display text-display-xl font-medium sm:max-w-[16ch]">
           Stories from <em className="font-normal">JS Photo Artist.</em>
         </h1>
