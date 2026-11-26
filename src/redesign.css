@@ -301,3 +301,10 @@ header.fixed.inset-x-0.top-0 button{color:#252229!important}
 #home img.hero-slide-image-active{animation:hero-photo-luxe 6.5s cubic-bezier(.42,0,.58,1) both!important;transform-origin:center;will-change:transform}
 @keyframes hero-photo-luxe{0%{transform:scale(1.035)}50%{transform:scale(1.13)}100%{transform:scale(1.035)}}
 @media(prefers-reduced-motion:reduce){#home img.hero-slide-image-active{animation:none!important;transform:scale(1.035)!important}}
+
+
+/* Subtle branded pointer halo on desktop; never replaces the native cursor. */
+.mouse-glow{position:fixed;z-index:9998;width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid rgba(112,37,143,.48);border-radius:50%;background:rgba(195,151,213,.09);box-shadow:0 0 24px rgba(112,37,143,.12);pointer-events:none;transition:width .18s ease,height .18s ease,margin .18s ease,border-color .18s ease,background .18s ease;will-change:left,top}
+.mouse-glow-active{width:48px;height:48px;margin:-24px 0 0 -24px;border-color:rgba(112,37,143,.75);background:rgba(195,151,213,.16)}
+@media(hover:none),(pointer:coarse){.mouse-glow{display:none}}
+@media(prefers-reduced-motion:reduce){.mouse-glow{display:none!important}}
