@@ -292,3 +292,6 @@ header.fixed.inset-x-0.top-0 button{color:#252229!important}
 /* Intro logo and caption in clean white, as requested. */
 #site-loader .site-loader-mark img{filter:brightness(0) invert(1)!important;-webkit-filter:brightness(0) invert(1)!important}
 #site-loader .site-loader-caption{color:#fff!important}
+
+/* Keep the intro tagline clear of the logo's outer circular ring. */
+#site-loader .site-loader-caption{margin-top:16px!important}
