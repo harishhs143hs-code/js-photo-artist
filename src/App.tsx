@@ -55,5 +55,6 @@ export default function App() {
     </main>
     <Footer />
     <WhatsAppFab />
+    <MouseGlow />
   </>
 }
