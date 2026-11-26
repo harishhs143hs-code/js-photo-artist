@@ -12,7 +12,7 @@ export const site = {
   instagram: 'https://www.instagram.com/jsphotoartist25/',
   hours: 'Monday–Saturday: 9:00 AM–9:00 PM · Sunday: 11:00 AM–9:00 PM',
   googleRating: '5.0',
-  googleReviewCount: 45,
+  googleReviewCount: 48,
   googleBusinessUrl: 'https://www.google.com/maps/search/?api=1&query=JS+Photo+Artist&query_place_id=ChIJmUWoJyaJUjoRjH4G7sKBeKU',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=No%20212%2C%20EB%20Colony%2C%20Lakshmipuram%2C%20Thiruninravur%2C%20Chennai%20602024%2C%20Tamil%20Nadu%2C%20India',
   mapsEmbed: 'https://www.google.com/maps?q=No%20212%2C%20EB%20Colony%2C%20Lakshmipuram%2C%20Thiruninravur%2C%20Chennai%20602024%2C%20Tamil%20Nadu%2C%20India&output=embed',
