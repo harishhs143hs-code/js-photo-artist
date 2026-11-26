@@ -295,3 +295,9 @@ header.fixed.inset-x-0.top-0 button{color:#252229!important}
 
 /* Keep the intro tagline clear of the logo's outer circular ring. */
 #site-loader .site-loader-caption{margin-top:16px!important}
+
+
+/* Ensure the active hero slide's slow zoom animation wins over the generic image-arrival rule. */
+#home img.hero-slide-image-active{animation:hero-photo-luxe 6.5s cubic-bezier(.42,0,.58,1) both!important;transform-origin:center;will-change:transform}
+@keyframes hero-photo-luxe{0%{transform:scale(1.035)}50%{transform:scale(1.13)}100%{transform:scale(1.035)}}
+@media(prefers-reduced-motion:reduce){#home img.hero-slide-image-active{animation:none!important;transform:scale(1.035)!important}}
