@@ -102,7 +102,7 @@ export const portfolio: Work[] = [
   { src: '/images/albums/001_copy.webp', w: 1200, h: 800, alt: 'Traditional wedding ceremony hand holding', title: 'Sacred Wedding Details', cats: ['Weddings'], pos: '50% 50%' },
   { src: '/images/albums/006.jpg.jpeg', w: 1200, h: 800, alt: 'Wedding moment by JS Photo Artist', title: 'Little Star', cats: ['Baby & Kids'], pos: '50% 50%' },
   { src: '/images/albums/019.webp', w: 1200, h: 800, alt: 'Wedding coverage by JS Photo Artist', title: 'A Sweet Candid Moment', cats: ['Events'], pos: '50% 50%' },
-  { src: '/images/albums/030.webp', w: 1200, h: 800, alt: 'Wedding photography JS Photo Artist', title: 'The Bride', cats: ['Weddings'], pos: '50% 50%' },
+  { src: '/images/albums/030.webp', w: 1200, h: 800, alt: 'Wedding photography JS Photo Artist', title: 'Half Saree Elegance', cats: ['Events'], pos: '50% 50%' },
   { src: '/images/albums/031.webp', w: 800, h: 1000, alt: 'Wedding portrait by JS Photo Artist', title: 'A Walk to Remember', cats: ['Couples'], pos: '50% 40%' },
 
   // — Couples —
