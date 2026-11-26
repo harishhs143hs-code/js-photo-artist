@@ -100,14 +100,14 @@ export type Work = { src: string; w: number; h: number; alt: string; title: stri
 export const portfolio: Work[] = [
   // — Weddings —
   { src: '/images/albums/001_copy.webp', w: 1200, h: 800, alt: 'Traditional wedding ceremony hand holding', title: 'Traditional Ceremony', cats: ['Weddings'], pos: '50% 50%' },
-  { src: '/images/albums/006.jpg.jpeg', w: 1200, h: 800, alt: 'Wedding moment by JS Photo Artist', title: 'Wedding Moment', cats: ['Weddings'], pos: '50% 50%' },
+  { src: '/images/albums/006.jpg.jpeg', w: 1200, h: 800, alt: 'Baby portrait by JS Photo Artist', title: 'Little Star', cats: ['Baby & Kids'], pos: '50% 50%' },
   { src: '/images/albums/019.webp', w: 1200, h: 800, alt: 'Wedding coverage by JS Photo Artist', title: 'Wedding Story', cats: ['Weddings'], pos: '50% 50%' },
   { src: '/images/albums/030.webp', w: 1200, h: 800, alt: 'Wedding photography JS Photo Artist', title: 'Wedding Frame', cats: ['Weddings'], pos: '50% 50%' },
   { src: '/images/albums/031.webp', w: 800, h: 1000, alt: 'Wedding portrait by JS Photo Artist', title: 'Wedding Portrait', cats: ['Weddings'], pos: '50% 40%' },
 
   // — Couples —
   { src: '/images/albums/023.webp', w: 800, h: 1000, alt: 'Couple moment by JS Photo Artist', title: 'Intimate Moment', cats: ['Couples'], pos: '50% 50%' },
-  { src: '/images/albums/025.webp', w: 1200, h: 800, alt: 'Couple outdoor session JS Photo Artist', title: 'Garden Session', cats: ['Couples'], pos: '50% 50%' },
+  { src: '/images/albums/025.webp', w: 1200, h: 800, alt: 'Expecting couple maternity portrait by JS Photo Artist', title: 'Maternity Session', cats: ['Baby & Kids'], pos: '50% 50%' },
   { src: '/images/albums/034.webp', w: 1200, h: 800, alt: 'Couple portrait by JS Photo Artist', title: 'Forever Yours', cats: ['Couples'], pos: '50% 40%' },
 
   // — Baby & Kids —
