@@ -26,7 +26,7 @@ export default function Header() {
       if (event.key === 'Escape') setOpen(false)
     }
     window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', on)
+    return () => window.removeEventListener('keydown', onKeyDown)
   }, [open])
 
   return (
