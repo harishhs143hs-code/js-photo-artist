@@ -272,43 +272,19 @@ header.fixed.inset-x-0.top-0 button{color:#252229!important}
   #home .hero-slide-image { object-position: center 25% !important; }
 }
 
-/* Branded first-load intro. The HTML shell prevents the SEO fallback from flashing. */
-#site-loader {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  background: #fff;
-  opacity: 1;
-  visibility: visible;
-  transition: opacity .45s ease, visibility .45s ease;
-}
-#site-loader img {
-  position: relative;
-  z-index: 1;
-  width: min(190px, 42vw);
-  height: auto;
-  object-fit: contain;
-  animation: site-logo-turn 1.25s cubic-bezier(.45,0,.55,1) infinite;
-  transform-origin: center;
-}
-#site-loader .site-loader-ring {
-  position: absolute;
-  width: min(232px, 54vw);
-  aspect-ratio: 1;
-  border: 2px solid rgba(112,37,143,.12);
-  border-top-color: #70258f;
-  border-radius: 50%;
-  animation: site-loader-spin .9s linear infinite;
-}
-#site-loader.site-loader-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-@keyframes site-logo-turn {
-  0%, 100% { transform: rotate(-8deg) scale(.96); }
-  50% { transform: rotate(8deg) scale(1.02); }
-}
-@keyframes site-loader-spin { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) {
-  #site-loader img, #site-loader .site-loader-ring { animation-duration: 2.5s; }
-}
+
+/* Premium branded first-load intro */
+#site-loader{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;overflow:hidden;color:#fff;background:radial-gradient(ellipse at 50% 42%,rgba(118,51,143,.26),transparent 42%),#210b2b;opacity:1;visibility:visible;transition:opacity .55s ease,visibility .55s ease}
+#site-loader .site-loader-mark{position:relative;display:grid;place-items:center;width:min(184px,42vw);aspect-ratio:1;animation:site-mark-enter .8s cubic-bezier(.2,.75,.25,1) both}
+#site-loader .site-loader-mark:before,#site-loader .site-loader-mark:after{content:"";position:absolute;inset:-14px;border:1px solid rgba(238,215,248,.18);border-radius:50%}
+#site-loader .site-loader-mark:after{inset:-22px;border-color:rgba(238,215,248,.07)}
+#site-loader img{position:relative;z-index:1;width:100%;height:auto;object-fit:contain;animation:site-logo-settle .9s ease both}
+#site-loader .site-loader-caption{margin:0;color:rgba(255,255,255,.7);font:500 10px/1.4 Manrope,sans-serif;letter-spacing:.28em;text-transform:uppercase;animation:site-caption-enter .7s .2s ease both}
+#site-loader .site-loader-track{width:min(170px,42vw);height:2px;overflow:hidden;background:rgba(255,255,255,.13);animation:site-caption-enter .7s .3s ease both}
+#site-loader .site-loader-track:after{content:"";display:block;width:38%;height:100%;background:#d7b4e8;animation:site-progress 1.05s cubic-bezier(.4,0,.2,1) forwards}
+#site-loader.site-loader-hidden{opacity:0;visibility:hidden;pointer-events:none}
+@keyframes site-mark-enter{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes site-logo-settle{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+@keyframes site-caption-enter{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@keyframes site-progress{from{transform:translateX(-110%)}to{transform:translateX(280%)}}
+@media(prefers-reduced-motion:reduce){#site-loader *,#site-loader *:before,#site-loader *:after{animation-duration:.01ms!important}#site-loader{transition-duration:.01ms}}
