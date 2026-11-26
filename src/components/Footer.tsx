@@ -23,7 +23,10 @@ export default function Footer() {
           <address className="not-italic leading-relaxed">{site.address}</address>
           <p className="mt-3"><a className="hover:text-white" href={site.phoneHref}>{site.phone}</a></p>
           <p><a className="break-all hover:text-white" href={`mailto:${site.email}`}>{site.email}</a></p>
-          <p className="mt-3"><a className="underline underline-offset-4 hover:text-white" href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram</a></p>
+          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+            <a className="underline underline-offset-4 hover:text-white" href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a className="underline underline-offset-4 hover:text-white" href={site.googleBusinessUrl} target="_blank" rel="noopener noreferrer">Google Business Profile</a>
+          </div>
         </div>
       </div>
       <div className="border-t border-white/10 px-5 py-5 text-center text-xs text-white/60">© {new Date().getFullYear()} {site.name}. All rights reserved.</div>
