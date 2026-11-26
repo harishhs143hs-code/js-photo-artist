@@ -38,3 +38,9 @@
 
 /* SEO audit: accessible touch targets for hero slideshow controls. */
 #home [role="tablist"] button{min-width:44px;min-height:44px}
+
+
+/* Custom camera-shutter cursor for mouse/trackpad users; touch devices keep native behavior. */
+@media (hover: hover) and (pointer: fine) {
+  html, body, body * { cursor: url('/shutter-cursor.svg') 16 16, auto; }
+}

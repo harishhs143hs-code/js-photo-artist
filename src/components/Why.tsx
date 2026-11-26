@@ -9,6 +9,7 @@ const points = [
 ]
 
 export default function Why() {
+  const faqs = [["Where is JS Photo Artist located?","Our photography studio is at No. 212, EB Colony, Lakshmipuram, Thiruninravur, Tamil Nadu 602024."],["What photography services do you offer?","We offer candid and traditional wedding photography, wedding videography, couple portraits, baby and kids photoshoots, family and event photography, albums, photo frames and printing."],["How can I check availability for my wedding date?","Send your event date, venue and preferred coverage through the enquiry form or WhatsApp. We will discuss availability and suitable package options."],["Do you provide candid and traditional wedding photography?","Yes. Wedding coverage can include candid photography, traditional photography, videography and cinematic films."],["Do you offer baby and maternity photoshoots?","Yes. We offer baby and kids photography, indoor and outdoor baby sessions, maternity sessions and baby shower coverage."],["How can I get package prices?","Our website lists selected starting package prices. Contact us with your event type and requirements to confirm inclusions and a suitable quote."],["Do you provide wedding albums and photo printing?","Yes. Ask us about wedding and reception albums, album design, photo frames, customized photo gifts and printing."]]
   return (
     <section aria-labelledby="why-h" className="mx-auto max-w-[96rem] px-5 py-24 sm:px-8 sm:py-32 lg:px-12">
       <div className="grid gap-12 lg:grid-cols-12">
@@ -26,6 +27,20 @@ export default function Why() {
             </Reveal>
           ))}
         </dl>
+      </div>
+      <div id="faq" className="mx-auto mt-20 max-w-[96rem] border-t border-ink/15 px-5 pt-12 sm:px-8 lg:px-12">
+        <Reveal>
+          <p className="eyebrow mb-4">Frequently asked questions</p>
+          <h2 className="font-display text-display-md font-medium">Helpful answers <em className="font-normal text-brand">before you book.</em></h2>
+        </Reveal>
+        <div className="mt-8 divide-y divide-ink/15 border-y border-ink/15">
+          {faqs.map(([question, answer]) => (
+            <details key={question} className="group py-5">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-5 font-display text-xl sm:text-2xl">{question}<span aria-hidden="true" className="text-brand transition-transform group-open:rotate-45">＋</span></summary>
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-ink/70">{answer}</p>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
   )
