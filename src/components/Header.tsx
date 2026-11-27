@@ -4,8 +4,8 @@ import { site, services, waLink } from '../data/site'
 import { useLockScroll } from '../lib/useLockScroll'
 
 const links = [
-  ['Home', '/'], ['About', '/#about'], ['Services', '/#services'], ['Gallery', '/#portfolio'],
-  ['Pricing', '/pricing'], ['Contact', '/#contact'],
+  ['Home', '/'], ['About', '/#about'], ['Services', '/#services'], ['Pricing', '/pricing'],
+  ['Gallery', '/#portfolio'], ['Contact', '/#contact'],
 ]
 
 export default function Header() {
