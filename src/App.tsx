@@ -14,6 +14,7 @@ import WhatsAppFab from './components/WhatsAppFab'
 import MouseGlow from './components/MouseGlow'
 import ServicePage from './components/ServicePage'
 import PricingPage from './components/PricingPage'
+import NotFound from './components/NotFound'
 
 export default function App() {
   useEffect(() => {
@@ -32,7 +33,8 @@ export default function App() {
     return () => window.clearTimeout(timer)
   }, [])
 
-  const isPricingPage = window.location.pathname.replace(/\/$/, '') === '/pricing'
+  const pathname = window.location.pathname.replace(/\/$/, '') || '/'
+  const isPricingPage = pathname === '/pricing'
   if (isPricingPage) return <>
     <Header />
     <PricingPage />
@@ -41,7 +43,8 @@ export default function App() {
     <MouseGlow />
   </>
 
-  const isServicePage = window.location.pathname.startsWith('/services/')
+  const isServicePage = pathname.startsWith('/services/')
+  const isHomePage = pathname === '/'
   if (isServicePage) return <>
     <Header />
     <ServicePage />
@@ -49,6 +52,14 @@ export default function App() {
     <WhatsAppFab />
     <MouseGlow />
   </>
+  if (!isHomePage) return <>
+    <Header />
+    <NotFound />
+    <Footer />
+    <WhatsAppFab />
+    <MouseGlow />
+  </>
+
   return <>
     <Header />
     <main>
