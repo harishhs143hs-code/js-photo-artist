@@ -39,7 +39,7 @@ export default function ServicePage() {
     if (!service || !detail) return
     document.title = `${service.title} in Thiruninravur | JS Photo Artist`
     document.querySelector<HTMLMetaElement>('meta[name="description"]')
-      ?.setAttribute('content', `Book ${service.title.toLowerCase()} in Thiruninravur, Tiruvallur. Explore coverage options, what we capture and how to enquire with JS Photo Artist.`)
+      ?.setAttribute('content', `${service.title} in Thiruninravur, Tiruvallur. Learn about the service and photography options from JS Photo Artist.`)
     document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
       ?.setAttribute('href', `https://www.jsphotoartist.in${window.location.pathname}`)
   }, [service, detail])
@@ -61,7 +61,7 @@ export default function ServicePage() {
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-14">
           <div>
             <p className="eyebrow mb-4">JS Photo Artist · Thiruninravur</p>
-            <h1 className="font-display text-display-lg font-medium">{service.title} in Thiruninravur</h1>
+            <h1 className="font-display text-display-lg font-medium">{service.title}</h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-ink/70">{detail.intro}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a className="btn-solid inline-flex items-center gap-2" href={waLink(`Hello JS Photo Artist, I am interested in ${service.title}. Please share your availability and service details.`)} target="_blank" rel="noopener noreferrer"><MessageCircle size={17}/> Enquire on WhatsApp</a>
@@ -89,15 +89,6 @@ export default function ServicePage() {
           </section>
         </div>
       </div>
-      <section className="mx-auto max-w-6xl px-5 pb-16 sm:px-8" aria-labelledby="service-faq-heading">
-        <h2 id="service-faq-heading" className="font-display text-3xl">Frequently asked questions</h2>
-        <div className="mt-6 grid gap-5 md:grid-cols-2">
-          <article><h3 className="font-semibold">Where do you provide {service.title.toLowerCase()}?</h3><p className="mt-2 leading-7 text-ink/80">JS Photo Artist is based in Thiruninravur, Tamil Nadu. Share your venue and event date so we can confirm availability and travel arrangements.</p></article>
-          <article><h3 className="font-semibold">How do I get a quotation?</h3><p className="mt-2 leading-7 text-ink/80">Send us your event type, date, location and preferred coverage on WhatsApp. We’ll confirm the suitable package, inclusions and final quotation before you book.</p></article>
-          <article><h3 className="font-semibold">Can I request a custom package?</h3><p className="mt-2 leading-7 text-ink/80">Tell us which moments you want covered and whether you need photography, videography, albums or prints. We can discuss available options.</p></article>
-          <article><h3 className="font-semibold">How early should I enquire?</h3><p className="mt-2 leading-7 text-ink/80">Enquire as soon as you know your date. Availability depends on the event schedule, so your date is needed to confirm a booking.</p></article>
-        </div>
-      </section>
     </main>
   )
 }

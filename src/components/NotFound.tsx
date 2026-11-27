@@ -10,7 +10,7 @@ export default function NotFound() {
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a href="/" className="btn-solid inline-flex items-center gap-2"><ArrowLeft size={17} /> Back to homepage</a>
           <a href="/#services" className="inline-flex items-center gap-2 border border-ink/20 px-5 py-3 text-sm font-semibold">Explore services</a>
-          <a href="https://wa.me/919840157425" className="inline-flex items-center gap-2 border border-ink/20 px-5 py-3 text-sm font-semibold"><MessageCircle size={17} /> Contact us</a>
+          <a href="https://wa.me/919840157425" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-ink/20 px-5 py-3 text-sm font-semibold"><MessageCircle size={17} /> Contact us</a>
         </div>
       </section>
     </main>

@@ -334,3 +334,8 @@ header.fixed.inset-x-0.top-0 button{color:#252229!important}
   .camera-cursor { display:none !important; }
   html, body, body * { cursor:auto !important; }
 }
+
+div#root:nth-of-type(1) > header:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) {
+  background-color: #ffffff;
+  color: #000000 !important;
+}

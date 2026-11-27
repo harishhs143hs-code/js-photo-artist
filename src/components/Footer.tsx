@@ -1,7 +1,7 @@
 import { Instagram } from 'lucide-react'
 import { site, services } from '../data/site'
 
-const nav = [['Home', '#home'], ['About', '#about'], ['Services', '#services'], ['Portfolio', '#portfolio'], ['Albums & Printing', '#albums'], ['Contact', '#contact']]
+const nav = [['Home', '/#home'], ['About', '/#about'], ['Services', '/#services'], ['Portfolio', '/#portfolio'], ['Pricing', '/pricing'], ['FAQ', '/#faq'], ['Contact', '/#contact']]
 
 export default function Footer() {
   return (
@@ -28,7 +28,7 @@ export default function Footer() {
             <a className="inline-flex items-center gap-2 hover:text-white" href={site.instagram} target="_blank" rel="noopener noreferrer" aria-label="Visit JS Photo Artist on Instagram"><Instagram size={18} aria-hidden="true" /> Instagram</a>
             <a className="inline-flex items-center gap-2 hover:text-white" href={site.googleBusinessUrl} target="_blank" rel="noopener noreferrer" aria-label="View JS Photo Artist on Google Business Profile"><span className="grid size-5 place-items-center rounded-full bg-white text-sm font-bold text-[#4285F4]" aria-hidden="true">G</span> Google Business Profile</a>
           </div>
-          <p className="mt-4 text-xs text-white/70"><span className="font-semibold text-white">5.0★ on Google · 48 reviews</span><br />View our Google Business Profile and customer reviews.</p>
+          <p className="mt-4 text-xs text-white/70"><span className="font-semibold text-white">{site.googleRating}★ on Google · {site.googleReviewCount}+ reviews</span><br />View our Google Business Profile and customer reviews.</p>
         </div>
       </div>
       <div className="border-t border-white/10 px-5 py-5 text-center text-xs text-white/60">© {new Date().getFullYear()} {site.name}. All rights reserved.</div>

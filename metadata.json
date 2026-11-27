@@ -1,0 +1,8 @@
+{
+  "name": "JS Photo Artist",
+  "description": "Wedding, baby, family, and event photography studio in Thiruninravur, Tamil Nadu, with an AI studio concierge.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

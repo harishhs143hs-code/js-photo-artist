@@ -9,8 +9,10 @@ import Why from './components/Why'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Shop from './components/Shop'
+import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import WhatsAppFab from './components/WhatsAppFab'
+import StudioChat from './components/StudioChat'
 import MouseGlow from './components/MouseGlow'
 import ServicePage from './components/ServicePage'
 import PricingPage from './components/PricingPage'
@@ -18,7 +20,6 @@ import NotFound from './components/NotFound'
 
 export default function App() {
   useEffect(() => {
-    document.querySelector('main')?.setAttribute('id', 'main-content')
     // Keep canonical URLs on the custom domain, never the Vercel deployment hostname.
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
     if (canonical) canonical.href = `https://www.jsphotoartist.in${window.location.pathname}`
@@ -41,6 +42,7 @@ export default function App() {
     <PricingPage />
     <Footer />
     <WhatsAppFab />
+    <StudioChat />
     <MouseGlow />
   </>
 
@@ -51,6 +53,7 @@ export default function App() {
     <ServicePage />
     <Footer />
     <WhatsAppFab />
+    <StudioChat />
     <MouseGlow />
   </>
   if (!isHomePage) return <>
@@ -58,6 +61,7 @@ export default function App() {
     <NotFound />
     <Footer />
     <WhatsAppFab />
+    <StudioChat />
     <MouseGlow />
   </>
 
@@ -71,10 +75,12 @@ export default function App() {
       <Why />
       <Testimonials />
       <Shop />
+      <FAQ />
       <Contact />
     </main>
     <Footer />
     <WhatsAppFab />
+    <StudioChat />
     <MouseGlow />
   </>
 }

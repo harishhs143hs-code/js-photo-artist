@@ -42,11 +42,3 @@
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes modal-pop { from { opacity: 0; transform: translateY(22px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @media (prefers-reduced-motion: reduce) { .animate-\[fade-in_\.25s_ease-out\], .animate-\[modal-pop_\.35s_cubic-bezier\(\.2\,\.8\,\.2\,1\)\] { animation: none !important; } }
-
-/* Audit fixes: keyboard skip link and improved text contrast. */
-.skip-link{position:fixed;left:1rem;top:-5rem;z-index:9999;background:#fff;color:#32103f;padding:.75rem 1rem;border:2px solid #70258f;border-radius:.5rem;font-weight:700}
-.skip-link:focus{top:1rem}
-.text-ink\/70{color:#514b53!important}
-.text-ink\/65{color:#514b53!important}
-.text-ink\/60{color:#59545d!important}
-.text-ink\/55{color:#59545d!important}

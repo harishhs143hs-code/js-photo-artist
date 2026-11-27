@@ -12,6 +12,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [enquiryOpen, setEnquiryOpen] = useState(false)
+  const [preparedWaUrl, setPreparedWaUrl] = useState<string | null>(null)
   const [form, setForm] = useState({ name: '', phone: '', service: '', date: '', location: '', message: '' })
   useLockScroll(open || enquiryOpen)
 
@@ -44,7 +45,7 @@ export default function Header() {
             </ul>
           </nav>
           <div className="flex items-center gap-3">
-            <button type="button" onClick={() => setEnquiryOpen(true)} className="hidden min-h-11 rounded-full bg-brand px-5 py-2.5 text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-white shadow-[0_8px_20px_rgba(112,19,154,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-plum hover:shadow-[0_12px_28px_rgba(112,19,154,0.28)] active:scale-[0.98] sm:inline-flex sm:items-center">Enquire</button>
+            <button type="button" onClick={() => { setPreparedWaUrl(null); setEnquiryOpen(true) }} className="hidden min-h-11 rounded-full bg-[#ffffff] px-5 py-2.5 text-[0.72rem] font-semibold uppercase tracking-[0.12em] !text-[#000000] shadow-[0_8px_20px_rgba(112,19,154,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-lavender/50 hover:shadow-[0_12px_28px_rgba(112,19,154,0.28)] active:scale-[0.98] sm:inline-flex sm:items-center">Enquire</button>
             <button
               type="button"
               onClick={() => setOpen(value => !value)}
@@ -70,7 +71,17 @@ export default function Header() {
               <h2 id="enquiry-title" className="relative max-w-lg font-display text-3xl font-medium leading-tight sm:text-4xl">Tell us about your <em className="font-normal text-[#f2cfe9]">special day.</em></h2>
               <p className="relative mt-3 max-w-lg text-sm leading-6 text-white/70">Share a few details and we’ll help you find the right photography package.</p>
             </div>
-            <form className="grid gap-4 px-6 py-6 sm:grid-cols-2 sm:gap-5 sm:px-9 sm:py-8" onSubmit={(e: FormEvent<HTMLFormElement>) => { e.preventDefault(); const msg = `Hello JS Photo Artist, I would like to enquire.\\nName: ${form.name}\\nPhone: ${form.phone}${form.service ? `\\nService: ${form.service}` : ''}${form.date ? `\\nEvent date: ${form.date}` : ''}${form.location ? `\\nLocation: ${form.location}` : ''}${form.message ? `\\nMessage: ${form.message}` : ''}`; window.open(waLink(msg), '_blank', 'noopener,noreferrer'); }}>
+            <form className="grid gap-4 px-6 py-6 sm:grid-cols-2 sm:gap-5 sm:px-9 sm:py-8" onSubmit={(e: FormEvent<HTMLFormElement>) => {
+              e.preventDefault()
+              const msg = `Hello JS Photo Artist, I would like to enquire.\nName: ${form.name}\nPhone: ${form.phone}${form.service ? `\nService: ${form.service}` : ''}${form.date ? `\nEvent date: ${form.date}` : ''}${form.location ? `\nLocation: ${form.location}` : ''}${form.message ? `\nMessage: ${form.message}` : ''}`
+              const url = waLink(msg)
+              setPreparedWaUrl(url)
+              const a = document.createElement('a')
+              a.href = url
+              a.target = '_blank'
+              a.rel = 'noopener noreferrer'
+              a.click()
+            }}>
               <label className="block text-sm font-medium text-ink">Your name *<input required minLength={2} autoComplete="name" value={form.name} onChange={e=>setForm(p=>({...p,name:e.target.value}))} placeholder="Name" className="mt-2 w-full rounded-xl border border-lavender bg-[#fcf9fd] px-4 py-3.5 text-sm outline-none transition focus:border-brand focus:bg-white focus:ring-4 focus:ring-brand/10"/></label>
               <label className="block text-sm font-medium text-ink">Phone number *<input required type="tel" minLength={10} autoComplete="tel" value={form.phone} onChange={e=>setForm(p=>({...p,phone:e.target.value}))} placeholder="Your contact number" className="mt-2 w-full rounded-xl border border-lavender bg-[#fcf9fd] px-4 py-3.5 text-sm outline-none transition focus:border-brand focus:bg-white focus:ring-4 focus:ring-brand/10"/></label>
               <label className="block text-sm font-medium text-ink">Event / service<select value={form.service} onChange={e=>setForm(p=>({...p,service:e.target.value}))} className="mt-2 w-full rounded-xl border border-lavender bg-[#fcf9fd] px-4 py-3.5 text-sm outline-none transition focus:border-brand focus:bg-white focus:ring-4 focus:ring-brand/10"><option value="">Choose a service</option>{services.map(s=><option key={s.id} value={s.title}>{s.title}</option>)}<option value="Other">Other</option></select></label>
@@ -79,7 +90,17 @@ export default function Header() {
               <label className="block text-sm font-medium text-ink sm:col-span-2">Anything else? <textarea rows={3} value={form.message} onChange={e=>setForm(p=>({...p,message:e.target.value}))} placeholder="Tell us about your occasion, package or special requests…" className="mt-2 w-full resize-y rounded-xl border border-lavender bg-[#fcf9fd] px-4 py-3.5 text-sm outline-none transition focus:border-brand focus:bg-white focus:ring-4 focus:ring-brand/10"/></label>
               <div className="sm:col-span-2">
                 <button type="submit" className="group inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-xl bg-brand px-6 py-4 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(112,19,154,.2)] transition duration-300 hover:-translate-y-0.5 hover:bg-plum hover:shadow-[0_15px_32px_rgba(112,19,154,.3)] active:translate-y-0"><MessageCircle size={18}/> Continue to WhatsApp <ArrowUpRight size={17} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"/></button>
-                <p className="mt-3 text-center text-xs leading-5 text-ink/50">Your details are prepared in WhatsApp. Review and send the message to complete your enquiry.</p>
+                {preparedWaUrl ? (
+                  <p className="mt-3 text-center text-xs leading-5 text-ink/75">
+                    Your enquiry is ready.{' '}
+                    <a href={preparedWaUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand underline underline-offset-2">
+                      Open WhatsApp directly
+                    </a>{' '}
+                    if a new tab did not open.
+                  </p>
+                ) : (
+                  <p className="mt-3 text-center text-xs leading-5 text-ink/50">Your details are prepared in WhatsApp. Review and send the message to complete your enquiry.</p>
+                )}
               </div>
             </form>
           </section>
@@ -112,7 +133,7 @@ export default function Header() {
           </nav>
 
           <div className="mx-auto w-full max-w-md">
-            <a href="https://jsphotoartist.in/pricing" onClick={() => setOpen(false)} className="inline-flex min-h-14 w-full items-center justify-center rounded-full border border-[#f0d4ad] bg-[#f0d4ad] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] !text-[#32123f] shadow-[0_8px_24px_rgba(240,212,173,.24)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#f8e6cc] hover:shadow-[0_12px_30px_rgba(240,212,173,.36)] active:translate-y-0 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f0d4ad]">
+            <a href="/pricing" onClick={() => setOpen(false)} className="inline-flex min-h-14 w-full items-center justify-center rounded-full border border-[#f0d4ad] bg-[#f0d4ad] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] !text-[#32123f] shadow-[0_8px_24px_rgba(240,212,173,.24)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#f8e6cc] hover:shadow-[0_12px_30px_rgba(240,212,173,.36)] active:translate-y-0 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f0d4ad]">
               Check Price
             </a>
             <p className="mt-4 text-center text-[0.65rem] uppercase tracking-[0.2em] text-white/45">Photo · Video · Album · Printing</p>

@@ -43,8 +43,20 @@ export default function Portfolio() {
           <p className="eyebrow mb-5">A visual collection</p>
           <h2 id="portfolio-h" className="font-display text-display-lg font-medium">Selected <em className="font-normal text-brand">works</em></h2>
         </Reveal>
+        <div role="group" aria-label="Filter portfolio by category" className="portfolio-filter">
+          {(['All', ...categories] as const).map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              aria-pressed={category === cat}
+              onClick={() => setCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
         <div className="portfolio-instagram-grid" aria-live="polite">
-          {photos.map((work, index) => <GalleryPhoto key={work.src} work={work} index={index} />)}
+          {photos.map((work, index) => <GalleryPhoto key={`${category}-${work.src}`} work={work} index={index} />)}
         </div>
       </div>
     </section>

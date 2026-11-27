@@ -10,6 +10,7 @@ const field = 'w-full border-0 border-b border-ink/25 bg-transparent px-0 py-3 t
 export default function Contact() {
   const [v, setV] = useState<Values>(empty)
   const [err, setErr] = useState<Partial<Record<keyof Values, string>>>({})
+  const [preparedWaUrl, setPreparedWaUrl] = useState<string | null>(null)
 
   useEffect(() => {
     const on = (e: Event) => setV((p) => ({ ...p, service: (e as CustomEvent<string>).detail }))
@@ -35,7 +36,13 @@ export default function Contact() {
   const submit = (e: FormEvent) => {
     e.preventDefault()
     if (!validate()) return
-    window.location.href = waLink(summary())
+    const url = waLink(summary())
+    setPreparedWaUrl(url)
+    const a = document.createElement('a')
+    a.href = url
+    a.target = '_blank'
+    a.rel = 'noopener noreferrer'
+    a.click()
   }
 
   const E = ({ k }: { k: keyof Values }) => err[k] ? <p id={`${k}-e`} className="mt-1 text-xs text-red-700">{err[k]}</p> : null
@@ -84,7 +91,17 @@ export default function Contact() {
               <div className="sm:col-span-2"><label htmlFor="message" className="sr-only">Message</label><textarea id="message" rows={4} placeholder="Tell us about your occasion" className={field} value={v.message} onChange={set('message')} /></div>
               <div className="sm:col-span-2">
                 <button type="submit" className="btn-solid">Continue to WhatsApp</button>
-                <p className="sm:col-span-2 mt-3 text-sm text-ink/60">Your details will be added to a WhatsApp message. Review it and tap Send to submit your enquiry.</p>
+                {preparedWaUrl ? (
+                  <p className="mt-3 text-sm text-ink/75">
+                    Your enquiry message is ready.{' '}
+                    <a href={preparedWaUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand underline underline-offset-4 hover:text-plum">
+                      Open WhatsApp
+                    </a>{' '}
+                    if a new tab did not open automatically.
+                  </p>
+                ) : (
+                  <p className="sm:col-span-2 mt-3 text-sm text-ink/60">Your details will be added to a WhatsApp message. Review it and tap Send to submit your enquiry.</p>
+                )}
               </div>
             </form>
           </Reveal>

@@ -32,10 +32,10 @@ export default function Hero() {
               src={slide.src}
               alt={slide.alt}
               loading={i === current ? 'eager' : 'lazy'}
-              fetchPriority={i === current ? 'high' : 'auto'}
+              {...({ fetchpriority: i === current ? 'high' : 'auto' } as Record<string, string>)}
               decoding="async"
               className={`hero-slide-image h-full w-full object-cover ${i === current ? 'hero-slide-image-active' : ''}`}
-              style={{ objectPosition: slide.mobile === slide.src ? slide.mobilePos : slide.mobilePos }}
+              style={{ objectPosition: slide.pos }}
             />
           </picture>
         </div>
@@ -48,7 +48,7 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex h-full max-w-[96rem] flex-col items-center justify-center px-5 text-center sm:px-8 lg:px-12">
         <p className="eyebrow mb-5 !text-white/80">Wedding & Event Photography in Thiruninravur</p>
         <h1 className="max-w-[14ch] font-display text-display-xl font-medium sm:max-w-[16ch]">
-          Wedding photography in <em className="font-normal">Thiruninravur.</em>
+          Stories from <em className="font-normal">JS Photo Artist.</em>
         </h1>
         <p className="mt-5 max-w-md text-base leading-relaxed text-white/85 sm:text-lg">
           Wedding, baby and event photography in Thiruninravur—beautiful moments, thoughtfully captured.
@@ -56,8 +56,8 @@ export default function Hero() {
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a href="#portfolio" className="btn-line">Explore Our Work</a>
           <a
-            href="https://jsphotoartist.in/pricing"
-            className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#f0d4ad] bg-[#f0d4ad] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#32123f] shadow-[0_8px_30px_rgba(240,212,173,0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#f8e6cc] hover:shadow-[0_12px_36px_rgba(240,212,173,0.45)] active:translate-y-0 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f0d4ad] motion-reduce:transition-none"
+            href="/pricing"
+            className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#f0d4ad] bg-[#ffffff] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#32123f] shadow-[0_8px_30px_rgba(240,212,173,0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#f8e6cc] hover:shadow-[0_12px_36px_rgba(240,212,173,0.45)] active:translate-y-0 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f0d4ad] motion-reduce:transition-none"
           >
             Check Price
           </a>
