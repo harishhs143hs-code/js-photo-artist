@@ -128,7 +128,7 @@ export default function Packages() {
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {group.packages.map((item, index) => (
                   <article key={item.name} className="group flex min-w-0 flex-col rounded-2xl border border-lavender/80 bg-white p-5 shadow-[0_6px_24px_rgba(57,6,79,0.045)] transition-all duration-300 hover:-translate-y-1 hover:border-brand/35 hover:shadow-[0_14px_36px_rgba(57,6,79,0.10)] sm:p-6">
-                    <h4 className="font-display text-xl font-semibold leading-snug text-brand">{item.name}</h4>
+                    <h4 className="font-display text-xl font-semibold leading-snug text-brand">{item.name}<span className="sr-only"> — {group.title}</span></h4>
                     <p className="mt-3 font-display text-3xl font-semibold tracking-tight text-brand">{item.price}</p>
                     <p className="mt-3 text-sm text-ink/60">Tap to view package inclusions</p>
                     <button type="button" onClick={() => setSelected({ group, item })} className="mt-5 inline-flex min-h-12 w-full items-center justify-between gap-3 rounded-xl border border-plum/15 bg-[#f9f4fb] px-4 py-3 text-sm font-semibold text-plum transition-colors hover:border-brand/30 hover:bg-[#f3e9f7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
