@@ -55,7 +55,7 @@ export default function Hero() {
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a href="#portfolio" className="btn-light">Explore Our Work</a>
-          <a href="#contact" className="btn-line">Check Dates &amp; Packages</a>
+          <a href="#contact" className="btn-line">Check Price</a>
           <a href={waLink(site.defaultWa)} target="_blank" rel="noopener noreferrer" className="btn-line">WhatsApp Enquiry</a>
         </div>
       </div>
