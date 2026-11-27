@@ -15,7 +15,7 @@ const details: Record<string, { intro: string; moments: string; about: string }>
   },
   events: {
     intro: 'Family celebrations are full of moments that deserve to be remembered: the people arriving, the rituals, the laughter and the little details.',
-    moments: 'We cover birthdays, puberty ceremonies, family functions and special occasions. Birthday event photography packages are listed from ₹7,000.',
+    moments: 'We cover birthdays, puberty ceremonies, family functions and special occasions, capturing the people, traditions and candid moments that make each celebration memorable.',
     about: 'Coverage is planned around the flow of your celebration, from family and guests to meaningful traditions, candid reactions and details.'
   },
   kids: {
@@ -64,7 +64,7 @@ export default function ServicePage() {
             <h1 className="font-display text-display-lg font-medium">{service.title}</h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-ink/70">{detail.intro}</p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a className="btn-solid inline-flex items-center gap-2" href={waLink(`Hello JS Photo Artist, I am interested in ${service.title}. Please share available dates and package details.`)} target="_blank" rel="noopener noreferrer"><MessageCircle size={17}/> Enquire on WhatsApp</a>
+              <a className="btn-solid inline-flex items-center gap-2" href={waLink(`Hello JS Photo Artist, I am interested in ${service.title}. Please share your availability and service details.`)} target="_blank" rel="noopener noreferrer"><MessageCircle size={17}/> Enquire on WhatsApp</a>
               <a className="border border-ink/20 px-5 py-3 text-sm font-semibold" href="/#services">Explore other services</a>
             </div>
           </div>
@@ -85,7 +85,7 @@ export default function ServicePage() {
           <section className="border-t border-lavender pt-8 md:border-t-0 md:pt-0">
             <h2 className="font-display text-3xl">About this service</h2>
             <p className="mt-4 leading-7 text-ink/70">{detail.about}</p>
-            <p className="mt-6 leading-7 text-ink/70">Tell us the occasion, date and the moments you want covered. We’ll help you choose a suitable service and explain the deliverables before you book.</p>
+            <p className="mt-6 leading-7 text-ink/70">Tell us the occasion, date and the moments you want covered. We’ll help you plan the coverage and explain what is included before you book.</p>
           </section>
         </div>
       </div>
