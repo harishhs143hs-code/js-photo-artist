@@ -124,11 +124,7 @@ export default function Packages() {
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {group.packages.map((item, index) => (
                   <article key={item.name} className="group flex min-w-0 flex-col rounded-2xl border border-lavender/80 bg-white p-5 shadow-[0_6px_24px_rgba(57,6,79,0.045)] transition-all duration-300 hover:-translate-y-1 hover:border-brand/35 hover:shadow-[0_14px_36px_rgba(57,6,79,0.10)] sm:p-6">
-                    <div className="flex items-start justify-between gap-3">
-                      <span className="text-[10px] font-semibold tracking-[0.16em] text-brand/75">PACKAGE {String(index + 1).padStart(2, '0')}</span>
-                      <span className="rounded-full bg-[#f5edf8] px-3 py-1 text-[10px] font-medium text-plum">Details</span>
-                    </div>
-                    <h4 className="mt-4 font-display text-xl font-medium leading-snug text-ink">{item.name}</h4>
+                    <h4 className="font-display text-xl font-semibold leading-snug text-brand">{item.name}</h4>
                     <p className="mt-3 font-display text-3xl font-semibold tracking-tight text-brand">{item.price}</p>
                     <ul className="mt-4 space-y-2 text-sm leading-5 text-ink/70">
                       {item.details.slice(0, 3).map(detail => <li key={detail} className="flex gap-2"><Check size={15} className="mt-0.5 shrink-0 text-brand" aria-hidden="true" /><span>{detail}</span></li>)}
