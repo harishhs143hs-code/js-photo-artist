@@ -4,7 +4,7 @@ import Reveal from '../lib/Reveal'
 import { waLink } from '../data/site'
 
 type Package = { name: string; price: string; details: string[]; note?: string }
-type Group = { title: string; subtitle: string; packages: Package[] }
+type Group = { title: string; subtitle: string; packages: Package[]; note?: string }
 const groups: Group[] = [
   {
     title: 'General Photography',
