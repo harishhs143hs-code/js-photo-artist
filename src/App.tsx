@@ -9,7 +9,6 @@ import Why from './components/Why'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Shop from './components/Shop'
-import Packages from './components/Packages'
 import Footer from './components/Footer'
 import WhatsAppFab from './components/WhatsAppFab'
 import MouseGlow from './components/MouseGlow'
@@ -56,7 +55,6 @@ export default function App() {
       <Hero />
       <Intro />
       <Services />
-      <Packages />
       <Portfolio />
       <Why />
       <Testimonials />
