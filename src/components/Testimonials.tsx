@@ -13,6 +13,10 @@ export default function Testimonials() {
               <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/70">
                 Read genuine client feedback from our Google Business Profile.
               </p>
+              <div className="mt-5 inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/[0.06] px-4 py-2.5" aria-label={`${site.googleRating} out of 5 from ${site.googleReviewCount} Google reviews`}>
+                <span className="text-lg tracking-[0.12em] text-[#f8c85c]" aria-hidden="true">★★★★★</span>
+                <span className="text-sm font-semibold text-white">{site.googleRating} <span className="font-normal text-white/65">· {site.googleReviewCount} Google reviews</span></span>
+              </div>
             </div>
             <a href={site.googleBusinessUrl} target="_blank" rel="noopener noreferrer" className="google-review-link inline-flex w-fit items-center gap-2 rounded-full border border-white/35 px-6 py-3 text-sm font-medium text-white transition hover:bg-white hover:text-plum focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
               Read reviews on Google <span aria-hidden="true">↗</span>
