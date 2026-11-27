@@ -26,15 +26,18 @@ export default function Hero() {
           className="absolute inset-0 transition-opacity duration-[1400ms] ease-in-out"
           style={{ opacity: i === current ? 1 : 0 }}
         >
-          <img
-            src={slide.src}
-            alt={slide.alt}
-            loading={i === current ? 'eager' : 'lazy'}
-            fetchPriority={i === current ? 'high' : 'auto'}
-            decoding="async"
-            className={`hero-slide-image h-full w-full object-cover ${i === current ? 'hero-slide-image-active' : ''}`}
-            style={{ objectPosition: slide.pos }}
-          />
+          <picture>
+            <source media="(max-width: 640px)" srcSet={slide.mobile} />
+            <img
+              src={slide.src}
+              alt={slide.alt}
+              loading={i === current ? 'eager' : 'lazy'}
+              fetchPriority={i === current ? 'high' : 'auto'}
+              decoding="async"
+              className={`hero-slide-image h-full w-full object-cover ${i === current ? 'hero-slide-image-active' : ''}`}
+              style={{ objectPosition: slide.mobile === slide.src ? slide.mobilePos : slide.mobilePos }}
+            />
+          </picture>
         </div>
       ))}
 
@@ -43,7 +46,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex h-full max-w-[96rem] flex-col items-center justify-center px-5 text-center sm:px-8 lg:px-12">
-        <p className="eyebrow mb-5 !text-white/80">Thiruninravur’s No. 1 Photography Studio</p>
+        <p className="eyebrow mb-5 !text-white/80">Wedding & Event Photography in Thiruninravur</p>
         <h1 className="max-w-[14ch] font-display text-display-xl font-medium sm:max-w-[16ch]">
           Stories from <em className="font-normal">JS Photo Artist.</em>
         </h1>
