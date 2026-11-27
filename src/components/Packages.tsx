@@ -116,7 +116,7 @@ export default function Packages() {
         </Reveal>
         <div className="space-y-12 sm:space-y-16">
           {groups.map((group, groupIndex) => (
-            <Reveal key={group.title} delay={groupIndex * 30}>
+            <Reveal key={group.title} delay={groupIndex * 30} id={`category-${group.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
               <div className={"group/featured relative mb-6 max-w-4xl overflow-hidden rounded-3xl border border-brand/20 bg-gradient-to-br from-white via-[#fff9fd] to-[#f3e9f7] p-5 shadow-[0_12px_40px_rgba(57,6,79,0.08)] transition-all duration-500 hover:-translate-y-1 hover:border-brand/40 hover:shadow-[0_20px_55px_rgba(57,6,79,0.14)] sm:mb-8 sm:p-8"}>
                 <div aria-hidden="true" className="pointer-events-none absolute -right-12 -top-16 size-48 rounded-full bg-brand/10 blur-3xl transition-transform duration-700 group-hover/featured:scale-125 sm:size-64" />
                 <div className="relative">
