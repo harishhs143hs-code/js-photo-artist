@@ -33,7 +33,7 @@ export default function App() {
     return () => window.clearTimeout(timer)
   }, [])
 
-  const isPricingPage = window.location.pathname.replace(/\\/$/, '') === '/pricing'
+  const isPricingPage = window.location.pathname.replace(/\/$/, '') === '/pricing'
   if (isPricingPage) return <>
     <Header />
     <PricingPage />
