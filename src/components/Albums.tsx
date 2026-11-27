@@ -46,6 +46,16 @@ export default function Albums() {
             Call the studio
           </a>
         </Reveal>
+
+        <Reveal className="mt-16 border-t border-brand/15 pt-10 text-center">
+          <p className="eyebrow mb-4">Planning your special day?</p>
+          <a
+            href="/pricing"
+            className="inline-flex min-h-12 items-center justify-center rounded-full bg-brand px-8 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white shadow-[0_8px_24px_rgba(45,16,59,.2)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-dark hover:shadow-[0_12px_30px_rgba(45,16,59,.3)] active:translate-y-0 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand motion-reduce:transition-none"
+          >
+            Check Price
+          </a>
+        </Reveal>
       </div>
     </section>
   )
