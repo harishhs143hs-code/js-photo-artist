@@ -18,6 +18,7 @@ import NotFound from './components/NotFound'
 
 export default function App() {
   useEffect(() => {
+    document.querySelector('main')?.setAttribute('id', 'main-content')
     // Keep canonical URLs on the custom domain, never the Vercel deployment hostname.
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
     if (canonical) canonical.href = `https://www.jsphotoartist.in${window.location.pathname}`
