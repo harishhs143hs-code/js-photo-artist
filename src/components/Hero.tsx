@@ -48,7 +48,7 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex h-full max-w-[96rem] flex-col items-center justify-center px-5 text-center sm:px-8 lg:px-12">
         <p className="eyebrow mb-5 !text-white/80">Wedding & Event Photography in Thiruninravur</p>
         <h1 className="max-w-[14ch] font-display text-display-xl font-medium sm:max-w-[16ch]">
-          Stories from <em className="font-normal">JS Photo Artist.</em>
+          Wedding photography in <em className="font-normal">Thiruninravur.</em>
         </h1>
         <p className="mt-5 max-w-md text-base leading-relaxed text-white/85 sm:text-lg">
           Wedding, baby and event photography in Thiruninravur—beautiful moments, thoughtfully captured.
