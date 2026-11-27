@@ -14,6 +14,7 @@ import Footer from './components/Footer'
 import WhatsAppFab from './components/WhatsAppFab'
 import MouseGlow from './components/MouseGlow'
 import ServicePage from './components/ServicePage'
+import PricingPage from './components/PricingPage'
 
 export default function App() {
   useEffect(() => {
@@ -31,6 +32,15 @@ export default function App() {
     }, 1100)
     return () => window.clearTimeout(timer)
   }, [])
+
+  const isPricingPage = window.location.pathname.replace(/\\/$/, '') === '/pricing'
+  if (isPricingPage) return <>
+    <Header />
+    <PricingPage />
+    <Footer />
+    <WhatsAppFab />
+    <MouseGlow />
+  </>
 
   const isServicePage = window.location.pathname.startsWith('/services/')
   if (isServicePage) return <>
