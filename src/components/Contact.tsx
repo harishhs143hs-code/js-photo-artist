@@ -53,7 +53,7 @@ export default function Contact() {
               <li className="flex gap-4"><Phone className="shrink-0 text-brand" size={20} /><a href={site.phoneHref} className="hover:text-brand">{site.phone}</a></li>
               <li className="flex gap-4"><Mail className="shrink-0 text-brand" size={20} /><a href={`mailto:${site.email}`} className="break-all hover:text-brand">{site.email}</a></li>
               <li className="flex gap-4"><Clock className="mt-0.5 shrink-0 text-brand" size={20} /><span>{site.hours}</span></li>
-              <li className="flex gap-4"><Star className="shrink-0 fill-amber-400 text-amber-500" size={20} /><span><strong>{site.googleRating}/5</strong> · {site.googleReviewCount} Google reviews<br /><a href={site.googleBusinessUrl} target="_blank" rel="noopener noreferrer" className="text-brand underline underline-offset-4 hover:text-plum">View Google Business Profile</a></span></li>
+              <li className="flex gap-4"><Star className="shrink-0 fill-amber-400 text-amber-500" size={20} /><span><strong>Google Reviews</strong><br /><a href={site.googleBusinessUrl} target="_blank" rel="noopener noreferrer" className="text-brand underline underline-offset-4 hover:text-plum">View latest rating and reviews</a></span></li>
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={waLink(site.defaultWa)} target="_blank" rel="noopener noreferrer" className="btn-solid"><MessageCircle size={16} /> WhatsApp</a>
