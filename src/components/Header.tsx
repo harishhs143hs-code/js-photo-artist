@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
-import { Menu, X } from 'lucide-react'
-import { site } from '../data/site'
+import { useEffect, useState, type FormEvent } from 'react'
+import { Menu, X, MessageCircle, Sparkles, ArrowUpRight } from 'lucide-react'
+import { site, services, waLink } from '../data/site'
 import { useLockScroll } from '../lib/useLockScroll'
 
 const links = [
@@ -11,7 +11,9 @@ const links = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  useLockScroll(open)
+  const [enquiryOpen, setEnquiryOpen] = useState(false)
+  const [form, setForm] = useState({ name: '', phone: '', service: '', date: '', location: '', message: '' })
+  useLockScroll(open || enquiryOpen)
 
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 48)
@@ -21,13 +23,13 @@ export default function Header() {
   }, [])
 
   useEffect(() => {
-    if (!open) return
+    if (!open && !enquiryOpen) return
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setOpen(false)
+      if (event.key === 'Escape') { setOpen(false); setEnquiryOpen(false) }
     }
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [open])
+  }, [open, enquiryOpen])
 
   return (
     <>
@@ -42,7 +44,7 @@ export default function Header() {
             </ul>
           </nav>
           <div className="flex items-center gap-3">
-            <a href="/#contact" className="hidden min-h-11 rounded-full bg-brand px-5 py-2.5 text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-white shadow-[0_8px_20px_rgba(112,19,154,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-plum active:scale-[0.98] sm:inline-flex sm:items-center">Enquire</a>
+            <button type="button" onClick={() => setEnquiryOpen(true)} className="hidden min-h-11 rounded-full bg-brand px-5 py-2.5 text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-white shadow-[0_8px_20px_rgba(112,19,154,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-plum hover:shadow-[0_12px_28px_rgba(112,19,154,0.28)] active:scale-[0.98] sm:inline-flex sm:items-center">Enquire</button>
             <button
               type="button"
               onClick={() => setOpen(value => !value)}
@@ -56,6 +58,33 @@ export default function Header() {
           </div>
         </div>
       </header>
+
+
+      {enquiryOpen && (
+        <div className="fixed inset-0 z-[100] flex items-end justify-center bg-[#1b0822]/65 p-0 backdrop-blur-md animate-[fade-in_.25s_ease-out] sm:items-center sm:p-5" onClick={() => setEnquiryOpen(false)}>
+          <section role="dialog" aria-modal="true" aria-labelledby="enquiry-title" className="relative max-h-[92dvh] w-full max-w-2xl overflow-y-auto rounded-t-[2rem] border border-white/70 bg-white shadow-[0_30px_100px_rgba(28,4,40,.35)] animate-[modal-pop_.35s_cubic-bezier(.2,.8,.2,1)] sm:rounded-[2rem]" onClick={e => e.stopPropagation()}>
+            <div className="relative overflow-hidden bg-gradient-to-br from-[#25082f] via-[#39064f] to-[#6b267d] px-6 py-7 text-white sm:px-9 sm:py-8">
+              <div aria-hidden="true" className="pointer-events-none absolute -right-12 -top-20 size-56 rounded-full bg-fuchsia-300/15 blur-3xl" />
+              <button type="button" aria-label="Close enquiry form" onClick={() => setEnquiryOpen(false)} className="absolute right-4 top-4 grid size-10 place-items-center rounded-full border border-white/20 bg-white/10 text-white transition hover:rotate-90 hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"><X size={20}/></button>
+              <p className="relative mb-3 inline-flex items-center gap-2 text-[.68rem] font-semibold uppercase tracking-[.2em] text-white/70"><Sparkles size={14}/> Let’s make it memorable</p>
+              <h2 id="enquiry-title" className="relative max-w-lg font-display text-3xl font-medium leading-tight sm:text-4xl">Tell us about your <em className="font-normal text-[#f2cfe9]">special day.</em></h2>
+              <p className="relative mt-3 max-w-lg text-sm leading-6 text-white/70">Share a few details and we’ll help you find the right photography package.</p>
+            </div>
+            <form className="grid gap-4 px-6 py-6 sm:grid-cols-2 sm:gap-5 sm:px-9 sm:py-8" onSubmit={(e: FormEvent<HTMLFormElement>) => { e.preventDefault(); const msg = `Hello JS Photo Artist, I would like to enquire.\\nName: ${form.name}\\nPhone: ${form.phone}${form.service ? `\\nService: ${form.service}` : ''}${form.date ? `\\nEvent date: ${form.date}` : ''}${form.location ? `\\nLocation: ${form.location}` : ''}${form.message ? `\\nMessage: ${form.message}` : ''}`; window.open(waLink(msg), '_blank', 'noopener,noreferrer'); }}>
+              <label className="block text-sm font-medium text-ink">Your name *<input required minLength={2} autoComplete="name" value={form.name} onChange={e=>setForm(p=>({...p,name:e.target.value}))} placeholder="Name" className="mt-2 w-full rounded-xl border border-lavender bg-[#fcf9fd] px-4 py-3.5 text-sm outline-none transition focus:border-brand focus:bg-white focus:ring-4 focus:ring-brand/10"/></label>
+              <label className="block text-sm font-medium text-ink">Phone number *<input required type="tel" minLength={10} autoComplete="tel" value={form.phone} onChange={e=>setForm(p=>({...p,phone:e.target.value}))} placeholder="Your contact number" className="mt-2 w-full rounded-xl border border-lavender bg-[#fcf9fd] px-4 py-3.5 text-sm outline-none transition focus:border-brand focus:bg-white focus:ring-4 focus:ring-brand/10"/></label>
+              <label className="block text-sm font-medium text-ink">Event / service<select value={form.service} onChange={e=>setForm(p=>({...p,service:e.target.value}))} className="mt-2 w-full rounded-xl border border-lavender bg-[#fcf9fd] px-4 py-3.5 text-sm outline-none transition focus:border-brand focus:bg-white focus:ring-4 focus:ring-brand/10"><option value="">Choose a service</option>{services.map(s=><option key={s.id} value={s.title}>{s.title}</option>)}<option value="Other">Other</option></select></label>
+              <label className="block text-sm font-medium text-ink">Event date<input type="date" value={form.date} onChange={e=>setForm(p=>({...p,date:e.target.value}))} className="mt-2 w-full rounded-xl border border-lavender bg-[#fcf9fd] px-4 py-3.5 text-sm outline-none transition focus:border-brand focus:bg-white focus:ring-4 focus:ring-brand/10"/></label>
+              <label className="block text-sm font-medium text-ink sm:col-span-2">Event location<input value={form.location} onChange={e=>setForm(p=>({...p,location:e.target.value}))} placeholder="City / venue" className="mt-2 w-full rounded-xl border border-lavender bg-[#fcf9fd] px-4 py-3.5 text-sm outline-none transition focus:border-brand focus:bg-white focus:ring-4 focus:ring-brand/10"/></label>
+              <label className="block text-sm font-medium text-ink sm:col-span-2">Anything else? <textarea rows={3} value={form.message} onChange={e=>setForm(p=>({...p,message:e.target.value}))} placeholder="Tell us about your occasion, package or special requests…" className="mt-2 w-full resize-y rounded-xl border border-lavender bg-[#fcf9fd] px-4 py-3.5 text-sm outline-none transition focus:border-brand focus:bg-white focus:ring-4 focus:ring-brand/10"/></label>
+              <div className="sm:col-span-2">
+                <button type="submit" className="group inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-xl bg-brand px-6 py-4 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(112,19,154,.2)] transition duration-300 hover:-translate-y-0.5 hover:bg-plum hover:shadow-[0_15px_32px_rgba(112,19,154,.3)] active:translate-y-0"><MessageCircle size={18}/> Continue to WhatsApp <ArrowUpRight size={17} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"/></button>
+                <p className="mt-3 text-center text-xs leading-5 text-ink/50">Your details are prepared in WhatsApp. Review and send the message to complete your enquiry.</p>
+              </div>
+            </form>
+          </section>
+        </div>
+      )}
 
       {open && (
         <div
