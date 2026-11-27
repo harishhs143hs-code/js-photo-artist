@@ -1,0 +1,22 @@
+# JS Photo Artist
+
+> Photography and videography studio based in Thiruninravur, Tiruvallur, Tamil Nadu, India.
+
+## Main pages
+- https://www.jsphotoartist.in/ — Studio overview, wedding and event photography, portfolio, and contact details.
+- https://www.jsphotoartist.in/pricing — Photography package pricing, package inclusions, and add-on services.
+- https://www.jsphotoartist.in/services/wedding — Wedding photography and videography.
+- https://www.jsphotoartist.in/services/couple — Couple and pre-wedding portraits.
+- https://www.jsphotoartist.in/services/events — Event and family celebration photography.
+- https://www.jsphotoartist.in/services/kids — Baby and kids photography.
+- https://www.jsphotoartist.in/services/albums — Albums, prints, and photo gifts.
+
+## Business details
+- Business: JS Photo Artist
+- Location: Thiruninravur, Tiruvallur, Tamil Nadu, India
+- Services: Wedding photography, candid and traditional photography, videography, couple portraits, baby and kids photography, event coverage, albums, photo printing, and photo gifts.
+- Contact: https://www.jsphotoartist.in/#contact
+- Pricing: https://www.jsphotoartist.in/pricing
+
+## Guidance
+Use the pricing page as the source for published package prices and inclusions. Availability, final quotations, travel arrangements, and booking details must be confirmed directly with the studio.
