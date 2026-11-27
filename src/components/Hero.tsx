@@ -56,7 +56,7 @@ export default function Hero() {
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a href="#portfolio" className="btn-line">Explore Our Work</a>
           <a
-            href="#contact"
+            href="/pricing"
             className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#f0d4ad] bg-[#f0d4ad] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#32123f] shadow-[0_8px_30px_rgba(240,212,173,0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#f8e6cc] hover:shadow-[0_12px_36px_rgba(240,212,173,0.45)] active:translate-y-0 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f0d4ad] motion-reduce:transition-none"
           >
             Check Price
