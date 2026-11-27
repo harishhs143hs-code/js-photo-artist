@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { ArrowDown, ArrowUpRight, Sparkles, Camera, Heart, Baby, Layers, Plus } from 'lucide-react'
 import Packages from './Packages'
 
