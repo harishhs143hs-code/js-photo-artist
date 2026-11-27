@@ -112,8 +112,8 @@ export default function Header() {
           </nav>
 
           <div className="mx-auto w-full max-w-md">
-            <a href="#contact" onClick={() => setOpen(false)} className="btn-light flex min-h-14 w-full items-center justify-center">
-              Enquire now
+            <a href="/pricing" onClick={() => setOpen(false)} className="inline-flex min-h-14 w-full items-center justify-center rounded-full border border-[#f0d4ad] bg-[#f0d4ad] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] !text-[#32123f] shadow-[0_8px_24px_rgba(240,212,173,.24)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#f8e6cc] hover:shadow-[0_12px_30px_rgba(240,212,173,.36)] active:translate-y-0 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f0d4ad]">
+              Check Price
             </a>
             <p className="mt-4 text-center text-[0.65rem] uppercase tracking-[0.2em] text-white/45">Photo · Video · Album · Printing</p>
           </div>
