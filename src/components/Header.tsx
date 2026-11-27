@@ -4,8 +4,8 @@ import { site } from '../data/site'
 import { useLockScroll } from '../lib/useLockScroll'
 
 const links = [
-  ['Home', '#home'], ['About', '#about'], ['Services', '#services'], ['Gallery', '#portfolio'],
-  ['Pricing', '#packages'], ['Contact', '#contact'],
+  ['Home', '/'], ['About', '/#about'], ['Services', '/#services'], ['Gallery', '/#portfolio'],
+  ['Pricing', '/pricing'], ['Contact', '/#contact'],
 ]
 
 export default function Header() {
@@ -33,7 +33,7 @@ export default function Header() {
     <>
       <header className={`fixed inset-x-0 top-0 z-40 border-b border-lavender/80 !bg-white/95 text-ink shadow-[0_4px_24px_rgba(57,6,79,0.06)] backdrop-blur-xl transition-all duration-300 ${scrolled ? 'shadow-[0_6px_28px_rgba(57,6,79,0.10)]' : ''}`}>
         <div className="mx-auto flex h-[4.25rem] max-w-[96rem] items-center justify-between gap-6 px-5 sm:px-8 lg:px-12">
-          <a href="#home" aria-label={`${site.name} – home`} className="relative z-50 flex items-center bg-paper px-3 py-1.5 max-md:absolute max-md:left-1/2 max-md:-translate-x-1/2 max-md:!bg-transparent">
+          <a href="/" aria-label={`${site.name} – home`} className="relative z-50 flex items-center bg-paper px-3 py-1.5 max-md:absolute max-md:left-1/2 max-md:-translate-x-1/2 max-md:!bg-transparent">
             <img src={site.logo} alt={site.name} className="h-12 w-auto object-contain sm:h-14 max-md:h-14 ![filter:none]" width={1536} height={1024} />
           </a>
           <nav aria-label="Primary" className="hidden lg:block">
@@ -42,7 +42,7 @@ export default function Header() {
             </ul>
           </nav>
           <div className="flex items-center gap-3">
-            <a href="#contact" className="hidden min-h-11 rounded-full bg-brand px-5 py-2.5 text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-white shadow-[0_8px_20px_rgba(112,19,154,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-plum active:scale-[0.98] sm:inline-flex sm:items-center">Enquire</a>
+            <a href="/#contact" className="hidden min-h-11 rounded-full bg-brand px-5 py-2.5 text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-white shadow-[0_8px_20px_rgba(112,19,154,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-plum active:scale-[0.98] sm:inline-flex sm:items-center">Enquire</a>
             <button
               type="button"
               onClick={() => setOpen(value => !value)}
