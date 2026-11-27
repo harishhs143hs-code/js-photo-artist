@@ -117,9 +117,13 @@ export default function Packages() {
         <div className="space-y-12 sm:space-y-16">
           {groups.map((group, groupIndex) => (
             <Reveal key={group.title} delay={groupIndex * 30}>
-              <div className="mb-5 max-w-3xl">
-                <h3 className="font-display text-2xl font-semibold text-ink sm:text-3xl">{group.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-ink/60">{group.subtitle}</p>
+              <div className={group.title === 'General Photography' ? "group/featured relative mb-6 max-w-4xl overflow-hidden rounded-3xl border border-brand/20 bg-gradient-to-br from-white via-[#fff9fd] to-[#f3e9f7] p-5 shadow-[0_12px_40px_rgba(57,6,79,0.08)] transition-all duration-500 hover:-translate-y-1 hover:border-brand/40 hover:shadow-[0_20px_55px_rgba(57,6,79,0.14)] sm:mb-8 sm:p-8" : "mb-5 max-w-3xl"}>
+                {group.title === 'General Photography' && <div aria-hidden="true" className="pointer-events-none absolute -right-12 -top-16 size-48 rounded-full bg-brand/10 blur-3xl transition-transform duration-700 group-hover/featured:scale-125 sm:size-64" />}
+                <div className={group.title === 'General Photography' ? "relative" : ""}>
+                  {group.title === 'General Photography' && <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-brand/15 bg-white/80 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-brand shadow-sm sm:text-xs"><Sparkles size={13} aria-hidden="true" /> Celebrations, beautifully captured</p>}
+                  <h3 className={group.title === 'General Photography' ? "font-display text-3xl font-semibold leading-tight text-ink transition-colors duration-300 group-hover/featured:text-brand sm:text-4xl lg:text-5xl" : "font-display text-2xl font-semibold text-ink sm:text-3xl"}>{group.title}</h3>
+                  <p className={group.title === 'General Photography' ? "mt-3 max-w-3xl text-sm leading-7 text-ink/75 sm:mt-4 sm:text-base sm:leading-8" : "mt-2 text-sm leading-6 text-ink/60"}>{group.subtitle}</p>
+                </div>
               </div>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {group.packages.map((item, index) => (
