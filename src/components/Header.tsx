@@ -92,20 +92,9 @@ export default function Header() {
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
-          className="fixed inset-0 z-[70] flex h-[100svh] min-h-screen flex-col overflow-y-auto overscroll-contain bg-gradient-to-br from-[#25082f] via-[#39064f] to-[#5b1b70] px-7 pb-8 pt-5 text-white sm:px-10 lg:hidden"
+          className="fixed inset-x-0 top-[4.25rem] z-[70] flex h-[calc(100svh-4.25rem)] flex-col overflow-y-auto overscroll-contain bg-gradient-to-br from-[#25082f] via-[#39064f] to-[#5b1b70] px-7 pb-8 pt-5 text-white sm:px-10 lg:hidden"
         >
-          <div className="flex min-h-16 items-center justify-end border-b border-white/15 pb-4">
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              aria-label="Close navigation menu"
-              className="grid h-11 w-11 place-items-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10 active:scale-95"
-            >
-              <X size={25} />
-            </button>
-          </div>
-
-          <nav aria-label="Mobile" className="mx-auto flex w-full max-w-md flex-1 flex-col justify-center py-8">
+          <nav aria-label="Mobile" className="mx-auto flex w-full max-w-md flex-1 flex-col justify-start py-6">
             <p className="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-white/55">Explore</p>
             <ul className="divide-y divide-white/15 border-y border-white/15">
               {links.map(([label, href]) => (
