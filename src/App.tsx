@@ -51,7 +51,6 @@ export default function App() {
     <ServicePage />
     <Footer />
     <WhatsAppFab />
-    <StudioChat />
     <MouseGlow />
   </>
   if (!isHomePage) return <>
@@ -59,7 +58,6 @@ export default function App() {
     <NotFound />
     <Footer />
     <WhatsAppFab />
-    <StudioChat />
     <MouseGlow />
   </>
 
@@ -78,7 +76,6 @@ export default function App() {
     </main>
     <Footer />
     <WhatsAppFab />
-    <StudioChat />
     <MouseGlow />
   </>
 }
