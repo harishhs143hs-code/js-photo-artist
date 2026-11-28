@@ -12,7 +12,6 @@ import Shop from './components/Shop'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import WhatsAppFab from './components/WhatsAppFab'
-import StudioChat from './components/StudioChat'
 import MouseGlow from './components/MouseGlow'
 import ServicePage from './components/ServicePage'
 import PricingPage from './components/PricingPage'
@@ -42,7 +41,6 @@ export default function App() {
     <PricingPage />
     <Footer />
     <WhatsAppFab />
-    <StudioChat />
     <MouseGlow />
   </>
 
