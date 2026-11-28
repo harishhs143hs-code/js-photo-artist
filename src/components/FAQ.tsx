@@ -74,7 +74,7 @@ const faqs: FaqItem[] = [
     category: 'Delivery',
     question: 'Can we customize packages with drone, candid coverage, or extra sheets?',
     answer:
-      'Yes—any package can be tailored with add-ons such as Candid Photography/Video, Drone coverage, 360° Spinner Video, QR Code Instant Photo Sharing, LED Walls, extra album sheets, or custom gift frames. Message us on WhatsApp or use the Studio AI Concierge for a quick estimate.',
+      'Yes—any package can be tailored with add-ons such as Candid Photography/Video, Drone coverage, 360° Spinner Video, QR Code Instant Photo Sharing, LED Walls, extra album sheets, or custom gift frames. Message us on WhatsApp for a quick estimate.',
   },
 ]
 
