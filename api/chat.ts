@@ -1,4 +1,3 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { GoogleGenAI, ThinkingLevel } from '@google/genai'
 
 const MODEL_NAME = 'gemini-4-hydrogen'
@@ -7,7 +6,7 @@ const SYSTEM_INSTRUCTION = `You are the JS Photo Artist Studio Concierge for a p
 
 type ChatMessage = { role: 'user' | 'model'; text: string }
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req: any, res: any) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST')
     return res.status(405).json({ error: 'Method not allowed. Use POST.' })
